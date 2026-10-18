@@ -1,0 +1,15 @@
+{
+  "_note": "STUB brand registry shared by the visual and URL branches. Brand slugs are the canonical IDs used in claims.brand. Owner to be agreed (A + B). Domains are registered domains (eTLD+1).",
+  "paypal":     {"name": "PayPal",     "domains": ["paypal.com", "paypal.me"]},
+  "microsoft":  {"name": "Microsoft",  "domains": ["microsoft.com", "microsoftonline.com", "live.com", "office.com", "outlook.com"]},
+  "google":     {"name": "Google",     "domains": ["google.com", "google.ca", "gmail.com"]},
+  "apple":      {"name": "Apple",      "domains": ["apple.com", "icloud.com"]},
+  "amazon":     {"name": "Amazon",     "domains": ["amazon.com", "amazon.ca"]},
+  "netflix":    {"name": "Netflix",    "domains": ["netflix.com"]},
+  "facebook":   {"name": "Facebook",   "domains": ["facebook.com", "fb.com"]},
+  "rbc":        {"name": "RBC",        "domains": ["rbc.com", "rbcroyalbank.com"]},
+  "td":         {"name": "TD",         "domains": ["td.com", "tdcanadatrust.com"]},
+  "scotiabank": {"name": "Scotiabank", "domains": ["scotiabank.com"]},
+  "cibc":       {"name": "CIBC",       "domains": ["cibc.com"]},
+  "bmo":        {"name": "BMO",        "domains": ["bmo.com"]}
+}

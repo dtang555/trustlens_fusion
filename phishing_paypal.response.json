@@ -1,0 +1,79 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "phishing_paypal",
+  "branch_summary": [
+    {
+      "branch": "dom",
+      "status": "ok",
+      "p_phish": 0.88,
+      "used": true
+    },
+    {
+      "branch": "text",
+      "status": "ok",
+      "p_phish": 0.7,
+      "used": true
+    },
+    {
+      "branch": "url",
+      "status": "ok",
+      "p_phish": 0.8022,
+      "used": true
+    },
+    {
+      "branch": "visual",
+      "status": "ok",
+      "p_phish": 0.91,
+      "used": true
+    }
+  ],
+  "decision": "warn",
+  "p_fused": 0.9995,
+  "uncertainty": {
+    "reasons": [],
+    "coverage": 0.812,
+    "disagreement": 0.0
+  },
+  "explanations": [
+    {
+      "evidence_id": "x_bdm",
+      "type": "brand_domain_mismatch",
+      "locator": {
+        "kind": "none"
+      },
+      "text": "Page appears to be paypal but is hosted on paypa1-login.xyz, which is not a paypal domain.",
+      "contribution": 2.0
+    },
+    {
+      "evidence_id": "visual_impersonation",
+      "type": "visual_impersonation",
+      "locator": {
+        "kind": "bbox",
+        "value": [
+          120,
+          40,
+          200,
+          60
+        ]
+      },
+      "text": "Page visually resembles paypal (similarity 0.93).",
+      "contribution": 1.967
+    },
+    {
+      "evidence_id": "credential_solicitation",
+      "type": "credential_solicitation",
+      "locator": {
+        "kind": "dom_path",
+        "value": "form#login input[type=password]"
+      },
+      "text": "Page asks you to enter sign-in credentials.",
+      "contribution": 0.949
+    }
+  ],
+  "diagnostics": {
+    "method": "baseline_logodds",
+    "rule_floor": true,
+    "z": 7.577,
+    "consensus_brand": "paypal"
+  }
+}

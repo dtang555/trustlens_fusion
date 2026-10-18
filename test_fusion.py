@@ -2,7 +2,7 @@
 import copy
 
 from demo import SCENARIOS, branch, ev, req
-from fusion import SCHEMA_VERSION, SchemaError, fuse, logit
+from fusion import MAX_DISAGREEMENT, SCHEMA_VERSION, SchemaError, fuse, logit
 
 S = dict(SCENARIOS)
 
@@ -96,8 +96,20 @@ def test_conflicting_branches_not_allowed_silently():
         branch("text", 0.5, 0.9),
     ])
     out = fuse(r)
-    assert out["decision"] != "allow" or out["uncertainty"]["disagreement"] <= 3.0
-    assert out["uncertainty"]["disagreement"] > 3.0
+    assert out["uncertainty"]["disagreement"] > MAX_DISAGREEMENT
+    assert out["decision"] != "warn" or out["p_fused"] >= 0.8  # warn only via the score, never silently allow
+
+
+def test_agreeing_branches_with_different_confidence_are_not_disagreement():
+    # Regression: found during URL-branch integration. -5.5 vs -1.1 both mean "safe".
+    _, r = req("agree", [
+        branch("visual", 0.15, 0.85, claims={"brand": "microsoft", "brand_conf": 0.95}),
+        branch("url", 0.004, 0.9, claims={"domain": "microsoftonline.com", "domain_owner_brand": "microsoft"}),
+        branch("dom", 0.25, 0.9, claims={"brand": "microsoft", "brand_conf": 0.8}),
+        branch("text", 0.2, 0.6),
+    ])
+    out = fuse(r)
+    assert out["uncertainty"]["disagreement"] == 0.0 and out["decision"] == "allow"
 
 
 def test_logit_is_finite_at_extremes():

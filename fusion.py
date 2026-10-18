@@ -35,7 +35,7 @@ FLOOR_P = 0.90          # rule floor when brand_domain_mismatch AND cred_request
 TEMPERATURE = 1.0       # fit after the weights (calibration step)
 T_LOW, T_HIGH = 0.20, 0.80
 MIN_COVERAGE = 0.50     # sum(reliability of usable branches) / 4
-MAX_DISAGREEMENT = 3.0  # max logit spread among reliable branches
+MAX_DISAGREEMENT = 1.0  # strength of the weaker side when reliable branches give opposite verdicts
 RELIABLE_R = 0.5        # branches below this are ignored for disagreement
 BRAND_CONF_MIN = 0.60   # visual brand confidence needed to call a brand "matched"
 TOP_K = 3
@@ -224,7 +224,10 @@ def uncertainty_signals(branches: dict[str, Branch]) -> tuple[float, float]:
     usable = [b for b in branches.values() if b.usable]
     coverage = sum(b.reliability for b in usable) / len(BRANCHES)
     logits = [logit(b.p_phish) for b in usable if b.reliability >= RELIABLE_R]
-    disagreement = (max(logits) - min(logits)) if len(logits) >= 2 else 0.0
+    # Conflict = opposite verdicts, so it is the confidence of the WEAKER side:
+    # +3.5 vs -3.9 -> 3.5 ; -5.5 vs -1.1 (both say safe) -> 0. Differences in
+    # confidence between agreeing branches are not disagreement.
+    disagreement = min(max(logits), -min(logits)) if len(logits) >= 2 and max(logits) > 0 > min(logits) else 0.0
     return coverage, disagreement
 
 
