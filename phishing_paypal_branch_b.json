@@ -1,0 +1,24 @@
+{
+  "_note": "RECONSTRUCTED from the MCR II fixture table (evidence IDs and weights as reported by Student B). Replace with the real JSON printed by url_html_text_branch.py for the same fixture; field names (weight, details) are assumed.",
+  "url": "http://paypal-securelogin.evil-site.xyz/login",
+  "result": {
+    "risk_score": 0.992,
+    "confidence": 0.8,
+    "missing": ["limited_visible_text", "ocr_text"],
+    "label_hint": "suspicious",
+    "evidence": [
+      {"id": "url.brand_in_domain",      "modality": "url",  "weight": 0.60, "details": {"brand": "paypal", "domain": "evil-site.xyz"}},
+      {"id": "html.cross_domain_form",   "modality": "html", "weight": 0.50, "details": {"action_domain": "other-site.xyz"}},
+      {"id": "text.brand_claim_mismatch","modality": "text", "weight": 0.50, "details": {"brand": "paypal"}},
+      {"id": "html.mismatched_link",     "modality": "html", "weight": 0.45, "details": {"displayed_domain": "paypal.com", "actual_domain": "evil-site.xyz"}},
+      {"id": "html.insecure_form",       "modality": "html", "weight": 0.40, "details": {}},
+      {"id": "text.urgency",             "modality": "text", "weight": 0.40, "details": {"phrases": ["urgent", "within 24 hours", "suspended", "verify now", "will be closed"]}},
+      {"id": "url.suspicious_tld",       "modality": "url",  "weight": 0.20, "details": {"tld": "xyz"}},
+      {"id": "url.hyphens",              "modality": "url",  "weight": 0.15, "details": {}},
+      {"id": "text.credential_request",  "modality": "text", "weight": 0.14, "details": {"terms": ["password", "confirm your identity", "card number"]}},
+      {"id": "url.no_https",             "modality": "url",  "weight": 0.10, "details": {}},
+      {"id": "html.password_form",       "modality": "html", "weight": 0.10, "details": {}},
+      {"id": "url.sensitive_words",      "modality": "url",  "weight": 0.05, "details": {}}
+    ]
+  }
+}

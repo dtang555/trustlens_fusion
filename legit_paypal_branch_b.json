@@ -1,0 +1,15 @@
+{
+  "_note": "RECONSTRUCTED from the MCR II fixture table (legitimate paypal.com/signin column). Replace with real Branch B output.",
+  "url": "https://www.paypal.com/signin",
+  "result": {
+    "risk_score": 0.239,
+    "confidence": 1.0,
+    "missing": ["ocr_text"],
+    "label_hint": "safe",
+    "evidence": [
+      {"id": "text.credential_request", "modality": "text", "weight": 0.11, "details": {"terms": ["password", "log in"]}},
+      {"id": "html.password_form",      "modality": "html", "weight": 0.10, "details": {}},
+      {"id": "url.sensitive_words",     "modality": "url",  "weight": 0.05, "details": {}}
+    ]
+  }
+}

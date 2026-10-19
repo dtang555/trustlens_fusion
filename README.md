@@ -8,6 +8,8 @@ Stdlib-only Python 3.10+.
     python url_branch.py "<url>"          # rule-based URL branch on one URL
     python test_fusion.py                 # 15 fusion tests
     python test_integration.py            # 15 URL-branch / bundle / contract / fault-injection tests
+    python worked_case_branch_b.py        # worked case: Branch B fixtures -> adapter -> fusion
+    python test_branch_b_adapter.py       # 6 adapter / worked-case tests
 
 ## Files
 - `fusion.py`        validation, cross-modal features, log-odds baseline, decision, explanations
@@ -15,6 +17,9 @@ Stdlib-only Python 3.10+.
 - `brand_registry.json`  STUB shared registry: brand slug -> legitimate registered domains
 - `run_bundle.py`    reads `<page>.<visual|url|dom|text>.json` (or `<page>.url.txt`), calls fusion, writes request/response JSON
 - `make_sample_bundle.py`, `demo.py`  sample / synthetic inputs
+- `branch_b_adapter.py`  converts Student B's single result into url/dom/text BranchOutputs (mapping decisions in its docstring)
+- `branch_b_fixtures/`  Branch B fixtures RECONSTRUCTED from the MCR II table; replace with real Branch B JSON
+- `worked_case_branch_b.py`  runs those fixtures through the adapter and fusion
 - `bundle/`          sample bundle; `bundle/out/` holds the example request/response JSON to share with A, B, D
 
 ## How teammates plug in
