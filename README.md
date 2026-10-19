@@ -2,11 +2,11 @@
 
 Stdlib-only Python 3.10+.
 
-    python demo.py [--json]            # 4 synthetic scenarios (all branches hand-written)
+    python demo.py [--json]            # 5 synthetic scenarios (all branches hand-written)
     python make_sample_bundle.py bundle   # writes a sample bundle (URL branch = real, others synthetic)
     python run_bundle.py bundle           # file-based integration: bundle -> fusion -> bundle/out/*.json
     python url_branch.py "<url>"          # rule-based URL branch on one URL
-    python test_fusion.py                 # 14 fusion tests
+    python test_fusion.py                 # 15 fusion tests
     python test_integration.py            # 15 URL-branch / bundle / contract / fault-injection tests
 
 ## Files

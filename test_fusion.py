@@ -35,6 +35,12 @@ def test_unseen_brand_is_uncertain():
     assert out["decision"] == "uncertain" and "unseen_brand" in out["uncertainty"]["reasons"]
 
 
+def test_contradictory_demo_scenario_is_uncertain_with_disagreement():
+    out = fuse(S["contradictory_rbc"])
+    assert out["decision"] == "uncertain" and out["uncertainty"]["reasons"] == ["branch_disagreement"]
+    assert out["uncertainty"]["disagreement"] > MAX_DISAGREEMENT
+
+
 def test_no_usable_branches_is_uncertain():
     _, r = req("none", [branch("visual", status="missing"), branch("url", status="error")])
     out = fuse(r)

@@ -23,6 +23,8 @@ URLS = {
 def build(folder: str) -> str:
     os.makedirs(folder, exist_ok=True)
     for name, request in SCENARIOS:
+        if name not in URLS:  # scenarios without a real URL (e.g. the contradiction demo) are not bundled
+            continue
         for b in request["branches"]:
             if b["branch"] == "url":
                 with open(os.path.join(folder, f"{name}.url.txt"), "w", encoding="utf-8") as f:

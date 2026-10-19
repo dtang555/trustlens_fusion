@@ -55,6 +55,14 @@ SCENARIOS = [
         branch("dom", 0.30, 0.90, evidence=[ev("credential_solicitation", 0.9)]),
         branch("text", 0.30, 0.60),
     ]),
+    # 5. Contradictory evidence: visual says "looks fine" (claims RBC) while the URL branch is
+    #    strongly suspicious -> reliable branches give opposite verdicts -> uncertain
+    req("contradictory_rbc", [
+        branch("visual", 0.05, 0.90, claims={"brand": "rbc", "brand_conf": 0.90}),
+        branch("url", 0.90, 0.90, claims={"domain": "rbc-secure.top", "domain_owner_brand": None}),
+        branch("dom", 0.50, 0.90),
+        branch("text", 0.50, 0.90),
+    ]),
 ]
 
 if __name__ == "__main__":
