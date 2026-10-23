@@ -1,0 +1,135 @@
+{
+  "_source": "url_html_text_branch.analyze(url, html) on test_branch.PHISH",
+  "url": "http://paypal-secure-login.evil-site.xyz/login",
+  "result": {
+    "branch": "url_html_text",
+    "risk_score": 0.992,
+    "confidence": 0.8,
+    "label_hint": "suspicious",
+    "missing": [
+      "limited_visible_text",
+      "ocr_text"
+    ],
+    "evidence": [
+      {
+        "id": "url.brand_in_domain",
+        "modality": "url",
+        "weight": 0.6,
+        "description": "Brand 'paypal' appears in a domain it does not own",
+        "detail": {
+          "brand": "paypal",
+          "domain": "evil-site.xyz"
+        }
+      },
+      {
+        "id": "html.cross_domain_form",
+        "modality": "html",
+        "weight": 0.5,
+        "description": "Credential form submits to a different domain",
+        "detail": {
+          "action_domain": "other-site.xyz"
+        }
+      },
+      {
+        "id": "text.brand_claim_mismatch",
+        "modality": "text",
+        "weight": 0.5,
+        "description": "Page claims to be 'paypal' but is hosted on 'evil-site.xyz'",
+        "detail": {
+          "brand": "paypal",
+          "domain": "evil-site.xyz"
+        }
+      },
+      {
+        "id": "html.mismatched_link",
+        "modality": "html",
+        "weight": 0.45,
+        "description": "Displayed link text differs from the real destination",
+        "detail": {
+          "count": 1
+        }
+      },
+      {
+        "id": "html.insecure_form",
+        "modality": "html",
+        "weight": 0.4,
+        "description": "Credential form submits over plain HTTP",
+        "detail": {}
+      },
+      {
+        "id": "text.urgency",
+        "modality": "text",
+        "weight": 0.4,
+        "description": "Urgent or threatening language",
+        "detail": {
+          "terms": [
+            "urgent",
+            "within 24 hours",
+            "suspended",
+            "verify now",
+            "will be closed"
+          ]
+        }
+      },
+      {
+        "id": "url.suspicious_tld",
+        "modality": "url",
+        "weight": 0.2,
+        "description": "Top-level domain frequently abused",
+        "detail": {
+          "tld": "xyz"
+        }
+      },
+      {
+        "id": "url.hyphens",
+        "modality": "url",
+        "weight": 0.15,
+        "description": "Many hyphens in hostname",
+        "detail": {
+          "host": "paypal-secure-login.evil-site.xyz"
+        }
+      },
+      {
+        "id": "text.credential_request",
+        "modality": "text",
+        "weight": 0.14,
+        "description": "Text solicits credentials or sensitive data",
+        "detail": {
+          "terms": [
+            "password",
+            "confirm your identity",
+            "card number"
+          ]
+        }
+      },
+      {
+        "id": "url.no_https",
+        "modality": "url",
+        "weight": 0.1,
+        "description": "Page is not served over HTTPS",
+        "detail": {}
+      },
+      {
+        "id": "html.password_form",
+        "modality": "html",
+        "weight": 0.1,
+        "description": "Page requests a password",
+        "detail": {}
+      },
+      {
+        "id": "text.limited_with_form",
+        "modality": "text",
+        "weight": 0.1,
+        "description": "Very little visible text but page contains inputs",
+        "detail": {}
+      },
+      {
+        "id": "url.sensitive_words",
+        "modality": "url",
+        "weight": 0.05,
+        "description": "Login/verification keywords in URL",
+        "detail": {}
+      }
+    ]
+  }
+}

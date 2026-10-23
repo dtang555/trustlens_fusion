@@ -13,7 +13,6 @@ Mapping decisions (document these in the report):
   * Modality score is clamped to [0.01, 0.99] so an empty modality cannot dominate the log-odds.
   * Domain ownership (needed for brand-domain mismatch) comes from the shared brand registry.
 
-Field names (`id`, `modality`, `weight`, `details`) are assumed - confirm with Student B.
 """
 from __future__ import annotations
 
@@ -29,12 +28,13 @@ EVIDENCE_MAP = {
     "html.cross_domain_form": ("form_action_mismatch",
                                lambda d, c: {"page_domain": c["domain"], "action_domain": d["action_domain"]}),
     "html.mismatched_link": ("misleading_link_destination",
-                             lambda d, c: {"displayed_domain": d["displayed_domain"],
-                                           "actual_domain": d["actual_domain"]}),
+                             lambda d, c: ({"displayed_domain": d["displayed_domain"], "actual_domain": d["actual_domain"]}
+                                           if "displayed_domain" in d and "actual_domain" in d
+                                           else {"count": int(d.get("count", 1))})),
     "html.password_form": ("credential_solicitation", lambda d, c: {"input_types": "password"}),
     "text.credential_request": ("credential_solicitation", lambda d, c: {"phrase_class": "credential request"}),
     "text.urgency": ("urgency_language",
-                     lambda d, c: {"phrase_class": ", ".join(d.get("phrases", [])[:2]) or "urgency"}),
+                     lambda d, c: {"phrase_class": ", ".join(d.get("terms", d.get("phrases", []))[:2]) or "urgency"}),
 }
 
 
@@ -63,7 +63,7 @@ def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
         p = min(max(_noisy_or(weights), 0.01), 0.99)
         features, evidence, claims = {}, [], {}
         for e in evs:
-            rid, d = e["id"], e.get("details", {})
+            rid, d = e["id"], e.get("detail", e.get("details", {}))
             if rid in EVIDENCE_MAP:
                 etype, build = EVIDENCE_MAP[rid]
                 evidence.append({"id": rid, "type": etype, "strength": float(e["weight"]), "verified": True,

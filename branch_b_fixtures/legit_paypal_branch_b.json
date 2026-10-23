@@ -1,0 +1,41 @@
+{
+  "_source": "url_html_text_branch.analyze(url, html) on test_branch.LEGIT",
+  "url": "https://www.paypal.com/signin",
+  "result": {
+    "branch": "url_html_text",
+    "risk_score": 0.239,
+    "confidence": 1.0,
+    "label_hint": "safe",
+    "missing": [
+      "ocr_text"
+    ],
+    "evidence": [
+      {
+        "id": "text.credential_request",
+        "modality": "text",
+        "weight": 0.11,
+        "description": "Text solicits credentials or sensitive data",
+        "detail": {
+          "terms": [
+            "password",
+            "log in"
+          ]
+        }
+      },
+      {
+        "id": "html.password_form",
+        "modality": "html",
+        "weight": 0.1,
+        "description": "Page requests a password",
+        "detail": {}
+      },
+      {
+        "id": "url.sensitive_words",
+        "modality": "url",
+        "weight": 0.05,
+        "description": "Login/verification keywords in URL",
+        "detail": {}
+      }
+    ]
+  }
+}

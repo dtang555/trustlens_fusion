@@ -41,29 +41,37 @@ BRAND_CONF_MIN = 0.60   # visual brand confidence needed to call a brand "matche
 TOP_K = 3
 
 # Evidence registry: type -> (required fields, explanation template)
-EVIDENCE: dict[str, tuple[tuple[str, ...], str]] = {
-    "visual_impersonation": (
+EVIDENCE: dict[str, list[tuple[tuple[str, ...], str]]] = {
+    "visual_impersonation": [(
         ("claimed_brand", "similarity"),
-        "Page visually resembles {claimed_brand} (similarity {similarity}).",
-    ),
-    "brand_domain_mismatch": (
+        "Page visually resembles {claimed_brand} (similarity {similarity}).")],
+    "brand_domain_mismatch": [(
         ("claimed_brand", "observed_domain"),
         "Page appears to be {claimed_brand} but is hosted on {observed_domain}, "
-        "which is not a {claimed_brand} domain.",
-    ),
-    "credential_solicitation": ((), "Page asks you to enter sign-in credentials."),
-    "misleading_link_destination": (
-        ("displayed_domain", "actual_domain"),
-        "A link shows {displayed_domain} but actually goes to {actual_domain}.",
-    ),
-    "form_action_mismatch": (
+        "which is not a {claimed_brand} domain.")],
+    "credential_solicitation": [((), "Page asks you to enter sign-in credentials.")],
+    # Two variants: the first that the evidence satisfies is used. Branch B currently reports only a count.
+    "misleading_link_destination": [
+        (("displayed_domain", "actual_domain"),
+         "A link shows {displayed_domain} but actually goes to {actual_domain}."),
+        (("count",), "{count} link(s) show one address but actually go to a different one.")],
+    "form_action_mismatch": [(
         ("page_domain", "action_domain"),
-        "The form on this page submits to {action_domain}, not {page_domain}.",
-    ),
-    "urgency_language": (("phrase_class",), "Page uses pressuring language ({phrase_class})."),
-    "punycode_domain": (("domain",), "The domain {domain} uses disguised (punycode) characters."),
-    "hidden_input": (("count",), "The page contains {count} hidden form fields."),
+        "The form on this page submits to {action_domain}, not {page_domain}.")],
+    "urgency_language": [(("phrase_class",), "Page uses pressuring language ({phrase_class}).")],
+    "punycode_domain": [(("domain",), "The domain {domain} uses disguised (punycode) characters.")],
+    "hidden_input": [(("count",), "The page contains {count} hidden form fields.")],
 }
+
+
+def _template(etype: str, fields: dict) -> str | None:
+    """First template whose required fields are all present, else None."""
+    for required, template in EVIDENCE[etype]:
+        if all(k in fields for k in required):
+            return template
+    return None
+
+
 LOCATOR_KINDS = ("bbox", "dom_path", "url_span", "none")
 MAX_STR = 80
 MAX_EVIDENCE = 50
@@ -165,7 +173,7 @@ def _parse_evidence(e: Any, branch: str, i: int) -> Evidence | None:
         if loc.get("kind") not in LOCATOR_KINDS:
             return None
         fields = dict(e.get("fields", {}))
-        if any(k not in fields for k in EVIDENCE[e["type"]][0]):
+        if _template(e["type"], fields) is None:
             return None
         return Evidence(str(e.get("id", f"{branch}{i}")), e["type"], float(e["strength"]),
                         branch, loc, fields, e["verified"])
@@ -260,7 +268,7 @@ def explain(branches: dict[str, Branch], cross: dict, branch_terms: dict, cross_
     items: list[tuple[float, dict]] = []
 
     def render(etype: str, fields: dict) -> str:
-        return EVIDENCE[etype][1].format(**{k: clean(v) for k, v in fields.items()})
+        return _template(etype, fields).format(**{k: clean(v) for k, v in fields.items()})
 
     for n, b in branches.items():
         if not b.usable:

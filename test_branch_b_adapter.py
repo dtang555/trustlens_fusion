@@ -31,7 +31,7 @@ def test_adapter_output_parses_with_no_dropped_evidence():
 def test_only_rule_ids_matching_shared_types_become_evidence():
     mapped = sum(len(b["evidence"]) for b in branch_b_adapter.convert(_fx(PHISH)["result"], _fx(PHISH)["url"]))
     unmapped = sum(len(b["features"]) for b in branch_b_adapter.convert(_fx(PHISH)["result"], _fx(PHISH)["url"]))
-    assert (mapped, unmapped) == (5, 7)  # 5 of 12 rule IDs are explainable today
+    assert (mapped, unmapped) == (5, 8)  # real Branch B fires 13 rules; 5 are explainable today
 
 
 def test_phishing_fixture_warns_with_grounded_explanations():

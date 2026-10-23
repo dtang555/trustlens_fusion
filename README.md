@@ -18,7 +18,7 @@ Stdlib-only Python 3.10+.
 - `run_bundle.py`    reads `<page>.<visual|url|dom|text>.json` (or `<page>.url.txt`), calls fusion, writes request/response JSON
 - `make_sample_bundle.py`, `demo.py`  sample / synthetic inputs
 - `branch_b_adapter.py`  converts Student B's single result into url/dom/text BranchOutputs (mapping decisions in its docstring)
-- `branch_b_fixtures/`  Branch B fixtures RECONSTRUCTED from the MCR II table; replace with real Branch B JSON
+- `branch_b_fixtures/`  need to replace with real Branch B JSON later
 - `worked_case_branch_b.py`  runs those fixtures through the adapter and fusion
 - `bundle/`          sample bundle; `bundle/out/` holds the example request/response JSON to share with A, B, D
 
