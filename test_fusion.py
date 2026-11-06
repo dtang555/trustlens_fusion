@@ -259,6 +259,11 @@ def test_a_module_with_no_findings_adds_nothing_instead_of_voting_safe():
     assert fuse(independent)["diagnostics"]["branch_terms"]["text"] < -1.5
 
 
+def test_branch_b_modules_share_the_source_term_equally():
+    t = fuse(_noisy([0.2, 0.9, 0.0], r=1.0))["diagnostics"]["branch_terms"]
+    assert t["url"] == t["dom"] and t["text"] == 0.0
+
+
 def test_source_with_no_findings_is_weak_evidence_of_safety_not_certainty():
     out = fuse(_noisy([0.0, 0.0, 0.0], r=1.0))
     assert out["diagnostics"]["source_scores"]["branch_b"]["score"] == DEFAULT.source_p_floor

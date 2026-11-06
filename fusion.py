@@ -314,8 +314,8 @@ def score(branches: dict[str, Branch], cross: dict, P: Params = DEFAULT) -> tupl
 
     Modules from one source share evidence, so adding their log-odds as if independent double counts.
       noisy_or sources are scored ONCE (reliability x source weight x logit of the combined score); that term is
-        shared out over the member modules in proportion to each one's own noisy-OR "hazard", -ln(1 - p_m), so
-        explanations can still say which module drove it.
+        shared out EQUALLY over the member modules that have findings (p_m > 0), so each Branch B output carries
+        the same weight in the explanations.
       logodds sources: each module term is reliability x module weight x logit(p), and the sum over the source is
         scaled by 1 / (1 + (n - 1) * rho): rho = 0 keeps v0.1 behaviour, rho = 1 counts the source once (its mean)."""
     branch_terms: dict[str, float] = {}
@@ -326,10 +326,11 @@ def score(branches: dict[str, Branch], cross: dict, P: Params = DEFAULT) -> tupl
         used = info["used"]
         if info["kind"] == "noisy_or":
             term = info["reliability"] * P.source_w.get(src, 1.0) * info["verdict"]
-            hazards = [-math.log(max(1.0 - b.p_phish, 1e-12)) for b in used]
-            total = sum(hazards)
-            for b, h in zip(used, hazards):
-                branch_terms[b.name] = term * (h / total if total > 0 else 1.0 / len(used))
+            # every module that contributed to the source score gets an EQUAL share of its term; a module
+            # with no findings (p = 0) adds nothing to the noisy-OR, so it gets no share
+            active = [b for b in used if b.p_phish > 0] or used
+            for b in used:
+                branch_terms[b.name] = term / len(active) if b in active else 0.0
         else:
             f = 1.0 / (1.0 + (len(used) - 1) * P.rho)
             for b in used:
