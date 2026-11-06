@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "phishing_paypal",
+  "branches": [
+    {
+      "branch": "dom",
+      "status": "ok",
+      "p_phish": 0.88,
+      "reliability": 0.9,
+      "claims": {
+        "brand": "paypal",
+        "brand_conf": 0.7
+      },
+      "evidence": [
+        {
+          "id": "credential_solicitation",
+          "type": "credential_solicitation",
+          "strength": 0.9,
+          "locator": {
+            "kind": "dom_path",
+            "value": "form#login input[type=password]"
+          },
+          "fields": {},
+          "verified": true
+        },
+        {
+          "id": "form_action_mismatch",
+          "type": "form_action_mismatch",
+          "strength": 0.8,
+          "locator": {
+            "kind": "none",
+            "value": null
+          },
+          "fields": {
+            "page_domain": "paypa1-login.xyz",
+            "action_domain": "collector.example"
+          },
+          "verified": true
+        }
+      ],
+      "missing_flags": [],
+      "latency_ms": 10
+    },
+    {
+      "branch": "text",
+      "status": "ok",
+      "p_phish": 0.7,
+      "reliability": 0.6,
+      "claims": {},
+      "evidence": [
+        {
+          "id": "urgency_language",
+          "type": "urgency_language",
+          "strength": 0.6,
+          "locator": {
+            "kind": "none",
+            "value": null
+          },
+          "fields": {
+            "phrase_class": "account suspended"
+          },
+          "verified": true
+        }
+      ],
+      "missing_flags": [],
+      "latency_ms": 10
+    },
+    {
+      "branch": "url",
+      "status": "error",
+      "p_phish": null,
+      "reliability": null,
+      "missing_flags": [
+        "file.unreadable"
+      ],
+      "model_version": "n/a",
+      "latency_ms": 0
+    },
+    {
+      "branch": "visual",
+      "status": "error",
+      "p_phish": null,
+      "reliability": null,
+      "missing_flags": [
+        "file.unreadable"
+      ],
+      "model_version": "n/a",
+      "latency_ms": 0
+    }
+  ]
+}

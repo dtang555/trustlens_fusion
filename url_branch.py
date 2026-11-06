@@ -1,4 +1,4 @@
-"""Rule-based URL branch (stand-in values, til branch b is complete).
+"""Rule-based URL branch (stand-in until Student B's branch is ready).
 
 Takes a raw URL string and returns a BranchOutput dict in the shared schema.
 Fully offline: no WHOIS, no reputation APIs. Weights are PLACEHOLDERS.

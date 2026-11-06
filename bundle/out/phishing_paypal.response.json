@@ -1,0 +1,108 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "phishing_paypal",
+  "branch_summary": [
+    {
+      "branch": "dom",
+      "status": "ok",
+      "p_phish": 0.88,
+      "used": true,
+      "source": "dom"
+    },
+    {
+      "branch": "text",
+      "status": "ok",
+      "p_phish": 0.7,
+      "used": true,
+      "source": "text"
+    },
+    {
+      "branch": "url",
+      "status": "error",
+      "p_phish": null,
+      "used": false,
+      "source": "url"
+    },
+    {
+      "branch": "visual",
+      "status": "error",
+      "p_phish": null,
+      "used": false,
+      "source": "visual"
+    }
+  ],
+  "score_label": "preliminary risk score",
+  "calibration_status": "uncalibrated",
+  "decision": "warn",
+  "risk_score": 0.8907,
+  "uncertainty": {
+    "reasons": [],
+    "coverage": 0.375,
+    "disagreement": 0.0
+  },
+  "explanations": [
+    {
+      "evidence_id": "credential_solicitation",
+      "type": "credential_solicitation",
+      "locator": {
+        "kind": "dom_path",
+        "value": "form#login input[type=password]"
+      },
+      "text": "Page asks you to enter sign-in credentials.",
+      "contribution": 0.949
+    },
+    {
+      "evidence_id": "form_action_mismatch",
+      "type": "form_action_mismatch",
+      "locator": {
+        "kind": "none",
+        "value": null
+      },
+      "text": "The form on this page submits to collector.example, not paypa1-login.xyz.",
+      "contribution": 0.844
+    },
+    {
+      "evidence_id": "urgency_language",
+      "type": "urgency_language",
+      "locator": {
+        "kind": "none",
+        "value": null
+      },
+      "text": "Page uses pressuring language (account suspended).",
+      "contribution": 0.305
+    }
+  ],
+  "diagnostics": {
+    "method": "baseline_logodds",
+    "rule_floor": false,
+    "z": 2.098,
+    "consensus_brand": "paypal",
+    "temperature": 1.0,
+    "rho": 0.5,
+    "source_groups": {
+      "visual": [
+        "visual"
+      ],
+      "url": [
+        "url"
+      ],
+      "dom": [
+        "dom"
+      ],
+      "text": [
+        "text"
+      ]
+    },
+    "source_scores": {},
+    "branch_terms": {
+      "dom": 1.793,
+      "text": 0.305
+    },
+    "cross_terms": {
+      "brand_domain_mismatch": 0.0,
+      "cred_request": 1.0,
+      "action_mismatch": 1.0,
+      "link_deception": 0.0
+    }
+  }
+}

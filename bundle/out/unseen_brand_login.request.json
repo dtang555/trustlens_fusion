@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "unseen_brand_login",
+  "branches": [
+    {
+      "branch": "dom",
+      "status": "ok",
+      "p_phish": 0.3,
+      "reliability": 0.9,
+      "claims": {},
+      "evidence": [
+        {
+          "id": "credential_solicitation",
+          "type": "credential_solicitation",
+          "strength": 0.9,
+          "locator": {
+            "kind": "none",
+            "value": null
+          },
+          "fields": {},
+          "verified": true
+        }
+      ],
+      "missing_flags": [],
+      "latency_ms": 10
+    },
+    {
+      "branch": "text",
+      "status": "ok",
+      "p_phish": 0.3,
+      "reliability": 0.6,
+      "claims": {},
+      "evidence": [],
+      "missing_flags": [],
+      "latency_ms": 10
+    },
+    {
+      "branch": "url",
+      "status": "ok",
+      "p_phish": 0.0759,
+      "reliability": 0.9,
+      "features": {
+        "url.length": 34,
+        "url.subdomain_depth": 0,
+        "url.hyphens": 1,
+        "url.digit_ratio": 0.0,
+        "url.entropy": 3.293,
+        "url.has_punycode": false,
+        "url.is_ip": false,
+        "url.has_userinfo": false,
+        "url.is_shortener": false,
+        "url.risky_tld": false,
+        "url.suspicious_tokens": 0,
+        "url.brand_token": false,
+        "url.leet_swap": false,
+        "url.owned_by_brand": false
+      },
+      "claims": {
+        "domain": "smallbank-example.ca",
+        "domain_owner_brand": null,
+        "brand_in_domain": null
+      },
+      "evidence": [],
+      "missing_flags": [],
+      "input_quality": {
+        "parsed": true
+      },
+      "model_version": "url-rules-0.1",
+      "latency_ms": 0
+    },
+    {
+      "branch": "visual",
+      "status": "ok",
+      "p_phish": 0.3,
+      "reliability": 0.8,
+      "claims": {
+        "brand": null,
+        "brand_conf": 0.1
+      },
+      "evidence": [],
+      "missing_flags": [],
+      "latency_ms": 10
+    }
+  ]
+}

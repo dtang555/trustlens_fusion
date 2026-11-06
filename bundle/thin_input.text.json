@@ -1,0 +1,12 @@
+{
+  "branch": "text",
+  "status": "missing",
+  "p_phish": null,
+  "reliability": null,
+  "claims": {},
+  "evidence": [],
+  "missing_flags": [
+    "text.ocr_empty"
+  ],
+  "latency_ms": 10
+}

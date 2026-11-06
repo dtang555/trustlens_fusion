@@ -130,7 +130,7 @@ def test_full_pipeline_phishing_url_is_what_triggers_the_mismatch():
         f.write("https://www.paypal.com/signin\n")
     _, r2 = run_folder(d, only="phishing_paypal", write=False)["phishing_paypal"]
     assert all(x["type"] != "brand_domain_mismatch" for x in r2["explanations"])
-    assert r2["p_fused"] < r["p_fused"]
+    assert r2["risk_score"] < r["risk_score"]
 
 
 if __name__ == "__main__":

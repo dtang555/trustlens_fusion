@@ -33,7 +33,7 @@ def report(path: str) -> None:
     for b in request["branches"][1:]:
         print(f"  {b['branch']:5} score={b['p_phish']:.3f} reliability={b['reliability']}  term={branch_terms[b['branch']]:+.2f}")
     print("  cross terms:", {k: round(v, 2) for k, v in cross_terms.items() if v})
-    print(f"  z={z:.2f}  -> preliminary risk score {out['p_fused']}  decision={out['decision'].upper()}")
+    print(f"  z={z:.2f}  -> preliminary risk score {out['risk_score']}  decision={out['decision'].upper()}")
     print(f"  coverage={out['uncertainty']['coverage']}  disagreement={out['uncertainty']['disagreement']}  "
           f"reasons={out['uncertainty']['reasons']}  rule_floor={out['diagnostics']['rule_floor']}")
     for x in out["explanations"]:

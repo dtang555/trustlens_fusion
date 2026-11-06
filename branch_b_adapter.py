@@ -10,18 +10,30 @@ Mapping decisions (document these in the report):
     the modality score, but cannot be explained to the user until the shared registry covers them.
   * Branch B reports no brand confidence: claims.brand_conf = weight of the brand rule.
   * Branch B reports one overall confidence: it is used as `reliability` for all three branches.
-  * Modality score is clamped to [0.01, 0.99] so an empty modality cannot dominate the log-odds.
+  * A modality with no fired rule gets score 0.0. Fusion combines the three modules with Branch B's own
+    noisy-OR (combine="noisy_or"), so an empty modality adds nothing rather than voting "safe".
   * Domain ownership (needed for brand-domain mismatch) comes from the shared brand registry.
+  * The three outputs carry source="branch_b" and combine="noisy_or": they are NOT independent evidence.
+    Fusion scores the source ONCE from 1 - prod(1 - p_m) (= Branch B's own combined score) and counts it as
+    one source for coverage and disagreement.
 
+Field names follow Student B's real output: id, modality, weight, description, detail.
+(`details` is also accepted.) html.mismatched_link currently reports only {"count": n}; the
+shared registry has a count-only variant for it. Ask Student B to also report the displayed and
+actual domains so the explanation can name them.
 """
 from __future__ import annotations
 
+import ipaddress
 from math import prod
 from urllib.parse import urlsplit
 
 import url_branch
 
 PREFIX_TO_BRANCH = {"url": "url", "html": "dom", "text": "text"}
+# All three modules come from ONE Branch B result and share its rules, so they are correlated.
+# Tagging them with a common source id lets fusion discount them instead of counting 3 voices.
+SOURCE_ID = "branch_b"
 
 # rule id -> (shared evidence type, builder(details, ctx) -> fields)
 EVIDENCE_MAP = {
@@ -45,7 +57,11 @@ def _noisy_or(weights: list[float]) -> float:
 def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
     registry = registry or url_branch.load_registry()
     host = urlsplit(url if "://" in url else "http://" + url).hostname or ""
-    domain = url_branch.registered_domain(host) or host
+    try:  # a raw IP has no registered domain: report the address itself
+        ipaddress.ip_address(host)
+        domain = host
+    except ValueError:
+        domain = url_branch.registered_domain(host) or host
     owner = next((slug for slug, doms in registry.items() if domain in doms), None)
     ctx = {"domain": domain}
     reliability = float(result.get("confidence", 0.0))
@@ -60,7 +76,7 @@ def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
     out = {}
     for branch, evs in items.items():
         weights = [float(e["weight"]) for e in evs]
-        p = min(max(_noisy_or(weights), 0.01), 0.99)
+        p = _noisy_or(weights)  # 0.0 when no rule fired in this modality: it adds nothing to the source score
         features, evidence, claims = {}, [], {}
         for e in evs:
             rid, d = e["id"], e.get("detail", e.get("details", {}))
@@ -77,7 +93,8 @@ def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
         if branch == "url":
             claims.update({"domain": domain, "domain_owner_brand": owner})
         out[branch] = {
-            "branch": branch, "status": "partial" if (branch == "text" and "limited_visible_text" in missing) else "ok",
+            "branch": branch, "source": SOURCE_ID, "combine": "noisy_or",
+            "status": "partial" if (branch == "text" and "limited_visible_text" in missing) else "ok",
             "p_phish": round(p, 4), "reliability": reliability, "features": features, "claims": claims,
             "evidence": evidence, "missing_flags": missing if branch == "text" else [],
             "model_version": "branch-b-adapter-0.1", "latency_ms": 0,

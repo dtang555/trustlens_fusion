@@ -1,0 +1,74 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "thin_input",
+  "branches": [
+    {
+      "branch": "dom",
+      "status": "error",
+      "p_phish": null,
+      "reliability": null,
+      "claims": {},
+      "evidence": [],
+      "missing_flags": [],
+      "latency_ms": 10
+    },
+    {
+      "branch": "text",
+      "status": "missing",
+      "p_phish": null,
+      "reliability": null,
+      "claims": {},
+      "evidence": [],
+      "missing_flags": [
+        "text.ocr_empty"
+      ],
+      "latency_ms": 10
+    },
+    {
+      "branch": "url",
+      "status": "ok",
+      "p_phish": 0.1545,
+      "reliability": 0.9,
+      "features": {
+        "url.length": 25,
+        "url.subdomain_depth": 0,
+        "url.hyphens": 1,
+        "url.digit_ratio": 0.0,
+        "url.entropy": 3.252,
+        "url.has_punycode": false,
+        "url.is_ip": false,
+        "url.has_userinfo": false,
+        "url.is_shortener": false,
+        "url.risky_tld": true,
+        "url.suspicious_tokens": 0,
+        "url.brand_token": false,
+        "url.leet_swap": false,
+        "url.owned_by_brand": false
+      },
+      "claims": {
+        "domain": "example-shop.top",
+        "domain_owner_brand": null,
+        "brand_in_domain": null
+      },
+      "evidence": [],
+      "missing_flags": [],
+      "input_quality": {
+        "parsed": true
+      },
+      "model_version": "url-rules-0.1",
+      "latency_ms": 0
+    },
+    {
+      "branch": "visual",
+      "status": "missing",
+      "p_phish": null,
+      "reliability": null,
+      "claims": {},
+      "evidence": [],
+      "missing_flags": [
+        "vis.no_screenshot"
+      ],
+      "latency_ms": 10
+    }
+  ]
+}

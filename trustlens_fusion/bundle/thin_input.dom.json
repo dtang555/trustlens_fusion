@@ -1,0 +1,10 @@
+{
+  "branch": "dom",
+  "status": "error",
+  "p_phish": null,
+  "reliability": null,
+  "claims": {},
+  "evidence": [],
+  "missing_flags": [],
+  "latency_ms": 10
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "0.1.0",
+  "request_id": "unseen_brand_login",
+  "branch_summary": [
+    {
+      "branch": "dom",
+      "status": "ok",
+      "p_phish": 0.3,
+      "used": true,
+      "source": "dom"
+    },
+    {
+      "branch": "text",
+      "status": "ok",
+      "p_phish": 0.3,
+      "used": true,
+      "source": "text"
+    },
+    {
+      "branch": "url",
+      "status": "ok",
+      "p_phish": 0.0759,
+      "used": true,
+      "source": "url"
+    },
+    {
+      "branch": "visual",
+      "status": "ok",
+      "p_phish": 0.3,
+      "used": true,
+      "source": "visual"
+    }
+  ],
+  "score_label": "preliminary risk score",
+  "calibration_status": "uncalibrated",
+  "decision": "uncertain",
+  "risk_score": 0.0043,
+  "uncertainty": {
+    "reasons": [
+      "unseen_brand"
+    ],
+    "coverage": 0.8,
+    "disagreement": 0.0
+  },
+  "explanations": [],
+  "diagnostics": {
+    "method": "baseline_logodds",
+    "rule_floor": false,
+    "z": -5.445,
+    "consensus_brand": null,
+    "temperature": 1.0,
+    "rho": 0.5,
+    "source_groups": {
+      "visual": [
+        "visual"
+      ],
+      "url": [
+        "url"
+      ],
+      "dom": [
+        "dom"
+      ],
+      "text": [
+        "text"
+      ]
+    },
+    "source_scores": {},
+    "branch_terms": {
+      "visual": -0.678,
+      "url": -2.699,
+      "dom": -0.763,
+      "text": -0.305
+    },
+    "cross_terms": {
+      "brand_domain_mismatch": 0.0,
+      "cred_request": 1.0,
+      "action_mismatch": 0.0,
+      "link_deception": 0.0
+    }
+  }
+}

@@ -1,0 +1,5068 @@
+{
+ "corpus": {
+  "source": "Student B url_html_text_branch.analyze() on inline HTML pages",
+  "n": 14,
+  "n_phishing": 7,
+  "note": "Small controlled corpus for threshold-sensitivity and ablation work. Not large enough to support a calibration claim."
+ },
+ "pages": [
+  {
+   "name": "paypal legit",
+   "label": 0,
+   "branch_b_risk": 0.239,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "acme sso",
+   "label": 0,
+   "branch_b_risk": 0.08,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "plain blog",
+   "label": 0,
+   "branch_b_risk": 0.0,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "bank legit login",
+   "label": 0,
+   "branch_b_risk": 0.145,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "phish classic",
+   "label": 1,
+   "branch_b_risk": 0.992,
+   "branch_b_hint": "suspicious"
+  },
+  {
+   "name": "phish ip host",
+   "label": 1,
+   "branch_b_risk": 0.808,
+   "branch_b_hint": "suspicious"
+  },
+  {
+   "name": "phish typosquat",
+   "label": 1,
+   "branch_b_risk": 0.829,
+   "branch_b_hint": "suspicious"
+  },
+  {
+   "name": "phish shortened + hidden form",
+   "label": 1,
+   "branch_b_risk": 0.881,
+   "branch_b_hint": "suspicious"
+  },
+  {
+   "name": "evasive: clean domain, no brand text",
+   "label": 1,
+   "branch_b_risk": 0.145,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "legit short login (little text)",
+   "label": 0,
+   "branch_b_risk": 0.231,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "unseen-brand phish A",
+   "label": 1,
+   "branch_b_risk": 0.795,
+   "branch_b_hint": "suspicious"
+  },
+  {
+   "name": "unseen-brand phish B",
+   "label": 1,
+   "branch_b_risk": 0.145,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "unseen-brand legit A",
+   "label": 0,
+   "branch_b_risk": 0.145,
+   "branch_b_hint": "safe"
+  },
+  {
+   "name": "unseen-brand legit B",
+   "label": 0,
+   "branch_b_risk": 0.145,
+   "branch_b_hint": "safe"
+  }
+ ],
+ "default": {
+  "real_only": [
+   {
+    "name": "paypal legit",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.1036,
+    "z": -2.158,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": -0.217,
+     "dom": -0.447,
+     "text": -0.494
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "acme sso",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.031,
+    "z": -3.442,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": 0.0,
+     "dom": 0.0,
+     "text": -2.442
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "plain blog",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.0028,
+    "z": -5.892,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": -1.297,
+     "dom": -1.297,
+     "text": -1.297
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 0.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "bank legit login",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "phish classic",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.9979,
+    "z": 6.176,
+    "floor": true,
+    "coverage": 0.4,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": 1.111,
+     "dom": 1.453,
+     "text": 1.112
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 2.0,
+     "cred_request": 1.0,
+     "action_mismatch": 1.0,
+     "link_deception": 0.5
+    },
+    "top_explanation": "Page appears to be paypal but is hosted on evil-site.xyz, which is not a paypal domain."
+   },
+   {
+    "name": "phish ip host",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.9194,
+    "z": 2.435,
+    "floor": true,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": 0.74,
+     "dom": 0.092,
+     "text": 0.603
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 2.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "Page appears to be rbc but is hosted on 203.0.113.9, which is not a rbc domain."
+   },
+   {
+    "name": "phish typosquat",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.9295,
+    "z": 2.579,
+    "floor": true,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": 0.865,
+     "dom": 0.094,
+     "text": 0.62
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 2.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "Page appears to be paypal but is hosted on paypa1.com, which is not a paypal domain."
+   },
+   {
+    "name": "phish shortened + hidden form",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.8322,
+    "z": 1.601,
+    "floor": false,
+    "coverage": 0.4,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "url": 0.268,
+     "dom": 1.253,
+     "text": 0.079
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 1.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "The form on this page submits to a.top, not bit.ly."
+   },
+   {
+    "name": "evasive: clean domain, no brand text",
+    "label": 1,
+    "group": "evasive",
+    "unseen": false,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "legit short login (little text)",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "uncertain",
+    "risk": 0.123,
+    "z": -1.964,
+    "floor": false,
+    "coverage": 0.4,
+    "disagreement": 0.0,
+    "reasons": [
+     "low_coverage"
+    ],
+    "branch_terms": {
+     "url": -0.189,
+     "dom": -0.388,
+     "text": -0.388
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "unseen-brand phish A",
+    "label": 1,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.7948,
+    "z": 1.354,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "url": 0.235,
+     "dom": 1.119,
+     "text": -0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 1.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "The form on this page submits to other-site.xyz, not verify-account.top."
+   },
+   {
+    "name": "unseen-brand phish B",
+    "label": 1,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "unseen-brand legit A",
+    "label": 0,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "unseen-brand legit B",
+    "label": 0,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.5,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   }
+  ],
+  "sim_visual": [
+   {
+    "name": "paypal legit",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.1036,
+    "z": -2.158,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.217,
+     "dom": -0.447,
+     "text": -0.494
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "acme sso",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.031,
+    "z": -3.442,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": 0.0,
+     "dom": 0.0,
+     "text": -2.442
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "plain blog",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.0028,
+    "z": -5.892,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -1.297,
+     "dom": -1.297,
+     "text": -1.297
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 0.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "bank legit login",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "phish classic",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.9979,
+    "z": 6.176,
+    "floor": true,
+    "coverage": 0.75,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": 1.111,
+     "dom": 1.453,
+     "text": 1.112
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 2.0,
+     "cred_request": 1.0,
+     "action_mismatch": 1.0,
+     "link_deception": 0.5
+    },
+    "top_explanation": "Page appears to be paypal but is hosted on evil-site.xyz, which is not a paypal domain."
+   },
+   {
+    "name": "phish ip host",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.9194,
+    "z": 2.435,
+    "floor": true,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": 0.74,
+     "dom": 0.092,
+     "text": 0.603
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 2.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "Page appears to be rbc but is hosted on 203.0.113.9, which is not a rbc domain."
+   },
+   {
+    "name": "phish typosquat",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.9295,
+    "z": 2.579,
+    "floor": true,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": 0.865,
+     "dom": 0.094,
+     "text": 0.62
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 2.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "Page appears to be paypal but is hosted on paypa1.com, which is not a paypal domain."
+   },
+   {
+    "name": "phish shortened + hidden form",
+    "label": 1,
+    "group": "phish",
+    "unseen": false,
+    "decision": "warn",
+    "risk": 0.8322,
+    "z": 1.601,
+    "floor": false,
+    "coverage": 0.75,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": 0.268,
+     "dom": 1.253,
+     "text": 0.079
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 1.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "The form on this page submits to a.top, not bit.ly."
+   },
+   {
+    "name": "evasive: clean domain, no brand text",
+    "label": 1,
+    "group": "evasive",
+    "unseen": false,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "legit short login (little text)",
+    "label": 0,
+    "group": "legit",
+    "unseen": false,
+    "decision": "allow",
+    "risk": 0.123,
+    "z": -1.964,
+    "floor": false,
+    "coverage": 0.75,
+    "disagreement": 0.0,
+    "reasons": [],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.189,
+     "dom": -0.388,
+     "text": -0.388
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "unseen-brand phish A",
+    "label": 1,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.7948,
+    "z": 1.354,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": 0.235,
+     "dom": 1.119,
+     "text": -0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 1.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": "The form on this page submits to other-site.xyz, not verify-account.top."
+   },
+   {
+    "name": "unseen-brand phish B",
+    "label": 1,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "unseen-brand legit A",
+    "label": 0,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   },
+   {
+    "name": "unseen-brand legit B",
+    "label": 0,
+    "group": "unseen_brand",
+    "unseen": true,
+    "decision": "uncertain",
+    "risk": 0.0587,
+    "z": -2.774,
+    "floor": false,
+    "coverage": 0.85,
+    "disagreement": 0.0,
+    "reasons": [
+     "unseen_brand"
+    ],
+    "branch_terms": {
+     "visual": 0.0,
+     "url": -0.581,
+     "dom": -1.193,
+     "text": 0.0
+    },
+    "cross_terms": {
+     "brand_domain_mismatch": 0.0,
+     "cred_request": 1.0,
+     "action_mismatch": 0.0,
+     "link_deception": 0.0
+    },
+    "top_explanation": null
+   }
+  ]
+ },
+ "metrics": {
+  "real_only": {
+   "TP": 4,
+   "FN": 0,
+   "phish_uncertain": 3,
+   "FP": 0,
+   "TN": 4,
+   "legit_uncertain": 3,
+   "precision": 1.0,
+   "recall": 0.5714285714285714,
+   "fpr": 0.0,
+   "flagged_recall": 1.0,
+   "uncertain_rate": 0.42857142857142855,
+   "auc": 0.8571428571428571
+  },
+  "sim_visual": {
+   "TP": 4,
+   "FN": 0,
+   "phish_uncertain": 3,
+   "FP": 0,
+   "TN": 5,
+   "legit_uncertain": 2,
+   "precision": 1.0,
+   "recall": 0.5714285714285714,
+   "fpr": 0.0,
+   "flagged_recall": 1.0,
+   "uncertain_rate": 0.35714285714285715,
+   "auc": 0.8571428571428571
+  }
+ },
+ "branch_b_alone": {
+  "sweep": [
+   {
+    "threshold": 0.3,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 2
+   },
+   {
+    "threshold": 0.4,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 2
+   },
+   {
+    "threshold": 0.5,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 2
+   },
+   {
+    "threshold": 0.6,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 2
+   },
+   {
+    "threshold": 0.7,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 2
+   },
+   {
+    "threshold": 0.8,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 3
+   },
+   {
+    "threshold": 0.9,
+    "recall": 0.14285714285714285,
+    "fpr": 0.0,
+    "FP": 0,
+    "FN": 6
+   }
+  ],
+  "per_page": [
+   {
+    "name": "paypal legit",
+    "label": 0,
+    "risk": 0.239,
+    "hint": "safe"
+   },
+   {
+    "name": "acme sso",
+    "label": 0,
+    "risk": 0.08,
+    "hint": "safe"
+   },
+   {
+    "name": "plain blog",
+    "label": 0,
+    "risk": 0.0,
+    "hint": "safe"
+   },
+   {
+    "name": "bank legit login",
+    "label": 0,
+    "risk": 0.145,
+    "hint": "safe"
+   },
+   {
+    "name": "phish classic",
+    "label": 1,
+    "risk": 0.992,
+    "hint": "suspicious"
+   },
+   {
+    "name": "phish ip host",
+    "label": 1,
+    "risk": 0.808,
+    "hint": "suspicious"
+   },
+   {
+    "name": "phish typosquat",
+    "label": 1,
+    "risk": 0.829,
+    "hint": "suspicious"
+   },
+   {
+    "name": "phish shortened + hidden form",
+    "label": 1,
+    "risk": 0.881,
+    "hint": "suspicious"
+   },
+   {
+    "name": "evasive: clean domain, no brand text",
+    "label": 1,
+    "risk": 0.145,
+    "hint": "safe"
+   },
+   {
+    "name": "legit short login (little text)",
+    "label": 0,
+    "risk": 0.231,
+    "hint": "safe"
+   },
+   {
+    "name": "unseen-brand phish A",
+    "label": 1,
+    "risk": 0.795,
+    "hint": "suspicious"
+   },
+   {
+    "name": "unseen-brand phish B",
+    "label": 1,
+    "risk": 0.145,
+    "hint": "safe"
+   },
+   {
+    "name": "unseen-brand legit A",
+    "label": 0,
+    "risk": 0.145,
+    "hint": "safe"
+   },
+   {
+    "name": "unseen-brand legit B",
+    "label": 0,
+    "risk": 0.145,
+    "hint": "safe"
+   }
+  ],
+  "auc": 0.8571428571428571
+ },
+ "sensitivity": {
+  "real_only": {
+   "one_at_a_time": {
+    "t_high (warn at or above)": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.6,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.7,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.8,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.9,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.95,
+      "flips_vs_default": 3,
+      "warn": 1,
+      "allow": 4,
+      "uncertain": 9,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.14285714285714285,
+      "fpr": 0.0
+     }
+    ],
+    "t_low (allow at or below)": [
+     {
+      "value": 0.05,
+      "flips_vs_default": 2,
+      "warn": 4,
+      "allow": 2,
+      "uncertain": 8,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.1,
+      "flips_vs_default": 1,
+      "warn": 4,
+      "allow": 3,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.2,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "min_coverage (to allow)": [
+     {
+      "value": 0.3,
+      "flips_vs_default": 1,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 1,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.6,
+      "flips_vs_default": 4,
+      "warn": 4,
+      "allow": 0,
+      "uncertain": 10,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "min_coverage_warn": [
+     {
+      "value": 0.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.2,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.5,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     }
+    ],
+    "max_disagreement": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 2.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 3.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "bias": [
+     {
+      "value": -3.0,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -2.5,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -2.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": -1.5,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": -1.0,
+      "flips_vs_default": 2,
+      "warn": 5,
+      "allow": 3,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": -0.5,
+      "flips_vs_default": 3,
+      "warn": 5,
+      "allow": 2,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.0,
+      "flips_vs_default": 3,
+      "warn": 5,
+      "allow": 2,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     }
+    ],
+    "Branch B source weight": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 4,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.5,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 2.0,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 3.0,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 4,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     }
+    ]
+   },
+   "cost_grid": {
+    "cost A (miss 10, false warn 3, uncertain 1)": {
+     "cells": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.05,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.1,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      }
+     ],
+     "min_cost": 5,
+     "argmin": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      }
+     ],
+     "default_cost": 6
+    },
+    "cost B (miss 10, false warn 1, uncertain 2)": {
+     "cells": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 16,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.05,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.1,
+       "cost": 16,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      }
+     ],
+     "min_cost": 10,
+     "argmin": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      }
+     ],
+     "default_cost": 12
+    }
+   }
+  },
+  "sim_visual": {
+   "one_at_a_time": {
+    "t_high (warn at or above)": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.6,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.7,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.8,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.9,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.95,
+      "flips_vs_default": 3,
+      "warn": 1,
+      "allow": 5,
+      "uncertain": 8,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.14285714285714285,
+      "fpr": 0.0
+     }
+    ],
+    "t_low (allow at or below)": [
+     {
+      "value": 0.05,
+      "flips_vs_default": 3,
+      "warn": 4,
+      "allow": 2,
+      "uncertain": 8,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.1,
+      "flips_vs_default": 2,
+      "warn": 4,
+      "allow": 3,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.2,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "min_coverage (to allow)": [
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.6,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "min_coverage_warn": [
+     {
+      "value": 0.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.2,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "max_disagreement": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 2.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 3.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "bias": [
+     {
+      "value": -3.0,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -2.5,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -2.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": -1.5,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": -1.0,
+      "flips_vs_default": 3,
+      "warn": 5,
+      "allow": 3,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": -0.5,
+      "flips_vs_default": 4,
+      "warn": 5,
+      "allow": 2,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.0,
+      "flips_vs_default": 4,
+      "warn": 5,
+      "allow": 2,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     }
+    ],
+    "Branch B source weight": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.0,
+      "flips_vs_default": 0,
+      "warn": 4,
+      "allow": 5,
+      "uncertain": 5,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.5,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 2.0,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     },
+     {
+      "value": 3.0,
+      "flips_vs_default": 1,
+      "warn": 5,
+      "allow": 5,
+      "uncertain": 4,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.7142857142857143,
+      "fpr": 0.0
+     }
+    ]
+   },
+   "cost_grid": {
+    "cost A (miss 10, false warn 3, uncertain 1)": {
+     "cells": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 5,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.05,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.1,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.2,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.3,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.4,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      }
+     ],
+     "min_cost": 4,
+     "argmin": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 4,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      }
+     ],
+     "default_cost": 5
+    },
+    "cost B (miss 10, false warn 1, uncertain 2)": {
+     "cells": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 16,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 10,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 5
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.05,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.1,
+       "cost": 16,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 8
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.2,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.3,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.4,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      }
+     ],
+     "min_cost": 8,
+     "argmin": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 8,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 4
+      }
+     ],
+     "default_cost": 10
+    }
+   }
+  }
+ },
+ "ablations": {
+  "real_only": [
+   {
+    "config": "full system",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop URL module",
+    "TP": 0,
+    "FN": 0,
+    "phish_uncertain": 7,
+    "FP": 0,
+    "TN": 0,
+    "legit_uncertain": 7,
+    "precision": null,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 1.0,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 8,
+    "cost_A": 14,
+    "cost_B": 28,
+    "decisions": {
+     "paypal legit": "uncertain",
+     "acme sso": "uncertain",
+     "plain blog": "uncertain",
+     "bank legit login": "uncertain",
+     "phish classic": "uncertain",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop DOM module",
+    "TP": 2,
+    "FN": 0,
+    "phish_uncertain": 5,
+    "FP": 0,
+    "TN": 0,
+    "legit_uncertain": 7,
+    "precision": 1.0,
+    "recall": 0.2857142857142857,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.8571428571428571,
+    "auc": 0.7959183673469388,
+    "flips_vs_full": 6,
+    "cost_A": 12,
+    "cost_B": 24,
+    "decisions": {
+     "paypal legit": "uncertain",
+     "acme sso": "uncertain",
+     "plain blog": "uncertain",
+     "bank legit login": "uncertain",
+     "phish classic": "warn",
+     "phish ip host": "uncertain",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop text module",
+    "TP": 0,
+    "FN": 0,
+    "phish_uncertain": 7,
+    "FP": 0,
+    "TN": 0,
+    "legit_uncertain": 7,
+    "precision": null,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 1.0,
+    "auc": 0.8775510204081632,
+    "flips_vs_full": 8,
+    "cost_A": 14,
+    "cost_B": 28,
+    "decisions": {
+     "paypal legit": "uncertain",
+     "acme sso": "uncertain",
+     "plain blog": "uncertain",
+     "bank legit login": "uncertain",
+     "phish classic": "uncertain",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop visual module",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "visual only (drop all Branch B)",
+    "TP": 0,
+    "FN": 0,
+    "phish_uncertain": 7,
+    "FP": 0,
+    "TN": 0,
+    "legit_uncertain": 7,
+    "precision": null,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 1.0,
+    "auc": 0.5,
+    "flips_vs_full": 8,
+    "cost_A": 14,
+    "cost_B": 28,
+    "decisions": {
+     "paypal legit": "uncertain",
+     "acme sso": "uncertain",
+     "plain blog": "uncertain",
+     "bank legit login": "uncertain",
+     "phish classic": "uncertain",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no cross-modal terms, no rule floor",
+    "TP": 1,
+    "FN": 0,
+    "phish_uncertain": 6,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.14285714285714285,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.6428571428571429,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 3,
+    "cost_A": 9,
+    "cost_B": 18,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no rule floor",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "Branch B modules as discounted log-odds votes (rho = 0.5)",
+    "TP": 3,
+    "FN": 0,
+    "phish_uncertain": 4,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.5,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 7,
+    "cost_B": 14,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "Branch B modules as independent log-odds votes (rho = 0)",
+    "TP": 3,
+    "FN": 0,
+    "phish_uncertain": 4,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.5,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 7,
+    "cost_B": 14,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no uncertain state (binary at 0.5)",
+    "TP": 5,
+    "FN": 2,
+    "phish_uncertain": 0,
+    "FP": 0,
+    "TN": 7,
+    "legit_uncertain": 0,
+    "precision": 1.0,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "flagged_recall": 0.7142857142857143,
+    "uncertain_rate": 0.0,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 6,
+    "cost_A": 20,
+    "cost_B": 20,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "allow",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "warn",
+     "unseen-brand phish B": "allow",
+     "unseen-brand legit A": "allow",
+     "unseen-brand legit B": "allow"
+    }
+   },
+   {
+    "config": "v0.1 unseen-brand rule (credential wording + visual)",
+    "TP": 4,
+    "FN": 2,
+    "phish_uncertain": 1,
+    "FP": 0,
+    "TN": 6,
+    "legit_uncertain": 1,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 0.7142857142857143,
+    "uncertain_rate": 0.14285714285714285,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 4,
+    "cost_A": 22,
+    "cost_B": 24,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "allow",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "allow",
+     "unseen-brand legit A": "allow",
+     "unseen-brand legit B": "allow"
+    }
+   },
+   {
+    "config": "v0.2 unseen-brand rule (credential form + visual)",
+    "TP": 4,
+    "FN": 2,
+    "phish_uncertain": 1,
+    "FP": 0,
+    "TN": 6,
+    "legit_uncertain": 1,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 0.7142857142857143,
+    "uncertain_rate": 0.14285714285714285,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 4,
+    "cost_A": 22,
+    "cost_B": 24,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "allow",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "allow",
+     "unseen-brand legit A": "allow",
+     "unseen-brand legit B": "allow"
+    }
+   },
+   {
+    "config": "conflict blocks warn",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   }
+  ],
+  "sim_visual": [
+   {
+    "config": "full system",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.35714285714285715,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 5,
+    "cost_B": 10,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop URL module",
+    "TP": 1,
+    "FN": 2,
+    "phish_uncertain": 4,
+    "FP": 0,
+    "TN": 7,
+    "legit_uncertain": 0,
+    "precision": 1.0,
+    "recall": 0.14285714285714285,
+    "fpr": 0.0,
+    "flagged_recall": 0.7142857142857143,
+    "uncertain_rate": 0.2857142857142857,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 7,
+    "cost_A": 24,
+    "cost_B": 28,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "allow",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "allow",
+     "unseen-brand legit A": "allow",
+     "unseen-brand legit B": "allow"
+    }
+   },
+   {
+    "config": "drop DOM module",
+    "TP": 2,
+    "FN": 4,
+    "phish_uncertain": 1,
+    "FP": 0,
+    "TN": 7,
+    "legit_uncertain": 0,
+    "precision": 1.0,
+    "recall": 0.2857142857142857,
+    "fpr": 0.0,
+    "flagged_recall": 0.42857142857142855,
+    "uncertain_rate": 0.07142857142857142,
+    "auc": 0.7959183673469388,
+    "flips_vs_full": 7,
+    "cost_A": 41,
+    "cost_B": 42,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "uncertain",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "allow",
+     "evasive: clean domain, no brand text": "allow",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "allow",
+     "unseen-brand phish B": "allow",
+     "unseen-brand legit A": "allow",
+     "unseen-brand legit B": "allow"
+    }
+   },
+   {
+    "config": "drop text module",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.35714285714285715,
+    "auc": 0.8775510204081632,
+    "flips_vs_full": 0,
+    "cost_A": 5,
+    "cost_B": 10,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop visual module",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "visual only (drop all Branch B)",
+    "TP": 0,
+    "FN": 0,
+    "phish_uncertain": 7,
+    "FP": 0,
+    "TN": 0,
+    "legit_uncertain": 7,
+    "precision": null,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 1.0,
+    "auc": 0.5,
+    "flips_vs_full": 9,
+    "cost_A": 14,
+    "cost_B": 28,
+    "decisions": {
+     "paypal legit": "uncertain",
+     "acme sso": "uncertain",
+     "plain blog": "uncertain",
+     "bank legit login": "uncertain",
+     "phish classic": "uncertain",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no cross-modal terms, no rule floor",
+    "TP": 1,
+    "FN": 0,
+    "phish_uncertain": 6,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.14285714285714285,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.5714285714285714,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 3,
+    "cost_A": 8,
+    "cost_B": 16,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no rule floor",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.35714285714285715,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 5,
+    "cost_B": 10,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "Branch B modules as discounted log-odds votes (rho = 0.5)",
+    "TP": 3,
+    "FN": 0,
+    "phish_uncertain": 4,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "Branch B modules as independent log-odds votes (rho = 0)",
+    "TP": 3,
+    "FN": 0,
+    "phish_uncertain": 4,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no uncertain state (binary at 0.5)",
+    "TP": 5,
+    "FN": 2,
+    "phish_uncertain": 0,
+    "FP": 0,
+    "TN": 7,
+    "legit_uncertain": 0,
+    "precision": 1.0,
+    "recall": 0.7142857142857143,
+    "fpr": 0.0,
+    "flagged_recall": 0.7142857142857143,
+    "uncertain_rate": 0.0,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 5,
+    "cost_A": 20,
+    "cost_B": 20,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "allow",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "warn",
+     "unseen-brand phish B": "allow",
+     "unseen-brand legit A": "allow",
+     "unseen-brand legit B": "allow"
+    }
+   },
+   {
+    "config": "v0.1 unseen-brand rule (credential wording + visual)",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.42857142857142855,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 6,
+    "cost_B": 12,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "uncertain",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "v0.2 unseen-brand rule (credential form + visual)",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.35714285714285715,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 5,
+    "cost_B": 10,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "conflict blocks warn",
+    "TP": 4,
+    "FN": 0,
+    "phish_uncertain": 3,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": 1.0,
+    "recall": 0.5714285714285714,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.35714285714285715,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 0,
+    "cost_A": 5,
+    "cost_B": 10,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "warn",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   }
+  ]
+ },
+ "missing_injection": {
+  "real_only": [
+   {
+    "dropped": "visual",
+    "changed": 0,
+    "phish_now_allowed": 0,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 0,
+    "low_coverage_after": 0,
+    "changes": []
+   },
+   {
+    "dropped": "url",
+    "changed": 8,
+    "phish_now_allowed": 0,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 3,
+    "low_coverage_after": 8,
+    "changes": [
+     {
+      "page": "paypal legit",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "acme sso",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "plain blog",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "bank legit login",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish classic",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish ip host",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish typosquat",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish shortened + hidden form",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     }
+    ]
+   },
+   {
+    "dropped": "dom",
+    "changed": 6,
+    "phish_now_allowed": 0,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 0,
+    "low_coverage_after": 6,
+    "changes": [
+     {
+      "page": "paypal legit",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "acme sso",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "plain blog",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "bank legit login",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish ip host",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish shortened + hidden form",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     }
+    ]
+   },
+   {
+    "dropped": "text",
+    "changed": 8,
+    "phish_now_allowed": 0,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 3,
+    "low_coverage_after": 8,
+    "changes": [
+     {
+      "page": "paypal legit",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "acme sso",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "plain blog",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "bank legit login",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish classic",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish ip host",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish typosquat",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": true
+     },
+     {
+      "page": "phish shortened + hidden form",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     }
+    ]
+   }
+  ],
+  "sim_visual": [
+   {
+    "dropped": "visual",
+    "changed": 1,
+    "phish_now_allowed": 0,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 0,
+    "low_coverage_after": 1,
+    "changes": [
+     {
+      "page": "legit short login (little text)",
+      "label": 0,
+      "from": "allow",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": true
+     }
+    ]
+   },
+   {
+    "dropped": "url",
+    "changed": 7,
+    "phish_now_allowed": 2,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 2,
+    "low_coverage_after": 0,
+    "changes": [
+     {
+      "page": "phish ip host",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": false
+     },
+     {
+      "page": "phish typosquat",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": true,
+      "low_coverage_after": false
+     },
+     {
+      "page": "phish shortened + hidden form",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "evasive: clean domain, no brand text",
+      "label": 1,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand phish B",
+      "label": 1,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand legit A",
+      "label": 0,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand legit B",
+      "label": 0,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     }
+    ]
+   },
+   {
+    "dropped": "dom",
+    "changed": 7,
+    "phish_now_allowed": 4,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 0,
+    "low_coverage_after": 0,
+    "changes": [
+     {
+      "page": "phish ip host",
+      "label": 1,
+      "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "phish shortened + hidden form",
+      "label": 1,
+      "from": "warn",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "evasive: clean domain, no brand text",
+      "label": 1,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand phish A",
+      "label": 1,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand phish B",
+      "label": 1,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand legit A",
+      "label": 0,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "unseen-brand legit B",
+      "label": 0,
+      "from": "uncertain",
+      "to": "allow",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     }
+    ]
+   },
+   {
+    "dropped": "text",
+    "changed": 0,
+    "phish_now_allowed": 0,
+    "legit_now_warned": 0,
+    "lost_brand_mismatch": 0,
+    "low_coverage_after": 0,
+    "changes": []
+   }
+  ]
+ },
+ "contradiction": {
+  "default (a high score still warns)": {
+   "decisions_changed": 6,
+   "wrong_final_verdicts": 0,
+   "routed_to_uncertain": 11,
+   "newly_uncertain": 6,
+   "disagreement_flagged": 9,
+   "rows": [
+    {
+     "page": "paypal legit",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "acme sso",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "plain blog",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "bank legit login",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "phish classic",
+     "label": 1,
+     "decision": "warn",
+     "reasons": []
+    },
+    {
+     "page": "phish ip host",
+     "label": 1,
+     "decision": "warn",
+     "reasons": []
+    },
+    {
+     "page": "phish typosquat",
+     "label": 1,
+     "decision": "warn",
+     "reasons": []
+    },
+    {
+     "page": "phish shortened + hidden form",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "evasive: clean domain, no brand text",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "legit short login (little text)",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    }
+   ]
+  },
+  "conflict_blocks_warn": {
+   "decisions_changed": 6,
+   "wrong_final_verdicts": 0,
+   "routed_to_uncertain": 11,
+   "newly_uncertain": 6,
+   "disagreement_flagged": 9,
+   "rows": [
+    {
+     "page": "paypal legit",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "acme sso",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "plain blog",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "bank legit login",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "phish classic",
+     "label": 1,
+     "decision": "warn",
+     "reasons": []
+    },
+    {
+     "page": "phish ip host",
+     "label": 1,
+     "decision": "warn",
+     "reasons": []
+    },
+    {
+     "page": "phish typosquat",
+     "label": 1,
+     "decision": "warn",
+     "reasons": []
+    },
+    {
+     "page": "phish shortened + hidden form",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "evasive: clean domain, no brand text",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "legit short login (little text)",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement"
+     ]
+    },
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "uncertain",
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "uncertain",
+     "reasons": [
+      "branch_disagreement",
+      "unseen_brand"
+     ]
+    }
+   ]
+  }
+ },
+ "unseen_brand": [
+  {
+   "variant": "v0.1 rule (credential wording + visual confidence)",
+   "rows": [
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.7948,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "v0.2 rule (credential form + visual confidence)",
+   "rows": [
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.7948,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "current rule (credential form, no brand owns the domain, no module identifies a brand)",
+   "rows": [
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.7948,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "current rule, visual module missing",
+   "rows": [
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.7948,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "uncertain",
+     "risk": 0.0587,
+     "reasons": [
+      "unseen_brand"
+     ]
+    }
+   ]
+  },
+  {
+   "variant": "brand added to visual reference ONLY",
+   "rows": [
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "warn",
+     "risk": 0.9662,
+     "reasons": []
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "warn",
+     "risk": 0.9,
+     "reasons": []
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "warn",
+     "risk": 0.9,
+     "reasons": []
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "warn",
+     "risk": 0.9,
+     "reasons": []
+    }
+   ]
+  },
+  {
+   "variant": "brand added to visual reference AND shared registry",
+   "rows": [
+    {
+     "page": "unseen-brand phish A",
+     "label": 1,
+     "decision": "warn",
+     "risk": 0.9662,
+     "reasons": []
+    },
+    {
+     "page": "unseen-brand phish B",
+     "label": 1,
+     "decision": "warn",
+     "risk": 0.9,
+     "reasons": []
+    },
+    {
+     "page": "unseen-brand legit A",
+     "label": 0,
+     "decision": "allow",
+     "risk": 0.0587,
+     "reasons": []
+    },
+    {
+     "page": "unseen-brand legit B",
+     "label": 0,
+     "decision": "allow",
+     "risk": 0.0587,
+     "reasons": []
+    }
+   ]
+  }
+ ],
+ "calibration": {
+  "real_only": {
+   "n": 14,
+   "n_positive": 7,
+   "n_negative": 7,
+   "raw": {
+    "ece": 0.14086199447525907,
+    "brier": 0.13506121640938448,
+    "log_loss": 0.4784417256832617,
+    "ece_95ci": [
+     0.04052672282832981,
+     0.33683897831363385
+    ],
+    "bins": [
+     {
+      "lo": 0.0,
+      "hi": 0.2,
+      "n": 9,
+      "mean_score": 0.061567802942118305,
+      "frac_positive": 0.2222222222222222,
+      "gap": 0.1606544192801039
+     },
+     {
+      "lo": 0.2,
+      "hi": 0.4,
+      "n": 0,
+      "mean_score": null,
+      "frac_positive": null,
+      "gap": null
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.6,
+      "n": 0,
+      "mean_score": null,
+      "frac_positive": null,
+      "gap": null
+     },
+     {
+      "lo": 0.6,
+      "hi": 0.8,
+      "n": 1,
+      "mean_score": 0.7947828098950485,
+      "frac_positive": 1.0,
+      "gap": 0.20521719010495154
+     },
+     {
+      "lo": 0.8,
+      "hi": 1.0,
+      "n": 4,
+      "mean_score": 0.9197597602430649,
+      "frac_positive": 1.0,
+      "gap": 0.08024023975693506
+     }
+    ]
+   },
+   "temperature_fit": {
+    "T": 1.6535746211859264,
+    "identifiable": true,
+    "separable": false,
+    "at_boundary": false,
+    "nll_before": 0.4784417256832617,
+    "nll_after": 0.42651497345923767
+   },
+   "leave_one_out": {
+    "ece": 0.1904825844660713,
+    "brier": 0.15518472373000214
+   },
+   "auc": 0.8571428571428571,
+   "claim_supported": false,
+   "claim_note": "n=14 (7 phishing) is below the 200 pages / 30 per class needed; report these as measurements and threshold sensitivity, not as calibration."
+  },
+  "sim_visual": {
+   "n": 14,
+   "n_positive": 7,
+   "n_negative": 7,
+   "raw": {
+    "ece": 0.14086199447525907,
+    "brier": 0.13506121640938448,
+    "log_loss": 0.4784417256832617,
+    "ece_95ci": [
+     0.04052672282832981,
+     0.33683897831363385
+    ],
+    "bins": [
+     {
+      "lo": 0.0,
+      "hi": 0.2,
+      "n": 9,
+      "mean_score": 0.061567802942118305,
+      "frac_positive": 0.2222222222222222,
+      "gap": 0.1606544192801039
+     },
+     {
+      "lo": 0.2,
+      "hi": 0.4,
+      "n": 0,
+      "mean_score": null,
+      "frac_positive": null,
+      "gap": null
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.6,
+      "n": 0,
+      "mean_score": null,
+      "frac_positive": null,
+      "gap": null
+     },
+     {
+      "lo": 0.6,
+      "hi": 0.8,
+      "n": 1,
+      "mean_score": 0.7947828098950485,
+      "frac_positive": 1.0,
+      "gap": 0.20521719010495154
+     },
+     {
+      "lo": 0.8,
+      "hi": 1.0,
+      "n": 4,
+      "mean_score": 0.9197597602430649,
+      "frac_positive": 1.0,
+      "gap": 0.08024023975693506
+     }
+    ]
+   },
+   "temperature_fit": {
+    "T": 1.6535746211859264,
+    "identifiable": true,
+    "separable": false,
+    "at_boundary": false,
+    "nll_before": 0.4784417256832617,
+    "nll_after": 0.42651497345923767
+   },
+   "leave_one_out": {
+    "ece": 0.1904825844660713,
+    "brier": 0.15518472373000214
+   },
+   "auc": 0.8571428571428571,
+   "claim_supported": false,
+   "claim_note": "n=14 (7 phishing) is below the 200 pages / 30 per class needed; report these as measurements and threshold sensitivity, not as calibration."
+  },
+  "branch_b_alone": {
+   "n": 14,
+   "n_positive": 7,
+   "n_negative": 7,
+   "raw": {
+    "ece": 0.1685642857142857,
+    "brier": 0.12602585785714285,
+    "log_loss": 0.40829597722674965,
+    "ece_95ci": [
+     0.0637928571428571,
+     0.34170714285714293
+    ],
+    "bins": [
+     {
+      "lo": 0.0,
+      "hi": 0.2,
+      "n": 7,
+      "mean_score": 0.11501428571428572,
+      "frac_positive": 0.2857142857142857,
+      "gap": 0.17069999999999996
+     },
+     {
+      "lo": 0.2,
+      "hi": 0.4,
+      "n": 2,
+      "mean_score": 0.235,
+      "frac_positive": 0.0,
+      "gap": 0.235
+     },
+     {
+      "lo": 0.4,
+      "hi": 0.6,
+      "n": 0,
+      "mean_score": null,
+      "frac_positive": null,
+      "gap": null
+     },
+     {
+      "lo": 0.6,
+      "hi": 0.8,
+      "n": 1,
+      "mean_score": 0.795,
+      "frac_positive": 1.0,
+      "gap": 0.20499999999999996
+     },
+     {
+      "lo": 0.8,
+      "hi": 1.0,
+      "n": 4,
+      "mean_score": 0.8775,
+      "frac_positive": 1.0,
+      "gap": 0.12250000000000005
+     }
+    ]
+   },
+   "temperature_fit": {
+    "T": 1.0945921716846312,
+    "identifiable": true,
+    "separable": false,
+    "at_boundary": false,
+    "nll_before": 0.40829597722674965,
+    "nll_after": 0.40700261383578035
+   },
+   "leave_one_out": {
+    "ece": 0.18244873028873407,
+    "brier": 0.15017060794601744
+   },
+   "auc": 0.8571428571428571,
+   "claim_supported": false,
+   "claim_note": "n=14 (7 phishing) is below the 200 pages / 30 per class needed; report these as measurements and threshold sensitivity, not as calibration."
+  }
+ },
+ "cost": {
+  "fuse_ms": {
+   "median": 0.038199941627681255,
+   "mean": 0.04014495122689931,
+   "p95": 0.0567000824958086,
+   "max": 0.11970009654760361
+  },
+  "adapter_ms_median": 0.006200047209858894,
+  "branch_b_ms_median": 0.481,
+  "peak_memory_kib_all_pages": 10.7470703125,
+  "calls_timed": 4200,
+  "fusion_share_of_pipeline": 0.07270639977020085
+ },
+ "contributions": {
+  "modules": {
+   "visual": {
+    "phishing": {
+     "mean_term": 0.0,
+     "mean_abs_term": 0.0,
+     "mean_score_drop_if_removed": 0.0
+    },
+    "legitimate": {
+     "mean_term": 0.0,
+     "mean_abs_term": 0.0,
+     "mean_score_drop_if_removed": 0.0
+    }
+   },
+   "url": {
+    "phishing": {
+     "mean_term": 0.2938571428571429,
+     "mean_abs_term": 0.6258571428571429,
+     "mean_score_drop_if_removed": 0.20318571428571428
+    },
+    "legitimate": {
+     "mean_term": -0.49228571428571427,
+     "mean_abs_term": 0.49228571428571427,
+     "mean_score_drop_if_removed": 0.013957142857142857
+    }
+   },
+   "dom": {
+    "phishing": {
+     "mean_term": 0.23214285714285712,
+     "mean_abs_term": 0.9138571428571429,
+     "mean_score_drop_if_removed": 0.27062857142857144
+    },
+    "legitimate": {
+     "mean_term": -0.815857142857143,
+     "mean_abs_term": 0.815857142857143,
+     "mean_score_drop_if_removed": 0.04095714285714286
+    }
+   },
+   "text": {
+    "phishing": {
+     "mean_term": 0.34485714285714286,
+     "mean_abs_term": 0.34485714285714286,
+     "mean_score_drop_if_removed": 0.009485714285714288
+    },
+    "legitimate": {
+     "mean_term": -0.6601428571428573,
+     "mean_abs_term": 0.6601428571428573,
+     "mean_score_drop_if_removed": 0.01634285714285714
+    }
+   }
+  },
+  "cross_terms": {
+   "brand_domain_mismatch": {
+    "phishing": 0.8571428571428571,
+    "legitimate": 0.0
+   },
+   "cred_request": {
+    "phishing": 1.0,
+    "legitimate": 0.8571428571428571
+   },
+   "action_mismatch": {
+    "phishing": 0.42857142857142855,
+    "legitimate": 0.0
+   },
+   "link_deception": {
+    "phishing": 0.07142857142857142,
+    "legitimate": 0.0
+   }
+  }
+ }
+}

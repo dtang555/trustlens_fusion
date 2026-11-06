@@ -68,7 +68,7 @@ SCENARIOS = [
 if __name__ == "__main__":
     for name, request in SCENARIOS:
         out = fuse(request)
-        print(f"\n=== {name}: {out['decision'].upper()}  (p_fused={out['p_fused']}) ===")
+        print(f"\n=== {name}: {out['decision'].upper()}  (preliminary risk score {out['risk_score']}) ===")
         if out["uncertainty"]["reasons"]:
             print("  reasons:", ", ".join(out["uncertainty"]["reasons"]))
         print(f"  coverage={out['uncertainty']['coverage']}  disagreement={out['uncertainty']['disagreement']}")

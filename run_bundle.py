@@ -72,7 +72,7 @@ def run_page(page: str, files: dict[str, str]) -> tuple[dict, dict]:
         response = fuse(request)
     except SchemaError as exc:  # same fallback D's middleware must use: never default to allow
         response = {"schema_version": SCHEMA_VERSION, "request_id": page, "decision": "uncertain",
-                    "p_fused": None, "explanations": [], "branch_summary": [],
+                    "risk_score": None, "explanations": [], "branch_summary": [],
                     "uncertainty": {"reasons": ["fusion_unavailable"], "coverage": 0.0, "disagreement": 0.0},
                     "error": str(exc)}
     return request, response
@@ -108,8 +108,8 @@ def main() -> int:
         print("no branch files found (expected <page>.<visual|url|dom|text>.json / .url.txt)")
         return 1
     for page, (_, r) in results.items():
-        p = r["p_fused"]
-        print(f"\n=== {page}: {r['decision'].upper()}  (p_fused={p}) ===")
+        p = r["risk_score"]
+        print(f"\n=== {page}: {r['decision'].upper()}  (risk_score={p}) ===")
         if r["uncertainty"]["reasons"]:
             print("  reasons:", ", ".join(r["uncertainty"]["reasons"]))
         print("  branches:", ", ".join(f"{b['branch']}={b['status']}" for b in r["branch_summary"]) or "none")

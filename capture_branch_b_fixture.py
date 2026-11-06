@@ -1,5 +1,8 @@
 """Capture REAL Branch B output as fixtures.   python capture_branch_b_fixture.py
 
+Needs Student B's url_html_text_branch.py and test_branch.py in this folder (the same files
+used for the unit tests). Overwrites branch_b_fixtures/*.json with analyze() output for the
+phishing-style and legitimate pages defined in test_branch.py.
 """
 import json
 import os

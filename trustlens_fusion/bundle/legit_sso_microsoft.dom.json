@@ -1,0 +1,25 @@
+{
+  "branch": "dom",
+  "status": "ok",
+  "p_phish": 0.25,
+  "reliability": 0.9,
+  "claims": {
+    "brand": "microsoft",
+    "brand_conf": 0.8
+  },
+  "evidence": [
+    {
+      "id": "credential_solicitation",
+      "type": "credential_solicitation",
+      "strength": 0.9,
+      "locator": {
+        "kind": "none",
+        "value": null
+      },
+      "fields": {},
+      "verified": true
+    }
+  ],
+  "missing_flags": [],
+  "latency_ms": 10
+}

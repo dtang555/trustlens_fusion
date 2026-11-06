@@ -40,12 +40,12 @@ def test_phishing_fixture_warns_with_grounded_explanations():
     assert out["explanations"][0]["type"] == "brand_domain_mismatch"
     summary = {b["branch"]: b for b in out["branch_summary"]}
     assert summary["visual"]["status"] == "missing" and not summary["visual"]["used"]
-    assert out["uncertainty"]["coverage"] == 0.6
+    assert out["uncertainty"]["coverage"] == 0.4  # Branch B counts as ONE source: 0.8 / 2 sources
 
 
 def test_legitimate_fixture_allowed():
     out = fuse(build_request(LEGIT))
-    assert out["decision"] == "allow" and out["p_fused"] < 0.01
+    assert out["decision"] == "allow" and out["risk_score"] < 0.2
 
 
 def test_domain_owner_comes_from_registry_not_from_branch_b():
