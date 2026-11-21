@@ -5325,16 +5325,16 @@
  },
  "cost": {
   "fuse_ms": {
-   "median": 0.03980001201853156,
-   "mean": 0.041865666675481146,
-   "p95": 0.05830000736750662,
-   "max": 0.1255999959539622
+   "median": 0.03844998718705028,
+   "mean": 0.04073430955204891,
+   "p95": 0.05709999823011458,
+   "max": 0.20140002015978098
   },
   "adapter_ms_median": 0.006400019628927112,
   "branch_b_ms_median": 0.481,
   "peak_memory_kib_all_pages": 10.4345703125,
   "calls_timed": 4200,
-  "fusion_share_of_pipeline": 0.07549318973703331
+  "fusion_share_of_pipeline": 0.07311968563025227
  },
  "contributions": {
   "modules": {

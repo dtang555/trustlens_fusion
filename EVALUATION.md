@@ -5,7 +5,7 @@ Corpus: **14 pages** (7 phishing-style, 7 legitimate). Branch B output is real; 
 ## Key findings (computed from the tables below)
 
 1. **With the visual module missing, fusion warns on 3/7 phishing pages and Branch B alone (score at or above 0.5) on 5/7.** Fusion routes 4 more phishing pages to uncertain and allows 0, so flagged recall (warn + uncertain) is 1.00 against 0.71 for Branch B. It also sends 3 of 7 legitimate pages to uncertain and warns on 0.
-2. **The rule floor and cross-modal terms carry most of the warnings.** Of 3 warnings, removing the floor removes 2 and removing the cross-modal terms as well removes 3 (phish classic, phish ip host, phish typosquat).
+2. **The rule floor and cross-modal terms carry most of the warnings.** Of 3 warnings, removing the floor removes 2 and removing the cross-modal terms as well removes 3 (phish ip host, phish typosquat, phish classic).
 3. **How Branch B's three modules are combined changes outcomes.** Equal-weight mean (current): 3 warns, 0 missed, AUC 0.86. Noisy-OR (earlier default): 4 warns, 0 missed, AUC 0.86. Discounted log-odds votes (earliest): 3 warns, 0 missed. Mean and noisy-OR differ on 1 page(s): phish shortened + hidden form. Averaging dilutes one strongly suspicious module with weaker ones, where noisy-OR lets evidence accumulate; in exchange the mean cannot be inflated by many weak signals, and a missing module is not counted.
 4. **Knife-edge pages** (score within 0.03 of the allow or warn threshold): none. 2 warning(s) score exactly at the rule-floor value (0.9), so a warn threshold of 0.9 or higher removes them: phish ip host, phish typosquat.
 5. **2 of 7 phishing pages score at or below the allow threshold (0.2), so the score alone cannot tell them from legitimate pages** (evasive: clean domain, no brand text, unseen-brand phish B). Their decisions: uncertain. Only the uncertain state (unseen brand) catches them.
@@ -14,7 +14,7 @@ Corpus: **14 pages** (7 phishing-style, 7 legitimate). Branch B output is real; 
 8. **Single-module loss** (decisions changed per dropped module): real_only: visual 0, url 7, dom 6, text 7; sim_visual: visual 1, url 6, dom 8, text 0. At most 4 phishing pages become allow. **The text module's importance depends on the configuration.** With a simulated visual module it changes 0 decisions; with the visual module missing it changes 7, because 3 warnings lose the brand-domain mismatch (Branch B's text rule is then the only brand claim) and 7 pages fall below the coverage floor.
 9. **A confidently wrong visual module** produced 0 wrong final verdicts; 5 pages were newly routed to uncertain and 7 carry a disagreement flag. `conflict_blocks_warn` changes 0 of 14 decisions relative to the default.
 10. **No calibration claim is possible.** ECE 0.235 has a 95% bootstrap interval of 0.072 to 0.437 on 14 pages; the fitted temperature (2.66) is an in-sample figure, not a result.
-11. **Processing cost is negligible:** fusion takes a median 0.04 ms per page (8% of the Branch B + adapter + fusion pipeline).
+11. **Processing cost is negligible:** fusion takes a median 0.04 ms per page (7% of the Branch B + adapter + fusion pipeline).
 
 ## 1. Per-page results
 
@@ -311,10 +311,10 @@ Contradiction injection (simulated visual): the visual module is replaced by a c
 
 | measure | value |
 | --- | --- |
-| fusion call, median / p95 / max (ms) | 0.040 / 0.058 / 0.126 |
+| fusion call, median / p95 / max (ms) | 0.038 / 0.057 / 0.201 |
 | Branch B to shared-format adapter, median (ms) | 0.006 |
 | Branch B analysis, median (ms, from Student B's module) | 0.481 |
-| fusion share of the Branch B + adapter + fusion pipeline | 7.5% |
+| fusion share of the Branch B + adapter + fusion pipeline | 7.3% |
 | peak memory, fusing all pages (KiB) | 10 |
 | calls timed | 4200 |
 
