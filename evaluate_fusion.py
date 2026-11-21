@@ -57,10 +57,10 @@ def visual_missing() -> dict:
             "missing_flags": ["visual.not_connected"], "model_version": "n/a", "latency_ms": 0}
 
 
-def build(page: dict, mode: str, reference: list[str], registry=REG, extra_known: bool = False) -> dict:
+def build(page: dict, mode: str, reference: list[str], registry=REG, extra_known: bool = False, combine: str | None = None) -> dict:
     vis = visual_missing() if mode == "real_only" else visual_sim(page, reference, extra_known)
     return {"schema_version": SCHEMA_VERSION, "request_id": page["name"],
-            "branches": [vis] + branch_b_adapter.convert(page["branch_b"], page["url"], registry)}
+            "branches": [vis] + branch_b_adapter.convert(page["branch_b"], page["url"], registry, **({"combine": combine} if combine else {}))}
 
 
 def ablate(request: dict, drop: set[str]) -> dict:
@@ -166,6 +166,15 @@ def branch_b_alone(pages) -> dict:
             "auc": cal.auc([p["branch_b"]["risk_score"] for p in pages], [p["label"] for p in pages])}
 
 
+def as_noisy_or(request: dict) -> dict:
+    """Branch B's modules combined by its own noisy-OR (the earlier default) instead of the equal-weight mean."""
+    r = copy.deepcopy(request)
+    for b in r["branches"]:
+        if b.get("source") == "branch_b":
+            b["combine"] = "noisy_or"
+    return r
+
+
 def as_logodds(request: dict) -> dict:
     """The earlier adapter behaviour: Branch B's modules as separate log-odds votes. An empty modality (score 0) was
     floored at 0.01 because a log-odds vote needs a non-zero probability."""
@@ -186,6 +195,7 @@ def ablations(pages, reqs) -> list[dict]:
         ("visual only (drop all Branch B)", {"url", "dom", "text"}, DEFAULT),
         ("no cross-modal terms, no rule floor", set(), replace(DEFAULT, cross_w=ALL_ZERO_CROSS, floor_p=0.0)),
         ("no rule floor", set(), replace(DEFAULT, floor_p=0.0)),
+        ("Branch B combined by noisy-OR (earlier default)", set(), DEFAULT, as_noisy_or),
         ("Branch B modules as discounted log-odds votes (rho = 0.5)", set(), DEFAULT, as_logodds),
         ("Branch B modules as independent log-odds votes (rho = 0)", set(), replace(DEFAULT, rho=0.0), as_logodds),
         ("no uncertain state (binary at 0.5)", set(),
@@ -364,17 +374,25 @@ def findings(R: dict) -> list[str]:
                f"removes {len(lost_no_floor)} and removing the cross-modal terms as well removes {len(lost_no_cross)} "
                f"({', '.join(lost_no_cross) or 'none'}).")
     comb = {a["config"]: a for a in R["ablations"]["real_only"]}
-    nor, lo5 = comb["full system"], comb["Branch B modules as discounted log-odds votes (rho = 0.5)"]
-    differs = [n_ for n_ in nor["decisions"] if nor["decisions"][n_] != lo5["decisions"][n_]]
-    out.append(f"3. **How Branch B's three modules are combined changes outcomes.** One noisy-OR source (current): {nor['TP']} warns, "
-               f"{nor['FN']} missed, AUC {fmt(nor['auc'])}. Discounted log-odds votes (earlier design): {lo5['TP']} warns, {lo5['FN']} missed, "
-               f"AUC {fmt(lo5['auc'])}. The decisions differ on {len(differs)} page(s): {', '.join(differs) or 'none'}. The mechanism, covered by a "
-               "regression test: under the earlier design a module with no findings was scored near 0 and cast a large vote for 'safe'.")
+    cur, nor = comb["full system"], comb["Branch B combined by noisy-OR (earlier default)"]
+    lo5 = comb["Branch B modules as discounted log-odds votes (rho = 0.5)"]
+    differs = [n_ for n_ in cur["decisions"] if cur["decisions"][n_] != nor["decisions"][n_]]
+    out.append(f"3. **How Branch B's three modules are combined changes outcomes.** Equal-weight mean (current): {cur['TP']} warns, "
+               f"{cur['FN']} missed, AUC {fmt(cur['auc'])}. Noisy-OR (earlier default): {nor['TP']} warns, {nor['FN']} missed, AUC {fmt(nor['auc'])}. "
+               f"Discounted log-odds votes (earliest): {lo5['TP']} warns, {lo5['FN']} missed. Mean and noisy-OR differ on {len(differs)} page(s): "
+               f"{', '.join(differs) or 'none'}. Averaging dilutes one strongly suspicious module with weaker ones, where noisy-OR lets evidence accumulate; "
+               "in exchange the mean cannot be inflated by many weak signals, and a missing module is not counted.")
     rows_sv = R["default"]["sim_visual"]
     edge = [f"{r['name']} ({fmt(r['risk'], 3)}, {r['decision']})" for r in rows_sv
             if abs(r["risk"] - DEFAULT.t_high) <= 0.03 or abs(r["risk"] - DEFAULT.t_low) <= 0.03]
-    out.append(f"3b. **Knife-edge pages** (score within 0.03 of a threshold): {'; '.join(edge) or 'none'}. Thresholds, the bias and the "
-               "Branch B source weight can flip these with small changes; see section 2.")
+    at_floor = [r["name"] for r in rows_sv if r["decision"] == "warn" and abs(r["risk"] - DEFAULT.floor_p) < 0.0005]
+    if edge:
+        out.append(f"3b. **Knife-edge pages** (score within 0.03 of a threshold): {'; '.join(edge)}. Thresholds, the bias and the "
+                   "Branch B source weight can flip these with small changes; see section 2.")
+    else:
+        out.append("3b. **Knife-edge pages** (score within 0.03 of the allow or warn threshold): none." +
+                   (f" {len(at_floor)} warning(s) score exactly at the rule-floor value ({DEFAULT.floor_p}), so a warn threshold of "
+                    f"{DEFAULT.floor_p} or higher removes them: {', '.join(at_floor)}." if at_floor else ""))
     low_phish = [r for r in rows_sv if r["label"] == 1 and r["risk"] <= DEFAULT.t_low]
     out.append(f"3c. **{len(low_phish)} of {npos} phishing pages score at or below the allow threshold ({DEFAULT.t_low}), so the score alone cannot "
                f"tell them from legitimate pages** ({', '.join(r['name'] for r in low_phish) or 'none'}). Their decisions: "

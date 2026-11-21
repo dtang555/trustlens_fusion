@@ -67,25 +67,70 @@
     },
     {
       "branch": "url",
-      "status": "error",
-      "p_phish": null,
-      "reliability": null,
-      "missing_flags": [
-        "file.unreadable"
-      ],
-      "model_version": "n/a",
+      "status": "ok",
+      "p_phish": 0.8022,
+      "reliability": 0.9,
+      "features": {
+        "url.length": 48,
+        "url.subdomain_depth": 1,
+        "url.hyphens": 1,
+        "url.digit_ratio": 0.083,
+        "url.entropy": 3.252,
+        "url.has_punycode": false,
+        "url.is_ip": false,
+        "url.has_userinfo": false,
+        "url.is_shortener": false,
+        "url.risky_tld": true,
+        "url.suspicious_tokens": 1,
+        "url.brand_token": false,
+        "url.leet_swap": true,
+        "url.owned_by_brand": false
+      },
+      "claims": {
+        "domain": "paypa1-login.xyz",
+        "domain_owner_brand": null,
+        "brand_in_domain": "paypal"
+      },
+      "evidence": [],
+      "missing_flags": [],
+      "input_quality": {
+        "parsed": true
+      },
+      "model_version": "url-rules-0.1",
       "latency_ms": 0
     },
     {
       "branch": "visual",
-      "status": "error",
-      "p_phish": null,
-      "reliability": null,
-      "missing_flags": [
-        "file.unreadable"
+      "status": "ok",
+      "p_phish": 0.91,
+      "reliability": 0.85,
+      "claims": {
+        "brand": "paypal",
+        "brand_conf": 0.93
+      },
+      "evidence": [
+        {
+          "id": "visual_impersonation",
+          "type": "visual_impersonation",
+          "strength": 0.93,
+          "locator": {
+            "kind": "bbox",
+            "value": [
+              120,
+              40,
+              200,
+              60
+            ]
+          },
+          "fields": {
+            "claimed_brand": "paypal",
+            "similarity": 0.93
+          },
+          "verified": true
+        }
       ],
-      "model_version": "n/a",
-      "latency_ms": 0
+      "missing_flags": [],
+      "latency_ms": 10
     }
   ]
 }

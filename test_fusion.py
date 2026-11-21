@@ -259,11 +259,6 @@ def test_a_module_with_no_findings_adds_nothing_instead_of_voting_safe():
     assert fuse(independent)["diagnostics"]["branch_terms"]["text"] < -1.5
 
 
-def test_branch_b_modules_share_the_source_term_equally():
-    t = fuse(_noisy([0.2, 0.9, 0.0], r=1.0))["diagnostics"]["branch_terms"]
-    assert t["url"] == t["dom"] and t["text"] == 0.0
-
-
 def test_source_with_no_findings_is_weak_evidence_of_safety_not_certainty():
     out = fuse(_noisy([0.0, 0.0, 0.0], r=1.0))
     assert out["diagnostics"]["source_scores"]["branch_b"]["score"] == DEFAULT.source_p_floor
@@ -294,6 +289,58 @@ def test_noisy_or_source_counts_once_for_coverage_and_disagreement():
     out = fuse(r)
     assert out["uncertainty"]["coverage"] == round((0.9 + 0.8) / 2, 3)               # 2 sources, not 4 modules
     assert out["uncertainty"]["disagreement"] > MAX_DISAGREEMENT                      # visual vs the Branch B source
+
+
+# ------------------------------------------ equal-weight mean source (Branch B default) ----
+def _mean(ps, r=0.8, visual=None):
+    """URL / DOM / text modules of one source, combined by the equal-weight mean. None = module missing."""
+    bs = []
+    for n, p in zip(("url", "dom", "text"), ps):
+        b = branch(n, status="missing") if p is None else branch(n, p, r)
+        bs.append(dict(b, source="branch_b", combine="mean"))
+    bs.insert(0, branch("visual", status="missing") if visual is None else visual)
+    return {"schema_version": SCHEMA_VERSION, "request_id": "m", "branches": bs}
+
+
+def test_mean_rule_scores_the_source_as_the_plain_average():
+    out = fuse(_mean([0.9, 0.6, 0.3]))
+    assert out["diagnostics"]["source_scores"]["branch_b"] == {"combine": "mean", "score": 0.6}
+    assert abs(sum(out["diagnostics"]["branch_terms"].values()) - 0.8 * logit(0.6)) < 1e-2
+
+
+def test_mean_rule_weights_modules_equally():
+    a, b = fuse(_mean([0.9, 0.2, 0.4])), fuse(_mean([0.4, 0.9, 0.2]))          # same scores, different modules
+    assert a["risk_score"] == b["risk_score"]
+    heavy = fuse(_mean([0.9, 0.2, 0.4]), replace(DEFAULT, branch_w={"visual": 1.0, "url": 9.0, "dom": 0.1, "text": 0.1}))
+    assert heavy["risk_score"] == a["risk_score"]                              # per-module weights are ignored
+
+
+def test_a_missing_module_is_not_counted_in_the_mean():
+    two = fuse(_mean([0.9, 0.3, None]))["diagnostics"]["source_scores"]["branch_b"]["score"]
+    assert two == 0.6                                                          # (0.9 + 0.3) / 2, not / 3
+    counted_as_zero = fuse(_mean([0.9, 0.3, 0.0]))["diagnostics"]["source_scores"]["branch_b"]["score"]
+    assert counted_as_zero == 0.4 and two > counted_as_zero                    # the dilution that exclusion avoids
+
+
+def test_mean_rule_still_counts_the_source_once_for_coverage():
+    assert fuse(_mean([0.9, 0.6, 0.3]))["uncertainty"]["coverage"] == 0.4      # 0.8 / 2 sources
+    assert fuse(_mean([0.9, None, None]))["uncertainty"]["coverage"] == round(0.8 / 3 / 2, 3)   # 1 of 3 modules usable
+
+
+def test_mean_and_noisy_or_differ_where_one_module_dominates():
+    r = _mean([0.3, 0.81, 0.1])
+    n = _mean([0.3, 0.81, 0.1])
+    for b in n["branches"]:
+        if b.get("source") == "branch_b":
+            b["combine"] = "noisy_or"
+    assert fuse(r)["diagnostics"]["source_scores"]["branch_b"]["score"] == round((0.3 + 0.81 + 0.1) / 3, 4)
+    assert fuse(n)["diagnostics"]["source_scores"]["branch_b"]["score"] > 0.8
+
+
+def test_mixed_mean_and_noisy_or_fall_back_to_log_odds():
+    r = _mean([0.6, 0.6, 0.6])
+    r["branches"][1]["combine"] = "noisy_or"
+    assert "branch_b" not in fuse(r)["diagnostics"]["source_scores"]
 
 
 if __name__ == "__main__":

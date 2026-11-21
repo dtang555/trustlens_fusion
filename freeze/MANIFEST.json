@@ -1,0 +1,54 @@
+{
+ "freeze_id": "eval-freeze-v1",
+ "git_tag": "eval-freeze-v1",
+ "corpus": {
+  "path": "corpus/branch_b_outputs.json",
+  "sha256": "130de9c7154372309040a9d38900d689537f68da7b43bfa4e39dec7af983566b",
+  "n": 14,
+  "n_phishing": 7,
+  "source": "Student B url_html_text_branch.analyze() on inline HTML pages"
+ },
+ "config": {
+  "path": "freeze/frozen_config.json",
+  "sha256": "74c1f4a736b68424b6afb8d48adc460ba8a2d0134658e2f84b4235407ab788b5",
+  "files": {
+   "brand_registry.json": "11f3bce33904913aa26e9c860026a2ad1e2dfa35a6e084886e9fafbf68ac3fd3"
+  }
+ },
+ "code": {
+  "branch_b_adapter.py": "c31368ea10a91774ebdbdb2ebe9069812cc1a5f8c1d31c646bf7c48f6cb6067e",
+  "branch_b_fixtures/legit_paypal_branch_b.json": "a6892573906a9d1f0ea237d3d735a554eb78ed9369481ff8d4126ce715c65553",
+  "branch_b_fixtures/phishing_paypal_branch_b.json": "dc1c50aa679b596db173f34ae4a0a7084313f4d787fbd8f43a47a77a417e0d1d",
+  "build_corpus.py": "28254f04394104d2299d69b998aac5ead615f96cb67fb06e095e8e1f39e0537f",
+  "calibration.py": "30e3fad5b49f5d915c784ae45424a7e60b0f7bf81540b89b9ed576cf4fc2fb1d",
+  "capture_branch_b_fixture.py": "4fe63a0360f83f222dfb7776ffe2ba35d171f4492928f61893e57172951abb8a",
+  "connected_demo.py": "06d6b298741c9c984495d1439f8589817e9197d5c75a164c1e465bb1fe8a6a9e",
+  "demo.py": "f3710f8f8d7fab6b3dcb9b81fd62fed18a6694f8b0d7e5377e0ed13807970dd2",
+  "evaluate_fusion.py": "d05422e287c3e072e931c1fe035cef1a985b24286d3b71354de76120383ef3df",
+  "freeze.py": "f9c00859ce9da49c311263bb1797544c9bc1906517b1e04d88f14f003aa16e91",
+  "fusion.py": "6d20007c74be7dd93d49862247c4d1d24300b58d57c4b25dc1a64ce55aaf1b46",
+  "make_sample_bundle.py": "9821cf7450e41b03a4beb94fa968e1ef20effc70a9cab1a9748eab06a887428a",
+  "run_bundle.py": "eb762fd8be15d2da65a90fd3c31e13e73de22d4302b6e344bc2cf7deca52e4b4",
+  "test_branch_b_adapter.py": "753e228bcf0ff044202ff00f4823a8b44bc65b82083b538d6c6796e92d80082a",
+  "test_calibration.py": "a2e60d92cac4079e13f3597c31e4cafa6853eb7e47fa4b90bccf144f16ad3cad",
+  "test_connected_demo.py": "fdfd6b862c5d2e406aa4cc07e4b66e7005f4bef193c342688fdf60840d769d6f",
+  "test_evaluation.py": "a3f6171c520f95f031e981b47d8f25868a9f1ebf92b5090f1a2ff7373b1bb9b5",
+  "test_freeze.py": "68e85962769b868526c03a84f20db6ad9c1506e8b79c294d72584c29eac3adbb",
+  "test_fusion.py": "b425344bc975feb19e914d2492aee68373639f4c13917dd0d9a0421f96e0373a",
+  "test_integration.py": "d284dfca13a2738f03619eaddbc9c335f38051d1092ca91caec1171119db407c",
+  "url_branch.py": "3b8ccc1c4658f568f27ca970e06d04d8dd5a88afdf2b89c94bd93ed68b98c2cf",
+  "worked_case_branch_b.py": "97aa9d49c6eca5f31cd0249808f56ce2576d98d599d992934ee8f2fbdd56d068"
+ },
+ "results": {
+  "path": "eval_results.json",
+  "sha256_excluding": [
+   "cost"
+  ],
+  "sha256": "a02f3034d395e66270c73623d68783aee2b186c850027aa972cf4fc6cbb66016"
+ },
+ "environment": {
+  "python": "3.12.10",
+  "platform": "Windows-11",
+  "note": "fusion/evaluation use only the standard library; matplotlib is optional (figure only)"
+ }
+}

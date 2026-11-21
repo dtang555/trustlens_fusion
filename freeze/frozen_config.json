@@ -1,0 +1,36 @@
+{
+ "params": {
+  "bias": -2.0,
+  "branch_w": {
+   "dom": 1.0,
+   "text": 0.6,
+   "url": 1.2,
+   "visual": 1.0
+  },
+  "brand_conf_min": 0.6,
+  "calibration_status": "uncalibrated",
+  "conflict_blocks_warn": false,
+  "cross_w": {
+   "action_mismatch": 1.0,
+   "brand_domain_mismatch": 2.0,
+   "cred_request": 1.0,
+   "link_deception": 0.5
+  },
+  "floor_p": 0.9,
+  "max_disagreement": 1.0,
+  "min_coverage": 0.5,
+  "min_coverage_warn": 0.3,
+  "reliable_r": 0.5,
+  "rho": 0.5,
+  "source_p_ceiling": 0.99,
+  "source_p_floor": 0.02,
+  "source_w": {
+   "branch_b": 1.0
+  },
+  "t_high": 0.8,
+  "t_low": 0.2,
+  "temperature": 1.0,
+  "unseen_brand_rule": "ownership"
+ },
+ "schema_version": "0.1.0"
+}

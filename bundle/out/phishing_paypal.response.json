@@ -18,29 +18,53 @@
     },
     {
       "branch": "url",
-      "status": "error",
-      "p_phish": null,
-      "used": false,
+      "status": "ok",
+      "p_phish": 0.8022,
+      "used": true,
       "source": "url"
     },
     {
       "branch": "visual",
-      "status": "error",
-      "p_phish": null,
-      "used": false,
+      "status": "ok",
+      "p_phish": 0.91,
+      "used": true,
       "source": "visual"
     }
   ],
   "score_label": "preliminary risk score",
   "calibration_status": "uncalibrated",
   "decision": "warn",
-  "risk_score": 0.8907,
+  "risk_score": 0.9995,
   "uncertainty": {
     "reasons": [],
-    "coverage": 0.375,
+    "coverage": 0.812,
     "disagreement": 0.0
   },
   "explanations": [
+    {
+      "evidence_id": "x_bdm",
+      "type": "brand_domain_mismatch",
+      "locator": {
+        "kind": "none"
+      },
+      "text": "Page appears to be paypal but is hosted on paypa1-login.xyz, which is not a paypal domain.",
+      "contribution": 2.0
+    },
+    {
+      "evidence_id": "visual_impersonation",
+      "type": "visual_impersonation",
+      "locator": {
+        "kind": "bbox",
+        "value": [
+          120,
+          40,
+          200,
+          60
+        ]
+      },
+      "text": "Page visually resembles paypal (similarity 0.93).",
+      "contribution": 1.967
+    },
     {
       "evidence_id": "credential_solicitation",
       "type": "credential_solicitation",
@@ -50,32 +74,12 @@
       },
       "text": "Page asks you to enter sign-in credentials.",
       "contribution": 0.949
-    },
-    {
-      "evidence_id": "form_action_mismatch",
-      "type": "form_action_mismatch",
-      "locator": {
-        "kind": "none",
-        "value": null
-      },
-      "text": "The form on this page submits to collector.example, not paypa1-login.xyz.",
-      "contribution": 0.844
-    },
-    {
-      "evidence_id": "urgency_language",
-      "type": "urgency_language",
-      "locator": {
-        "kind": "none",
-        "value": null
-      },
-      "text": "Page uses pressuring language (account suspended).",
-      "contribution": 0.305
     }
   ],
   "diagnostics": {
     "method": "baseline_logodds",
-    "rule_floor": false,
-    "z": 2.098,
+    "rule_floor": true,
+    "z": 7.577,
     "consensus_brand": "paypal",
     "temperature": 1.0,
     "rho": 0.5,
@@ -95,11 +99,13 @@
     },
     "source_scores": {},
     "branch_terms": {
+      "visual": 1.967,
+      "url": 1.512,
       "dom": 1.793,
       "text": 0.305
     },
     "cross_terms": {
-      "brand_domain_mismatch": 0.0,
+      "brand_domain_mismatch": 2.0,
       "cred_request": 1.0,
       "action_mismatch": 1.0,
       "link_deception": 0.0

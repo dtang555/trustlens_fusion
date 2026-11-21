@@ -18,6 +18,8 @@ v0.2 changes
       "noisy_or"  the modules share one accumulating score (Branch B): the source is scored ONCE
                   from 1 - prod(1 - p_m), which reproduces the upstream combined score exactly, and a
                   module with no findings adds nothing instead of voting "safe";
+      "mean"      EQUAL weights: the source score is the plain average of its usable modules' scores; a
+                  missing or errored module is simply not counted (it is not in the denominator);
       "logodds"   (default) independent-style modules, summed log-odds discounted within a source
                   by 1 / (1 + (n-1) * rho).
     Coverage and disagreement are measured per source either way.
@@ -188,7 +190,7 @@ class Branch:
     dropped_evidence: int = 0
     error: str | None = None
     source: str = ""  # upstream result this module came from (default: its own name)
-    combine: str = "logodds"  # how modules of one source combine: "logodds" | "noisy_or"
+    combine: str = "logodds"  # how modules of one source combine: "logodds" | "noisy_or" | "mean"
 
     @property
     def usable(self) -> bool:
@@ -202,7 +204,7 @@ def parse_branch(raw: Any) -> Branch:
         raise SchemaError(f"unknown branch: {clean(name)}")
     src = raw.get("source")
     src = clean(src) if isinstance(src, str) and src.strip() else name
-    comb = raw.get("combine") if raw.get("combine") in ("logodds", "noisy_or") else "logodds"
+    comb = raw.get("combine") if raw.get("combine") in ("logodds", "noisy_or", "mean") else "logodds"
     try:
         status = raw.get("status")
         if status not in STATUSES:
@@ -293,16 +295,22 @@ def source_groups(branches: dict[str, Branch]) -> dict[str, list[str]]:
 
 def source_summary(members: list[str], branches: dict[str, Branch], P: Params = DEFAULT) -> dict | None:
     """One source's usable modules reduced to a single verdict (log-odds), or None if none is usable.
+    Missing / errored modules are never counted, whatever the rule.
 
-    noisy_or  p = 1 - prod(1 - p_m), clamped to [source_p_floor, source_p_ceiling]; one verdict for the whole source
+    mean      p = (sum of p_m) / (number of USABLE modules)   equal weights; clamped to [source_p_floor, source_p_ceiling]
+    noisy_or  p = 1 - prod(1 - p_m)                            same clamp
     logodds   reliability-weighted mean of the members' log-odds"""
     used = [branches[n] for n in members if n in branches and branches[n].usable]
     if not used:
         return None
     r = sum(b.reliability for b in used) / len(used)
-    if all(b.combine == "noisy_or" for b in used):
-        p = min(max(1.0 - math.prod(1.0 - b.p_phish for b in used), P.source_p_floor), P.source_p_ceiling)
-        return {"kind": "noisy_or", "used": used, "reliability": r, "p": p, "verdict": logit(p)}
+    kinds = {b.combine for b in used}
+    if len(kinds) == 1 and kinds <= {"noisy_or", "mean"}:
+        kind = kinds.pop()
+        raw = (sum(b.p_phish for b in used) / len(used) if kind == "mean"
+               else 1.0 - math.prod(1.0 - b.p_phish for b in used))
+        p = min(max(raw, P.source_p_floor), P.source_p_ceiling)
+        return {"kind": kind, "used": used, "reliability": r, "p": p, "verdict": logit(p)}
     total_r = sum(b.reliability for b in used)
     verdict = sum(b.reliability * logit(b.p_phish) for b in used) / total_r if total_r > 0 else 0.0
     return {"kind": "logodds", "used": used, "reliability": r, "p": None, "verdict": verdict}
@@ -313,8 +321,8 @@ def score(branches: dict[str, Branch], cross: dict, P: Params = DEFAULT) -> tupl
     Returns (z, branch_terms, cross_terms).
 
     Modules from one source share evidence, so adding their log-odds as if independent double counts.
-      noisy_or sources are scored ONCE (reliability x source weight x logit of the combined score); that term is
-        shared out EQUALLY over the member modules that have findings (p_m > 0), so each Branch B output carries
+      mean / noisy_or sources are scored ONCE (reliability x source weight x logit of the combined score); that term
+        is shared out EQUALLY over the member modules that have findings (p_m > 0), so each Branch B output carries
         the same weight in the explanations.
       logodds sources: each module term is reliability x module weight x logit(p), and the sum over the source is
         scaled by 1 / (1 + (n - 1) * rho): rho = 0 keeps v0.1 behaviour, rho = 1 counts the source once (its mean)."""
@@ -324,7 +332,7 @@ def score(branches: dict[str, Branch], cross: dict, P: Params = DEFAULT) -> tupl
         if info is None:
             continue
         used = info["used"]
-        if info["kind"] == "noisy_or":
+        if info["kind"] in ("noisy_or", "mean"):
             term = info["reliability"] * P.source_w.get(src, 1.0) * info["verdict"]
             # every module that contributed to the source score gets an EQUAL share of its term; a module
             # with no findings (p = 0) adds nothing to the noisy-OR, so it gets no share

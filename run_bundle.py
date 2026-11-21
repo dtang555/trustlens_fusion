@@ -109,7 +109,7 @@ def main() -> int:
         return 1
     for page, (_, r) in results.items():
         p = r["risk_score"]
-        print(f"\n=== {page}: {r['decision'].upper()}  (risk_score={p}) ===")
+        print(f"\n=== {page}: {r['decision'].upper()}  (preliminary risk score {p}) ===")
         if r["uncertainty"]["reasons"]:
             print("  reasons:", ", ".join(r["uncertainty"]["reasons"]))
         print("  branches:", ", ".join(f"{b['branch']}={b['status']}" for b in r["branch_summary"]) or "none")

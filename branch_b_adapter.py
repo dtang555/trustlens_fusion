@@ -13,9 +13,9 @@ Mapping decisions (document these in the report):
   * A modality with no fired rule gets score 0.0. Fusion combines the three modules with Branch B's own
     noisy-OR (combine="noisy_or"), so an empty modality adds nothing rather than voting "safe".
   * Domain ownership (needed for brand-domain mismatch) comes from the shared brand registry.
-  * The three outputs carry source="branch_b" and combine="noisy_or": they are NOT independent evidence.
-    Fusion scores the source ONCE from 1 - prod(1 - p_m) (= Branch B's own combined score) and counts it as
-    one source for coverage and disagreement.
+  * The three outputs carry source="branch_b" and a combine rule: they are NOT independent evidence. Fusion scores
+    the source ONCE and counts it as one source for coverage and disagreement. Default rule "mean": equal weights, and a
+    module whose input is missing is not counted. "noisy_or" (Branch B's own accumulating score) stays selectable.
 
 Field names follow Student B's real output: id, modality, weight, description, detail.
 (`details` is also accepted.) html.mismatched_link currently reports only {"count": n}; the
@@ -34,6 +34,10 @@ PREFIX_TO_BRANCH = {"url": "url", "html": "dom", "text": "text"}
 # All three modules come from ONE Branch B result and share its rules, so they are correlated.
 # Tagging them with a common source id lets fusion discount them instead of counting 3 voices.
 SOURCE_ID = "branch_b"
+# How the three modules combine into Branch B's source score (see fusion.source_summary):
+#   "mean"      equal weights; a module whose input is missing is not counted (default)
+#   "noisy_or"  Branch B's own accumulating combination (earlier default)
+DEFAULT_COMBINE = "mean"
 
 # rule id -> (shared evidence type, builder(details, ctx) -> fields)
 EVIDENCE_MAP = {
@@ -54,7 +58,7 @@ def _noisy_or(weights: list[float]) -> float:
     return 1.0 - prod(1.0 - w for w in weights)
 
 
-def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
+def convert(result: dict, url: str, registry: dict | None = None, combine: str = DEFAULT_COMBINE) -> list[dict]:
     registry = registry or url_branch.load_registry()
     host = urlsplit(url if "://" in url else "http://" + url).hostname or ""
     try:  # a raw IP has no registered domain: report the address itself
@@ -73,8 +77,20 @@ def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
         if prefix in PREFIX_TO_BRANCH:
             items[PREFIX_TO_BRANCH[prefix]].append(ev)
 
+    # Branch B reports a module's INPUT as missing in `missing`: with no HTML it lists "html" and "visible_text".
+    # Such a module did not look at anything, so it is sent as status "missing" and is NOT counted (a score of 0.0 would
+    # be a real "looked and found nothing" measurement). "ocr_text" and "limited_visible_text" are degraded inputs, not
+    # missing modules: they only lower reliability (Branch B's own confidence).
+    no_input = {"dom": "html" in missing, "text": "visible_text" in missing}
+
     out = {}
     for branch, evs in items.items():
+        if no_input.get(branch):
+            flag = "html" if branch == "dom" else "visible_text"
+            out[branch] = {"branch": branch, "source": SOURCE_ID, "combine": combine, "status": "missing", "p_phish": None,
+                           "reliability": None, "features": {}, "claims": {}, "evidence": [], "missing_flags": [flag],
+                           "model_version": "branch-b-adapter-0.1", "latency_ms": 0}
+            continue
         weights = [float(e["weight"]) for e in evs]
         p = _noisy_or(weights)  # 0.0 when no rule fired in this modality: it adds nothing to the source score
         features, evidence, claims = {}, [], {}
@@ -93,7 +109,7 @@ def convert(result: dict, url: str, registry: dict | None = None) -> list[dict]:
         if branch == "url":
             claims.update({"domain": domain, "domain_owner_brand": owner})
         out[branch] = {
-            "branch": branch, "source": SOURCE_ID, "combine": "noisy_or",
+            "branch": branch, "source": SOURCE_ID, "combine": combine,
             "status": "partial" if (branch == "text" and "limited_visible_text" in missing) else "ok",
             "p_phish": round(p, 4), "reliability": reliability, "features": features, "claims": claims,
             "evidence": evidence, "missing_flags": missing if branch == "text" else [],

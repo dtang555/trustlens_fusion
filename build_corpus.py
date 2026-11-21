@@ -3,7 +3,7 @@
     python build_corpus.py [folder containing url_html_text_branch.py and test_branch.py]
 
 Pages:
-  * 9 samples copied from Student B's evaluate.py (added_by: student_b)
+  * 9 samples copied from Student B's evaluate.py
   * 1 little-text legitimate login and 4 unseen-brand pages added by Student C (brand not in Branch B's or the visual reference
     set), 2 phishing-style and 2 legitimate, to exercise the unseen-brand path.
 Each page records the ground-truth label, the brand the page visibly shows (what a logo

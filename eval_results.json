@@ -99,16 +99,16 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.1036,
-    "z": -2.158,
+    "risk": 0.0337,
+    "z": -3.355,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
-     "url": -0.217,
-     "dom": -0.447,
-     "text": -0.494
+     "url": -0.785,
+     "dom": -0.785,
+     "text": -0.785
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -124,8 +124,8 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.031,
-    "z": -3.442,
+    "risk": 0.01,
+    "z": -4.597,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
@@ -133,7 +133,7 @@
     "branch_terms": {
      "url": 0.0,
      "dom": 0.0,
-     "text": -2.442
+     "text": -3.597
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -174,15 +174,15 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -199,16 +199,16 @@
     "group": "phish",
     "unseen": false,
     "decision": "warn",
-    "risk": 0.9979,
-    "z": 6.176,
+    "risk": 0.9731,
+    "z": 3.587,
     "floor": true,
     "coverage": 0.4,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
-     "url": 1.111,
-     "dom": 1.453,
-     "text": 1.112
+     "url": 0.362,
+     "dom": 0.362,
+     "text": 0.362
     },
     "cross_terms": {
      "brand_domain_mismatch": 2.0,
@@ -224,16 +224,16 @@
     "group": "phish",
     "unseen": false,
     "decision": "warn",
-    "risk": 0.9194,
-    "z": 2.435,
+    "risk": 0.9,
+    "z": 2.197,
     "floor": true,
     "coverage": 0.5,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
-     "url": 0.74,
-     "dom": 0.092,
-     "text": 0.603
+     "url": -0.148,
+     "dom": -0.148,
+     "text": -0.148
     },
     "cross_terms": {
      "brand_domain_mismatch": 2.0,
@@ -249,16 +249,16 @@
     "group": "phish",
     "unseen": false,
     "decision": "warn",
-    "risk": 0.9295,
-    "z": 2.579,
+    "risk": 0.9,
+    "z": 2.197,
     "floor": true,
     "coverage": 0.5,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
-     "url": 0.865,
-     "dom": 0.094,
-     "text": 0.62
+     "url": -0.126,
+     "dom": -0.126,
+     "text": -0.126
     },
     "cross_terms": {
      "brand_domain_mismatch": 2.0,
@@ -273,17 +273,20 @@
     "label": 1,
     "group": "phish",
     "unseen": false,
-    "decision": "warn",
-    "risk": 0.8322,
-    "z": 1.601,
+    "decision": "uncertain",
+    "risk": 0.4226,
+    "z": -0.312,
     "floor": false,
     "coverage": 0.4,
     "disagreement": 0.0,
-    "reasons": [],
+    "reasons": [
+     "low_coverage",
+     "unseen_brand"
+    ],
     "branch_terms": {
-     "url": 0.268,
-     "dom": 1.253,
-     "text": 0.079
+     "url": -0.104,
+     "dom": -0.104,
+     "text": -0.104
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -291,7 +294,7 @@
      "action_mismatch": 1.0,
      "link_deception": 0.0
     },
-    "top_explanation": "The form on this page submits to a.top, not bit.ly."
+    "top_explanation": null
    },
    {
     "name": "evasive: clean domain, no brand text",
@@ -299,8 +302,8 @@
     "group": "evasive",
     "unseen": false,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
@@ -308,8 +311,8 @@
      "unseen_brand"
     ],
     "branch_terms": {
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -326,8 +329,8 @@
     "group": "legit",
     "unseen": false,
     "decision": "uncertain",
-    "risk": 0.123,
-    "z": -1.964,
+    "risk": 0.0513,
+    "z": -2.918,
     "floor": false,
     "coverage": 0.4,
     "disagreement": 0.0,
@@ -335,9 +338,9 @@
      "low_coverage"
     ],
     "branch_terms": {
-     "url": -0.189,
-     "dom": -0.388,
-     "text": -0.388
+     "url": -0.639,
+     "dom": -0.639,
+     "text": -0.639
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -353,8 +356,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.7948,
-    "z": 1.354,
+    "risk": 0.3233,
+    "z": -0.738,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
@@ -362,9 +365,9 @@
      "unseen_brand"
     ],
     "branch_terms": {
-     "url": 0.235,
-     "dom": 1.119,
-     "text": -0.0
+     "url": -0.369,
+     "dom": -0.369,
+     "text": 0.0
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -372,7 +375,7 @@
      "action_mismatch": 1.0,
      "link_deception": 0.0
     },
-    "top_explanation": "The form on this page submits to other-site.xyz, not verify-account.top."
+    "top_explanation": null
    },
    {
     "name": "unseen-brand phish B",
@@ -380,8 +383,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
@@ -389,8 +392,8 @@
      "unseen_brand"
     ],
     "branch_terms": {
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -407,8 +410,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
@@ -416,8 +419,8 @@
      "unseen_brand"
     ],
     "branch_terms": {
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -434,8 +437,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.5,
     "disagreement": 0.0,
@@ -443,8 +446,8 @@
      "unseen_brand"
     ],
     "branch_terms": {
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -463,17 +466,17 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.1036,
-    "z": -2.158,
+    "risk": 0.0337,
+    "z": -3.355,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.217,
-     "dom": -0.447,
-     "text": -0.494
+     "url": -0.785,
+     "dom": -0.785,
+     "text": -0.785
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -489,8 +492,8 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.031,
-    "z": -3.442,
+    "risk": 0.01,
+    "z": -4.597,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
@@ -499,7 +502,7 @@
      "visual": 0.0,
      "url": 0.0,
      "dom": 0.0,
-     "text": -2.442
+     "text": -3.597
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -541,16 +544,16 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -567,17 +570,17 @@
     "group": "phish",
     "unseen": false,
     "decision": "warn",
-    "risk": 0.9979,
-    "z": 6.176,
+    "risk": 0.9731,
+    "z": 3.587,
     "floor": true,
     "coverage": 0.75,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
      "visual": 0.0,
-     "url": 1.111,
-     "dom": 1.453,
-     "text": 1.112
+     "url": 0.362,
+     "dom": 0.362,
+     "text": 0.362
     },
     "cross_terms": {
      "brand_domain_mismatch": 2.0,
@@ -593,17 +596,17 @@
     "group": "phish",
     "unseen": false,
     "decision": "warn",
-    "risk": 0.9194,
-    "z": 2.435,
+    "risk": 0.9,
+    "z": 2.197,
     "floor": true,
     "coverage": 0.85,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
      "visual": 0.0,
-     "url": 0.74,
-     "dom": 0.092,
-     "text": 0.603
+     "url": -0.148,
+     "dom": -0.148,
+     "text": -0.148
     },
     "cross_terms": {
      "brand_domain_mismatch": 2.0,
@@ -619,17 +622,17 @@
     "group": "phish",
     "unseen": false,
     "decision": "warn",
-    "risk": 0.9295,
-    "z": 2.579,
+    "risk": 0.9,
+    "z": 2.197,
     "floor": true,
     "coverage": 0.85,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
      "visual": 0.0,
-     "url": 0.865,
-     "dom": 0.094,
-     "text": 0.62
+     "url": -0.126,
+     "dom": -0.126,
+     "text": -0.126
     },
     "cross_terms": {
      "brand_domain_mismatch": 2.0,
@@ -644,18 +647,20 @@
     "label": 1,
     "group": "phish",
     "unseen": false,
-    "decision": "warn",
-    "risk": 0.8322,
-    "z": 1.601,
+    "decision": "uncertain",
+    "risk": 0.4226,
+    "z": -0.312,
     "floor": false,
     "coverage": 0.75,
     "disagreement": 0.0,
-    "reasons": [],
+    "reasons": [
+     "unseen_brand"
+    ],
     "branch_terms": {
      "visual": 0.0,
-     "url": 0.268,
-     "dom": 1.253,
-     "text": 0.079
+     "url": -0.104,
+     "dom": -0.104,
+     "text": -0.104
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -663,7 +668,7 @@
      "action_mismatch": 1.0,
      "link_deception": 0.0
     },
-    "top_explanation": "The form on this page submits to a.top, not bit.ly."
+    "top_explanation": null
    },
    {
     "name": "evasive: clean domain, no brand text",
@@ -671,8 +676,8 @@
     "group": "evasive",
     "unseen": false,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
@@ -681,8 +686,8 @@
     ],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -699,17 +704,17 @@
     "group": "legit",
     "unseen": false,
     "decision": "allow",
-    "risk": 0.123,
-    "z": -1.964,
+    "risk": 0.0513,
+    "z": -2.918,
     "floor": false,
     "coverage": 0.75,
     "disagreement": 0.0,
     "reasons": [],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.189,
-     "dom": -0.388,
-     "text": -0.388
+     "url": -0.639,
+     "dom": -0.639,
+     "text": -0.639
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -725,8 +730,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.7948,
-    "z": 1.354,
+    "risk": 0.3233,
+    "z": -0.738,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
@@ -735,9 +740,9 @@
     ],
     "branch_terms": {
      "visual": 0.0,
-     "url": 0.235,
-     "dom": 1.119,
-     "text": -0.0
+     "url": -0.369,
+     "dom": -0.369,
+     "text": 0.0
     },
     "cross_terms": {
      "brand_domain_mismatch": 0.0,
@@ -745,7 +750,7 @@
      "action_mismatch": 1.0,
      "link_deception": 0.0
     },
-    "top_explanation": "The form on this page submits to other-site.xyz, not verify-account.top."
+    "top_explanation": null
    },
    {
     "name": "unseen-brand phish B",
@@ -753,8 +758,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
@@ -763,8 +768,8 @@
     ],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -781,8 +786,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
@@ -791,8 +796,8 @@
     ],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -809,8 +814,8 @@
     "group": "unseen_brand",
     "unseen": true,
     "decision": "uncertain",
-    "risk": 0.0587,
-    "z": -2.774,
+    "risk": 0.019,
+    "z": -3.944,
     "floor": false,
     "coverage": 0.85,
     "disagreement": 0.0,
@@ -819,8 +824,8 @@
     ],
     "branch_terms": {
      "visual": 0.0,
-     "url": -0.581,
-     "dom": -1.193,
+     "url": -1.472,
+     "dom": -1.472,
      "text": 0.0
     },
     "cross_terms": {
@@ -835,31 +840,31 @@
  },
  "metrics": {
   "real_only": {
-   "TP": 4,
+   "TP": 3,
    "FN": 0,
-   "phish_uncertain": 3,
+   "phish_uncertain": 4,
    "FP": 0,
    "TN": 4,
    "legit_uncertain": 3,
    "precision": 1.0,
-   "recall": 0.5714285714285714,
+   "recall": 0.42857142857142855,
    "fpr": 0.0,
    "flagged_recall": 1.0,
-   "uncertain_rate": 0.42857142857142855,
+   "uncertain_rate": 0.5,
    "auc": 0.8571428571428571
   },
   "sim_visual": {
-   "TP": 4,
+   "TP": 3,
    "FN": 0,
-   "phish_uncertain": 3,
+   "phish_uncertain": 4,
    "FP": 0,
    "TN": 5,
    "legit_uncertain": 2,
    "precision": 1.0,
-   "recall": 0.5714285714285714,
+   "recall": 0.42857142857142855,
    "fpr": 0.0,
    "flagged_recall": 1.0,
-   "uncertain_rate": 0.35714285714285715,
+   "uncertain_rate": 0.42857142857142855,
    "auc": 0.8571428571428571
   }
  },
@@ -1009,51 +1014,7 @@
     "t_high (warn at or above)": [
      {
       "value": 0.5,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 4,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.6,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 4,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.7,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 4,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.8,
       "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 4,
-      "uncertain": 6,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.9,
-      "flips_vs_default": 1,
       "warn": 3,
       "allow": 4,
       "uncertain": 7,
@@ -1063,8 +1024,52 @@
       "fpr": 0.0
      },
      {
+      "value": 0.6,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.7,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.8,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.9,
+      "flips_vs_default": 2,
+      "warn": 1,
+      "allow": 4,
+      "uncertain": 9,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.14285714285714285,
+      "fpr": 0.0
+     },
+     {
       "value": 0.95,
-      "flips_vs_default": 3,
+      "flips_vs_default": 2,
       "warn": 1,
       "allow": 4,
       "uncertain": 9,
@@ -1077,57 +1082,57 @@
     "t_low (allow at or below)": [
      {
       "value": 0.05,
-      "flips_vs_default": 2,
-      "warn": 4,
-      "allow": 2,
-      "uncertain": 8,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.1,
-      "flips_vs_default": 1,
-      "warn": 4,
-      "allow": 3,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
       "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.2,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.3,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.4,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      }
     ],
@@ -1135,45 +1140,45 @@
      {
       "value": 0.3,
       "flips_vs_default": 1,
-      "warn": 4,
+      "warn": 3,
       "allow": 5,
-      "uncertain": 5,
+      "uncertain": 6,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.4,
       "flips_vs_default": 1,
-      "warn": 4,
+      "warn": 3,
       "allow": 5,
-      "uncertain": 5,
+      "uncertain": 6,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.5,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.6,
       "flips_vs_default": 4,
-      "warn": 4,
+      "warn": 3,
       "allow": 0,
-      "uncertain": 10,
+      "uncertain": 11,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      }
     ],
@@ -1181,50 +1186,50 @@
      {
       "value": 0.0,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.2,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.3,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.4,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.5,
-      "flips_vs_default": 1,
+      "flips_vs_default": 0,
       "warn": 3,
       "allow": 4,
       "uncertain": 7,
@@ -1238,52 +1243,52 @@
      {
       "value": 0.5,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 1.0,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 2.0,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 3.0,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      }
     ],
     "bias": [
      {
       "value": -3.0,
-      "flips_vs_default": 1,
+      "flips_vs_default": 0,
       "warn": 3,
       "allow": 4,
       "uncertain": 7,
@@ -1294,7 +1299,7 @@
      },
      {
       "value": -2.5,
-      "flips_vs_default": 1,
+      "flips_vs_default": 0,
       "warn": 3,
       "allow": 4,
       "uncertain": 7,
@@ -1306,63 +1311,63 @@
      {
       "value": -2.0,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": -1.5,
-      "flips_vs_default": 1,
-      "warn": 5,
+      "flips_vs_default": 0,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 5,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": -1.0,
-      "flips_vs_default": 2,
-      "warn": 5,
-      "allow": 3,
-      "uncertain": 6,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": -0.5,
-      "flips_vs_default": 3,
-      "warn": 5,
-      "allow": 2,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 4,
       "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 0.0,
-      "flips_vs_default": 3,
-      "warn": 5,
-      "allow": 2,
+      "flips_vs_default": 2,
+      "warn": 4,
+      "allow": 3,
       "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.5714285714285714,
       "fpr": 0.0
      }
     ],
     "Branch B source weight": [
      {
       "value": 0.5,
-      "flips_vs_default": 1,
+      "flips_vs_default": 0,
       "warn": 3,
       "allow": 4,
       "uncertain": 7,
@@ -1374,45 +1379,1197 @@
      {
       "value": 1.0,
       "flips_vs_default": 0,
-      "warn": 4,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 6,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.5714285714285714,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 1.5,
-      "flips_vs_default": 1,
-      "warn": 5,
+      "flips_vs_default": 0,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 5,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 2.0,
-      "flips_vs_default": 1,
-      "warn": 5,
+      "flips_vs_default": 0,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 5,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      },
      {
       "value": 3.0,
-      "flips_vs_default": 1,
-      "warn": 5,
+      "flips_vs_default": 0,
+      "warn": 3,
       "allow": 4,
-      "uncertain": 5,
+      "uncertain": 7,
       "FN": 0,
       "FP": 0,
-      "recall": 0.7142857142857143,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     }
+    ]
+   },
+   "cost_grid": {
+    "cost A (miss 10, false warn 3, uncertain 1)": {
+     "cells": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.05,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.1,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.2,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.3,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.4,
+       "cost": 9,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      }
+     ],
+     "min_cost": 7,
+     "argmin": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 7,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      }
+     ],
+     "default_cost": 7
+    },
+    "cost B (miss 10, false warn 1, uncertain 2)": {
+     "cells": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.05,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.1,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.2,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.3,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      },
+      {
+       "t_high": 0.9,
+       "t_low": 0.4,
+       "cost": 18,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 9
+      }
+     ],
+     "min_cost": 14,
+     "argmin": [
+      {
+       "t_high": 0.5,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.05,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 14,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 7
+      }
+     ],
+     "default_cost": 14
+    }
+   }
+  },
+  "sim_visual": {
+   "one_at_a_time": {
+    "t_high (warn at or above)": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.6,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.7,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.8,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.9,
+      "flips_vs_default": 2,
+      "warn": 1,
+      "allow": 5,
+      "uncertain": 8,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.14285714285714285,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.95,
+      "flips_vs_default": 2,
+      "warn": 1,
+      "allow": 5,
+      "uncertain": 8,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.14285714285714285,
+      "fpr": 0.0
+     }
+    ],
+    "t_low (allow at or below)": [
+     {
+      "value": 0.05,
+      "flips_vs_default": 1,
+      "warn": 3,
+      "allow": 4,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.1,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.2,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     }
+    ],
+    "min_coverage (to allow)": [
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.6,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     }
+    ],
+    "min_coverage_warn": [
+     {
+      "value": 0.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.2,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.3,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.4,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     }
+    ],
+    "max_disagreement": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 2.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 3.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     }
+    ],
+    "bias": [
+     {
+      "value": -3.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -2.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -2.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -1.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -1.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": -0.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 0.0,
+      "flips_vs_default": 3,
+      "warn": 4,
+      "allow": 3,
+      "uncertain": 7,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.5714285714285714,
+      "fpr": 0.0
+     }
+    ],
+    "Branch B source weight": [
+     {
+      "value": 0.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 1.5,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 2.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
+      "fpr": 0.0
+     },
+     {
+      "value": 3.0,
+      "flips_vs_default": 0,
+      "warn": 3,
+      "allow": 5,
+      "uncertain": 6,
+      "FN": 0,
+      "FP": 0,
+      "recall": 0.42857142857142855,
       "fpr": 0.0
      }
     ]
@@ -1439,26 +2596,26 @@
       {
        "t_high": 0.5,
        "t_low": 0.2,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.3,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.4,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
@@ -1479,26 +2636,26 @@
       {
        "t_high": 0.6,
        "t_low": 0.2,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.3,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.4,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
@@ -1519,42 +2676,42 @@
       {
        "t_high": 0.7,
        "t_low": 0.2,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.3,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.4,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.8,
        "t_low": 0.05,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 8
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.1,
        "cost": 7,
        "FN": 0,
        "FP": 0,
        "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.8,
@@ -1599,101 +2756,157 @@
       {
        "t_high": 0.9,
        "t_low": 0.2,
-       "cost": 7,
+       "cost": 8,
        "FN": 0,
        "FP": 0,
-       "uncertain": 7
+       "uncertain": 8
       },
       {
        "t_high": 0.9,
        "t_low": 0.3,
-       "cost": 7,
+       "cost": 8,
        "FN": 0,
        "FP": 0,
-       "uncertain": 7
+       "uncertain": 8
       },
       {
        "t_high": 0.9,
        "t_low": 0.4,
-       "cost": 7,
+       "cost": 8,
        "FN": 0,
        "FP": 0,
-       "uncertain": 7
+       "uncertain": 8
       }
      ],
-     "min_cost": 5,
+     "min_cost": 6,
      "argmin": [
       {
        "t_high": 0.5,
-       "t_low": 0.2,
-       "cost": 5,
+       "t_low": 0.1,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.3,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.4,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.2,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.3,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.4,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.2,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.3,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.4,
-       "cost": 5,
+       "cost": 6,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 6,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       }
      ],
      "default_cost": 6
@@ -1719,26 +2932,26 @@
       {
        "t_high": 0.5,
        "t_low": 0.2,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.3,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.4,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
@@ -1759,26 +2972,26 @@
       {
        "t_high": 0.6,
        "t_low": 0.2,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.3,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.4,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
@@ -1799,42 +3012,42 @@
       {
        "t_high": 0.7,
        "t_low": 0.2,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.3,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.4,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.8,
        "t_low": 0.05,
-       "cost": 16,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 8
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.1,
        "cost": 14,
        "FN": 0,
        "FP": 0,
        "uncertain": 7
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.8,
@@ -1879,1080 +3092,160 @@
       {
        "t_high": 0.9,
        "t_low": 0.2,
-       "cost": 14,
+       "cost": 16,
        "FN": 0,
        "FP": 0,
-       "uncertain": 7
+       "uncertain": 8
       },
       {
        "t_high": 0.9,
        "t_low": 0.3,
-       "cost": 14,
+       "cost": 16,
        "FN": 0,
        "FP": 0,
-       "uncertain": 7
+       "uncertain": 8
       },
       {
        "t_high": 0.9,
        "t_low": 0.4,
-       "cost": 14,
+       "cost": 16,
        "FN": 0,
        "FP": 0,
-       "uncertain": 7
+       "uncertain": 8
       }
      ],
-     "min_cost": 10,
+     "min_cost": 12,
      "argmin": [
       {
        "t_high": 0.5,
-       "t_low": 0.2,
-       "cost": 10,
+       "t_low": 0.1,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.5,
+       "t_low": 0.2,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.3,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.5,
        "t_low": 0.4,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.6,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.2,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.3,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.6,
        "t_low": 0.4,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.7,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.2,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.3,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
       },
       {
        "t_high": 0.7,
        "t_low": 0.4,
-       "cost": 10,
+       "cost": 12,
        "FN": 0,
        "FP": 0,
-       "uncertain": 5
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.1,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.2,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.3,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
+      },
+      {
+       "t_high": 0.8,
+       "t_low": 0.4,
+       "cost": 12,
+       "FN": 0,
+       "FP": 0,
+       "uncertain": 6
       }
      ],
      "default_cost": 12
-    }
-   }
-  },
-  "sim_visual": {
-   "one_at_a_time": {
-    "t_high (warn at or above)": [
-     {
-      "value": 0.5,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.6,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.7,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.8,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.9,
-      "flips_vs_default": 1,
-      "warn": 3,
-      "allow": 5,
-      "uncertain": 6,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.42857142857142855,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.95,
-      "flips_vs_default": 3,
-      "warn": 1,
-      "allow": 5,
-      "uncertain": 8,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.14285714285714285,
-      "fpr": 0.0
-     }
-    ],
-    "t_low (allow at or below)": [
-     {
-      "value": 0.05,
-      "flips_vs_default": 3,
-      "warn": 4,
-      "allow": 2,
-      "uncertain": 8,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.1,
-      "flips_vs_default": 2,
-      "warn": 4,
-      "allow": 3,
-      "uncertain": 7,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.2,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.3,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.4,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     }
-    ],
-    "min_coverage (to allow)": [
-     {
-      "value": 0.3,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.4,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.5,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.6,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     }
-    ],
-    "min_coverage_warn": [
-     {
-      "value": 0.0,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.2,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.3,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.4,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.5,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     }
-    ],
-    "max_disagreement": [
-     {
-      "value": 0.5,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 1.0,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 2.0,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 3.0,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     }
-    ],
-    "bias": [
-     {
-      "value": -3.0,
-      "flips_vs_default": 1,
-      "warn": 3,
-      "allow": 5,
-      "uncertain": 6,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.42857142857142855,
-      "fpr": 0.0
-     },
-     {
-      "value": -2.5,
-      "flips_vs_default": 1,
-      "warn": 3,
-      "allow": 5,
-      "uncertain": 6,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.42857142857142855,
-      "fpr": 0.0
-     },
-     {
-      "value": -2.0,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": -1.5,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": -1.0,
-      "flips_vs_default": 3,
-      "warn": 5,
-      "allow": 3,
-      "uncertain": 6,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": -0.5,
-      "flips_vs_default": 4,
-      "warn": 5,
-      "allow": 2,
-      "uncertain": 7,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 0.0,
-      "flips_vs_default": 4,
-      "warn": 5,
-      "allow": 2,
-      "uncertain": 7,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     }
-    ],
-    "Branch B source weight": [
-     {
-      "value": 0.5,
-      "flips_vs_default": 1,
-      "warn": 3,
-      "allow": 5,
-      "uncertain": 6,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.42857142857142855,
-      "fpr": 0.0
-     },
-     {
-      "value": 1.0,
-      "flips_vs_default": 0,
-      "warn": 4,
-      "allow": 5,
-      "uncertain": 5,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.5714285714285714,
-      "fpr": 0.0
-     },
-     {
-      "value": 1.5,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 2.0,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     },
-     {
-      "value": 3.0,
-      "flips_vs_default": 1,
-      "warn": 5,
-      "allow": 5,
-      "uncertain": 4,
-      "FN": 0,
-      "FP": 0,
-      "recall": 0.7142857142857143,
-      "fpr": 0.0
-     }
-    ]
-   },
-   "cost_grid": {
-    "cost A (miss 10, false warn 3, uncertain 1)": {
-     "cells": [
-      {
-       "t_high": 0.5,
-       "t_low": 0.05,
-       "cost": 7,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.1,
-       "cost": 6,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.2,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.3,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.4,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.05,
-       "cost": 7,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.1,
-       "cost": 6,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.2,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.3,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.4,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.05,
-       "cost": 7,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.1,
-       "cost": 6,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.2,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.3,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.4,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.05,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 8
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.1,
-       "cost": 7,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.2,
-       "cost": 5,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 5
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.3,
-       "cost": 5,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 5
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.4,
-       "cost": 5,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 5
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.05,
-       "cost": 9,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 9
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.1,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 8
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.2,
-       "cost": 6,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.3,
-       "cost": 6,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.4,
-       "cost": 6,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      }
-     ],
-     "min_cost": 4,
-     "argmin": [
-      {
-       "t_high": 0.5,
-       "t_low": 0.2,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.3,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.4,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.2,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.3,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.4,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.2,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.3,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.4,
-       "cost": 4,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      }
-     ],
-     "default_cost": 5
-    },
-    "cost B (miss 10, false warn 1, uncertain 2)": {
-     "cells": [
-      {
-       "t_high": 0.5,
-       "t_low": 0.05,
-       "cost": 14,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.1,
-       "cost": 12,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.2,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.3,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.4,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.05,
-       "cost": 14,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.1,
-       "cost": 12,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.2,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.3,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.4,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.05,
-       "cost": 14,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.1,
-       "cost": 12,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.2,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.3,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.4,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.05,
-       "cost": 16,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 8
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.1,
-       "cost": 14,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 7
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.2,
-       "cost": 10,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 5
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.3,
-       "cost": 10,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 5
-      },
-      {
-       "t_high": 0.8,
-       "t_low": 0.4,
-       "cost": 10,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 5
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.05,
-       "cost": 18,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 9
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.1,
-       "cost": 16,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 8
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.2,
-       "cost": 12,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.3,
-       "cost": 12,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      },
-      {
-       "t_high": 0.9,
-       "t_low": 0.4,
-       "cost": 12,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 6
-      }
-     ],
-     "min_cost": 8,
-     "argmin": [
-      {
-       "t_high": 0.5,
-       "t_low": 0.2,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.3,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.5,
-       "t_low": 0.4,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.2,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.3,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.6,
-       "t_low": 0.4,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.2,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.3,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      },
-      {
-       "t_high": 0.7,
-       "t_low": 0.4,
-       "cost": 8,
-       "FN": 0,
-       "FP": 0,
-       "uncertain": 4
-      }
-     ],
-     "default_cost": 10
     }
    }
   }
@@ -2961,21 +3254,21 @@
   "real_only": [
    {
     "config": "full system",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 4,
     "legit_uncertain": 3,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.42857142857142855,
+    "uncertain_rate": 0.5,
     "auc": 0.8571428571428571,
     "flips_vs_full": 0,
-    "cost_A": 6,
-    "cost_B": 12,
+    "cost_A": 7,
+    "cost_B": 14,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -2984,7 +3277,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "uncertain",
      "unseen-brand phish A": "uncertain",
@@ -3007,7 +3300,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 1.0,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 8,
+    "flips_vs_full": 7,
     "cost_A": 14,
     "cost_B": 28,
     "decisions": {
@@ -3029,21 +3322,21 @@
    },
    {
     "config": "drop DOM module",
-    "TP": 2,
+    "TP": 1,
     "FN": 0,
-    "phish_uncertain": 5,
+    "phish_uncertain": 6,
     "FP": 0,
     "TN": 0,
     "legit_uncertain": 7,
     "precision": 1.0,
-    "recall": 0.2857142857142857,
+    "recall": 0.14285714285714285,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.8571428571428571,
+    "uncertain_rate": 0.9285714285714286,
     "auc": 0.7959183673469388,
     "flips_vs_full": 6,
-    "cost_A": 12,
-    "cost_B": 24,
+    "cost_A": 13,
+    "cost_B": 26,
     "decisions": {
      "paypal legit": "uncertain",
      "acme sso": "uncertain",
@@ -3051,7 +3344,7 @@
      "bank legit login": "uncertain",
      "phish classic": "warn",
      "phish ip host": "uncertain",
-     "phish typosquat": "warn",
+     "phish typosquat": "uncertain",
      "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "uncertain",
@@ -3075,7 +3368,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 1.0,
     "auc": 0.8775510204081632,
-    "flips_vs_full": 8,
+    "flips_vs_full": 7,
     "cost_A": 14,
     "cost_B": 28,
     "decisions": {
@@ -3097,21 +3390,21 @@
    },
    {
     "config": "drop visual module",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 4,
     "legit_uncertain": 3,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.42857142857142855,
+    "uncertain_rate": 0.5,
     "auc": 0.8571428571428571,
     "flips_vs_full": 0,
-    "cost_A": 6,
-    "cost_B": 12,
+    "cost_A": 7,
+    "cost_B": 14,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3120,7 +3413,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "uncertain",
      "unseen-brand phish A": "uncertain",
@@ -3143,7 +3436,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 1.0,
     "auc": 0.5,
-    "flips_vs_full": 8,
+    "flips_vs_full": 7,
     "cost_A": 14,
     "cost_B": 28,
     "decisions": {
@@ -3165,6 +3458,40 @@
    },
    {
     "config": "no cross-modal terms, no rule floor",
+    "TP": 0,
+    "FN": 0,
+    "phish_uncertain": 7,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": null,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.7142857142857143,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 3,
+    "cost_A": 10,
+    "cost_B": 20,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "uncertain",
+     "phish ip host": "uncertain",
+     "phish typosquat": "uncertain",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "uncertain",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no rule floor",
     "TP": 1,
     "FN": 0,
     "phish_uncertain": 6,
@@ -3177,7 +3504,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.6428571428571429,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 3,
+    "flips_vs_full": 2,
     "cost_A": 9,
     "cost_B": 18,
     "decisions": {
@@ -3198,7 +3525,7 @@
     }
    },
    {
-    "config": "no rule floor",
+    "config": "Branch B combined by noisy-OR (earlier default)",
     "TP": 4,
     "FN": 0,
     "phish_uncertain": 3,
@@ -3211,7 +3538,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.42857142857142855,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 0,
+    "flips_vs_full": 1,
     "cost_A": 6,
     "cost_B": 12,
     "decisions": {
@@ -3245,7 +3572,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.5,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 1,
+    "flips_vs_full": 0,
     "cost_A": 7,
     "cost_B": 14,
     "decisions": {
@@ -3279,7 +3606,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.5,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 1,
+    "flips_vs_full": 0,
     "cost_A": 7,
     "cost_B": 14,
     "decisions": {
@@ -3301,21 +3628,21 @@
    },
    {
     "config": "no uncertain state (binary at 0.5)",
-    "TP": 5,
-    "FN": 2,
+    "TP": 3,
+    "FN": 4,
     "phish_uncertain": 0,
     "FP": 0,
     "TN": 7,
     "legit_uncertain": 0,
     "precision": 1.0,
-    "recall": 0.7142857142857143,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
-    "flagged_recall": 0.7142857142857143,
+    "flagged_recall": 0.42857142857142855,
     "uncertain_rate": 0.0,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 6,
-    "cost_A": 20,
-    "cost_B": 20,
+    "flips_vs_full": 7,
+    "cost_A": 40,
+    "cost_B": 40,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3324,10 +3651,10 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "allow",
      "evasive: clean domain, no brand text": "allow",
      "legit short login (little text)": "allow",
-     "unseen-brand phish A": "warn",
+     "unseen-brand phish A": "allow",
      "unseen-brand phish B": "allow",
      "unseen-brand legit A": "allow",
      "unseen-brand legit B": "allow"
@@ -3335,21 +3662,21 @@
    },
    {
     "config": "v0.1 unseen-brand rule (credential wording + visual)",
-    "TP": 4,
+    "TP": 3,
     "FN": 2,
-    "phish_uncertain": 1,
+    "phish_uncertain": 2,
     "FP": 0,
     "TN": 6,
     "legit_uncertain": 1,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 0.7142857142857143,
-    "uncertain_rate": 0.14285714285714285,
+    "uncertain_rate": 0.21428571428571427,
     "auc": 0.8571428571428571,
     "flips_vs_full": 4,
-    "cost_A": 22,
-    "cost_B": 24,
+    "cost_A": 23,
+    "cost_B": 26,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3358,7 +3685,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "allow",
      "legit short login (little text)": "uncertain",
      "unseen-brand phish A": "uncertain",
@@ -3369,21 +3696,21 @@
    },
    {
     "config": "v0.2 unseen-brand rule (credential form + visual)",
-    "TP": 4,
+    "TP": 3,
     "FN": 2,
-    "phish_uncertain": 1,
+    "phish_uncertain": 2,
     "FP": 0,
     "TN": 6,
     "legit_uncertain": 1,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 0.7142857142857143,
-    "uncertain_rate": 0.14285714285714285,
+    "uncertain_rate": 0.21428571428571427,
     "auc": 0.8571428571428571,
     "flips_vs_full": 4,
-    "cost_A": 22,
-    "cost_B": 24,
+    "cost_A": 23,
+    "cost_B": 26,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3392,7 +3719,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "allow",
      "legit short login (little text)": "uncertain",
      "unseen-brand phish A": "uncertain",
@@ -3403,21 +3730,21 @@
    },
    {
     "config": "conflict blocks warn",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 4,
     "legit_uncertain": 3,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.42857142857142855,
+    "uncertain_rate": 0.5,
     "auc": 0.8571428571428571,
     "flips_vs_full": 0,
-    "cost_A": 6,
-    "cost_B": 12,
+    "cost_A": 7,
+    "cost_B": 14,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3426,7 +3753,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "uncertain",
      "unseen-brand phish A": "uncertain",
@@ -3439,21 +3766,21 @@
   "sim_visual": [
    {
     "config": "full system",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 5,
     "legit_uncertain": 2,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.35714285714285715,
+    "uncertain_rate": 0.42857142857142855,
     "auc": 0.8571428571428571,
     "flips_vs_full": 0,
-    "cost_A": 5,
-    "cost_B": 10,
+    "cost_A": 6,
+    "cost_B": 12,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3462,7 +3789,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "allow",
      "unseen-brand phish A": "uncertain",
@@ -3474,28 +3801,28 @@
    {
     "config": "drop URL module",
     "TP": 1,
-    "FN": 2,
-    "phish_uncertain": 4,
+    "FN": 4,
+    "phish_uncertain": 2,
     "FP": 0,
     "TN": 7,
     "legit_uncertain": 0,
     "precision": 1.0,
     "recall": 0.14285714285714285,
     "fpr": 0.0,
-    "flagged_recall": 0.7142857142857143,
-    "uncertain_rate": 0.2857142857142857,
+    "flagged_recall": 0.42857142857142855,
+    "uncertain_rate": 0.14285714285714285,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 7,
-    "cost_A": 24,
-    "cost_B": 28,
+    "flips_vs_full": 6,
+    "cost_A": 42,
+    "cost_B": 44,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
      "plain blog": "allow",
      "bank legit login": "allow",
      "phish classic": "warn",
-     "phish ip host": "uncertain",
-     "phish typosquat": "uncertain",
+     "phish ip host": "allow",
+     "phish typosquat": "allow",
      "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "allow",
      "legit short login (little text)": "allow",
@@ -3507,21 +3834,21 @@
    },
    {
     "config": "drop DOM module",
-    "TP": 2,
+    "TP": 1,
     "FN": 4,
-    "phish_uncertain": 1,
+    "phish_uncertain": 2,
     "FP": 0,
     "TN": 7,
     "legit_uncertain": 0,
     "precision": 1.0,
-    "recall": 0.2857142857142857,
+    "recall": 0.14285714285714285,
     "fpr": 0.0,
     "flagged_recall": 0.42857142857142855,
-    "uncertain_rate": 0.07142857142857142,
+    "uncertain_rate": 0.14285714285714285,
     "auc": 0.7959183673469388,
-    "flips_vs_full": 7,
-    "cost_A": 41,
-    "cost_B": 42,
+    "flips_vs_full": 8,
+    "cost_A": 42,
+    "cost_B": 44,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3529,7 +3856,7 @@
      "bank legit login": "allow",
      "phish classic": "warn",
      "phish ip host": "uncertain",
-     "phish typosquat": "warn",
+     "phish typosquat": "uncertain",
      "phish shortened + hidden form": "allow",
      "evasive: clean domain, no brand text": "allow",
      "legit short login (little text)": "allow",
@@ -3541,53 +3868,19 @@
    },
    {
     "config": "drop text module",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 5,
     "legit_uncertain": 2,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
-    "fpr": 0.0,
-    "flagged_recall": 1.0,
-    "uncertain_rate": 0.35714285714285715,
-    "auc": 0.8775510204081632,
-    "flips_vs_full": 0,
-    "cost_A": 5,
-    "cost_B": 10,
-    "decisions": {
-     "paypal legit": "allow",
-     "acme sso": "allow",
-     "plain blog": "allow",
-     "bank legit login": "allow",
-     "phish classic": "warn",
-     "phish ip host": "warn",
-     "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
-     "evasive: clean domain, no brand text": "uncertain",
-     "legit short login (little text)": "allow",
-     "unseen-brand phish A": "uncertain",
-     "unseen-brand phish B": "uncertain",
-     "unseen-brand legit A": "uncertain",
-     "unseen-brand legit B": "uncertain"
-    }
-   },
-   {
-    "config": "drop visual module",
-    "TP": 4,
-    "FN": 0,
-    "phish_uncertain": 3,
-    "FP": 0,
-    "TN": 4,
-    "legit_uncertain": 3,
-    "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
     "uncertain_rate": 0.42857142857142855,
-    "auc": 0.8571428571428571,
-    "flips_vs_full": 1,
+    "auc": 0.8775510204081632,
+    "flips_vs_full": 0,
     "cost_A": 6,
     "cost_B": 12,
     "decisions": {
@@ -3598,7 +3891,41 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "drop visual module",
+    "TP": 3,
+    "FN": 0,
+    "phish_uncertain": 4,
+    "FP": 0,
+    "TN": 4,
+    "legit_uncertain": 3,
+    "precision": 1.0,
+    "recall": 0.42857142857142855,
+    "fpr": 0.0,
+    "flagged_recall": 1.0,
+    "uncertain_rate": 0.5,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 1,
+    "cost_A": 7,
+    "cost_B": 14,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "warn",
+     "phish ip host": "warn",
+     "phish typosquat": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "uncertain",
      "unseen-brand phish A": "uncertain",
@@ -3621,7 +3948,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 1.0,
     "auc": 0.5,
-    "flips_vs_full": 9,
+    "flips_vs_full": 8,
     "cost_A": 14,
     "cost_B": 28,
     "decisions": {
@@ -3643,6 +3970,40 @@
    },
    {
     "config": "no cross-modal terms, no rule floor",
+    "TP": 0,
+    "FN": 2,
+    "phish_uncertain": 5,
+    "FP": 0,
+    "TN": 5,
+    "legit_uncertain": 2,
+    "precision": null,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "flagged_recall": 0.7142857142857143,
+    "uncertain_rate": 0.5,
+    "auc": 0.8571428571428571,
+    "flips_vs_full": 3,
+    "cost_A": 27,
+    "cost_B": 34,
+    "decisions": {
+     "paypal legit": "allow",
+     "acme sso": "allow",
+     "plain blog": "allow",
+     "bank legit login": "allow",
+     "phish classic": "uncertain",
+     "phish ip host": "allow",
+     "phish typosquat": "allow",
+     "phish shortened + hidden form": "uncertain",
+     "evasive: clean domain, no brand text": "uncertain",
+     "legit short login (little text)": "allow",
+     "unseen-brand phish A": "uncertain",
+     "unseen-brand phish B": "uncertain",
+     "unseen-brand legit A": "uncertain",
+     "unseen-brand legit B": "uncertain"
+    }
+   },
+   {
+    "config": "no rule floor",
     "TP": 1,
     "FN": 0,
     "phish_uncertain": 6,
@@ -3655,7 +4016,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.5714285714285714,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 3,
+    "flips_vs_full": 2,
     "cost_A": 8,
     "cost_B": 16,
     "decisions": {
@@ -3676,7 +4037,7 @@
     }
    },
    {
-    "config": "no rule floor",
+    "config": "Branch B combined by noisy-OR (earlier default)",
     "TP": 4,
     "FN": 0,
     "phish_uncertain": 3,
@@ -3689,7 +4050,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.35714285714285715,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 0,
+    "flips_vs_full": 1,
     "cost_A": 5,
     "cost_B": 10,
     "decisions": {
@@ -3723,7 +4084,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.42857142857142855,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 1,
+    "flips_vs_full": 0,
     "cost_A": 6,
     "cost_B": 12,
     "decisions": {
@@ -3757,7 +4118,7 @@
     "flagged_recall": 1.0,
     "uncertain_rate": 0.42857142857142855,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 1,
+    "flips_vs_full": 0,
     "cost_A": 6,
     "cost_B": 12,
     "decisions": {
@@ -3779,21 +4140,21 @@
    },
    {
     "config": "no uncertain state (binary at 0.5)",
-    "TP": 5,
-    "FN": 2,
+    "TP": 3,
+    "FN": 4,
     "phish_uncertain": 0,
     "FP": 0,
     "TN": 7,
     "legit_uncertain": 0,
     "precision": 1.0,
-    "recall": 0.7142857142857143,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
-    "flagged_recall": 0.7142857142857143,
+    "flagged_recall": 0.42857142857142855,
     "uncertain_rate": 0.0,
     "auc": 0.8571428571428571,
-    "flips_vs_full": 5,
-    "cost_A": 20,
-    "cost_B": 20,
+    "flips_vs_full": 6,
+    "cost_A": 40,
+    "cost_B": 40,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3802,10 +4163,10 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "allow",
      "evasive: clean domain, no brand text": "allow",
      "legit short login (little text)": "allow",
-     "unseen-brand phish A": "warn",
+     "unseen-brand phish A": "allow",
      "unseen-brand phish B": "allow",
      "unseen-brand legit A": "allow",
      "unseen-brand legit B": "allow"
@@ -3813,21 +4174,21 @@
    },
    {
     "config": "v0.1 unseen-brand rule (credential wording + visual)",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 4,
     "legit_uncertain": 3,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.42857142857142855,
+    "uncertain_rate": 0.5,
     "auc": 0.8571428571428571,
     "flips_vs_full": 1,
-    "cost_A": 6,
-    "cost_B": 12,
+    "cost_A": 7,
+    "cost_B": 14,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "uncertain",
@@ -3836,7 +4197,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "allow",
      "unseen-brand phish A": "uncertain",
@@ -3847,21 +4208,21 @@
    },
    {
     "config": "v0.2 unseen-brand rule (credential form + visual)",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 5,
     "legit_uncertain": 2,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.35714285714285715,
+    "uncertain_rate": 0.42857142857142855,
     "auc": 0.8571428571428571,
     "flips_vs_full": 0,
-    "cost_A": 5,
-    "cost_B": 10,
+    "cost_A": 6,
+    "cost_B": 12,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3870,7 +4231,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "allow",
      "unseen-brand phish A": "uncertain",
@@ -3881,21 +4242,21 @@
    },
    {
     "config": "conflict blocks warn",
-    "TP": 4,
+    "TP": 3,
     "FN": 0,
-    "phish_uncertain": 3,
+    "phish_uncertain": 4,
     "FP": 0,
     "TN": 5,
     "legit_uncertain": 2,
     "precision": 1.0,
-    "recall": 0.5714285714285714,
+    "recall": 0.42857142857142855,
     "fpr": 0.0,
     "flagged_recall": 1.0,
-    "uncertain_rate": 0.35714285714285715,
+    "uncertain_rate": 0.42857142857142855,
     "auc": 0.8571428571428571,
     "flips_vs_full": 0,
-    "cost_A": 5,
-    "cost_B": 10,
+    "cost_A": 6,
+    "cost_B": 12,
     "decisions": {
      "paypal legit": "allow",
      "acme sso": "allow",
@@ -3904,7 +4265,7 @@
      "phish classic": "warn",
      "phish ip host": "warn",
      "phish typosquat": "warn",
-     "phish shortened + hidden form": "warn",
+     "phish shortened + hidden form": "uncertain",
      "evasive: clean domain, no brand text": "uncertain",
      "legit short login (little text)": "allow",
      "unseen-brand phish A": "uncertain",
@@ -3928,11 +4289,11 @@
    },
    {
     "dropped": "url",
-    "changed": 8,
+    "changed": 7,
     "phish_now_allowed": 0,
     "legit_now_warned": 0,
     "lost_brand_mismatch": 3,
-    "low_coverage_after": 8,
+    "low_coverage_after": 7,
     "changes": [
      {
       "page": "paypal legit",
@@ -3988,14 +4349,6 @@
       "from": "warn",
       "to": "uncertain",
       "lost_brand_mismatch": true,
-      "low_coverage_after": true
-     },
-     {
-      "page": "phish shortened + hidden form",
-      "label": 1,
-      "from": "warn",
-      "to": "uncertain",
-      "lost_brand_mismatch": false,
       "low_coverage_after": true
      }
     ]
@@ -4049,7 +4402,7 @@
       "low_coverage_after": true
      },
      {
-      "page": "phish shortened + hidden form",
+      "page": "phish typosquat",
       "label": 1,
       "from": "warn",
       "to": "uncertain",
@@ -4060,11 +4413,11 @@
    },
    {
     "dropped": "text",
-    "changed": 8,
+    "changed": 7,
     "phish_now_allowed": 0,
     "legit_now_warned": 0,
     "lost_brand_mismatch": 3,
-    "low_coverage_after": 8,
+    "low_coverage_after": 7,
     "changes": [
      {
       "page": "paypal legit",
@@ -4121,14 +4474,6 @@
       "to": "uncertain",
       "lost_brand_mismatch": true,
       "low_coverage_after": true
-     },
-     {
-      "page": "phish shortened + hidden form",
-      "label": 1,
-      "from": "warn",
-      "to": "uncertain",
-      "lost_brand_mismatch": false,
-      "low_coverage_after": true
      }
     ]
    }
@@ -4154,8 +4499,8 @@
    },
    {
     "dropped": "url",
-    "changed": 7,
-    "phish_now_allowed": 2,
+    "changed": 6,
+    "phish_now_allowed": 4,
     "legit_now_warned": 0,
     "lost_brand_mismatch": 2,
     "low_coverage_after": 0,
@@ -4164,7 +4509,7 @@
       "page": "phish ip host",
       "label": 1,
       "from": "warn",
-      "to": "uncertain",
+      "to": "allow",
       "lost_brand_mismatch": true,
       "low_coverage_after": false
      },
@@ -4172,16 +4517,8 @@
       "page": "phish typosquat",
       "label": 1,
       "from": "warn",
-      "to": "uncertain",
+      "to": "allow",
       "lost_brand_mismatch": true,
-      "low_coverage_after": false
-     },
-     {
-      "page": "phish shortened + hidden form",
-      "label": 1,
-      "from": "warn",
-      "to": "uncertain",
-      "lost_brand_mismatch": false,
       "low_coverage_after": false
      },
      {
@@ -4220,7 +4557,7 @@
    },
    {
     "dropped": "dom",
-    "changed": 7,
+    "changed": 8,
     "phish_now_allowed": 4,
     "legit_now_warned": 0,
     "lost_brand_mismatch": 0,
@@ -4235,9 +4572,17 @@
       "low_coverage_after": false
      },
      {
-      "page": "phish shortened + hidden form",
+      "page": "phish typosquat",
       "label": 1,
       "from": "warn",
+      "to": "uncertain",
+      "lost_brand_mismatch": false,
+      "low_coverage_after": false
+     },
+     {
+      "page": "phish shortened + hidden form",
+      "label": 1,
+      "from": "uncertain",
       "to": "allow",
       "lost_brand_mismatch": false,
       "low_coverage_after": false
@@ -4297,11 +4642,11 @@
  },
  "contradiction": {
   "default (a high score still warns)": {
-   "decisions_changed": 6,
+   "decisions_changed": 5,
    "wrong_final_verdicts": 0,
    "routed_to_uncertain": 11,
-   "newly_uncertain": 6,
-   "disagreement_flagged": 9,
+   "newly_uncertain": 5,
+   "disagreement_flagged": 7,
    "rows": [
     {
      "page": "paypal legit",
@@ -4358,7 +4703,6 @@
      "label": 1,
      "decision": "uncertain",
      "reasons": [
-      "branch_disagreement",
       "unseen_brand"
      ]
     },
@@ -4383,7 +4727,6 @@
      "label": 1,
      "decision": "uncertain",
      "reasons": [
-      "branch_disagreement",
       "unseen_brand"
      ]
     },
@@ -4416,11 +4759,11 @@
    ]
   },
   "conflict_blocks_warn": {
-   "decisions_changed": 6,
+   "decisions_changed": 5,
    "wrong_final_verdicts": 0,
    "routed_to_uncertain": 11,
-   "newly_uncertain": 6,
-   "disagreement_flagged": 9,
+   "newly_uncertain": 5,
+   "disagreement_flagged": 7,
    "rows": [
     {
      "page": "paypal legit",
@@ -4477,7 +4820,6 @@
      "label": 1,
      "decision": "uncertain",
      "reasons": [
-      "branch_disagreement",
       "unseen_brand"
      ]
     },
@@ -4502,7 +4844,6 @@
      "label": 1,
      "decision": "uncertain",
      "reasons": [
-      "branch_disagreement",
       "unseen_brand"
      ]
     },
@@ -4543,7 +4884,7 @@
      "page": "unseen-brand phish A",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.7948,
+     "risk": 0.3233,
      "reasons": [
       "unseen_brand"
      ]
@@ -4552,7 +4893,7 @@
      "page": "unseen-brand phish B",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4561,7 +4902,7 @@
      "page": "unseen-brand legit A",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4570,7 +4911,7 @@
      "page": "unseen-brand legit B",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4584,7 +4925,7 @@
      "page": "unseen-brand phish A",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.7948,
+     "risk": 0.3233,
      "reasons": [
       "unseen_brand"
      ]
@@ -4593,7 +4934,7 @@
      "page": "unseen-brand phish B",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4602,7 +4943,7 @@
      "page": "unseen-brand legit A",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4611,7 +4952,7 @@
      "page": "unseen-brand legit B",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4625,7 +4966,7 @@
      "page": "unseen-brand phish A",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.7948,
+     "risk": 0.3233,
      "reasons": [
       "unseen_brand"
      ]
@@ -4634,7 +4975,7 @@
      "page": "unseen-brand phish B",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4643,7 +4984,7 @@
      "page": "unseen-brand legit A",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4652,7 +4993,7 @@
      "page": "unseen-brand legit B",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4666,7 +5007,7 @@
      "page": "unseen-brand phish A",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.7948,
+     "risk": 0.3233,
      "reasons": [
       "unseen_brand"
      ]
@@ -4675,7 +5016,7 @@
      "page": "unseen-brand phish B",
      "label": 1,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4684,7 +5025,7 @@
      "page": "unseen-brand legit A",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4693,7 +5034,7 @@
      "page": "unseen-brand legit B",
      "label": 0,
      "decision": "uncertain",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": [
       "unseen_brand"
      ]
@@ -4707,7 +5048,7 @@
      "page": "unseen-brand phish A",
      "label": 1,
      "decision": "warn",
-     "risk": 0.9662,
+     "risk": 0.9,
      "reasons": []
     },
     {
@@ -4740,7 +5081,7 @@
      "page": "unseen-brand phish A",
      "label": 1,
      "decision": "warn",
-     "risk": 0.9662,
+     "risk": 0.9,
      "reasons": []
     },
     {
@@ -4754,14 +5095,14 @@
      "page": "unseen-brand legit A",
      "label": 0,
      "decision": "allow",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": []
     },
     {
      "page": "unseen-brand legit B",
      "label": 0,
      "decision": "allow",
-     "risk": 0.0587,
+     "risk": 0.019,
      "reasons": []
     }
    ]
@@ -4773,67 +5114,67 @@
    "n_positive": 7,
    "n_negative": 7,
    "raw": {
-    "ece": 0.14086199447525907,
-    "brier": 0.13506121640938448,
-    "log_loss": 0.4784417256832617,
+    "ece": 0.23486838466574558,
+    "brier": 0.19582100700072386,
+    "log_loss": 0.7365525376947781,
     "ece_95ci": [
-     0.04052672282832981,
-     0.33683897831363385
+     0.07169774203551088,
+     0.4374664521916385
     ],
     "bins": [
      {
       "lo": 0.0,
       "hi": 0.2,
       "n": 9,
-      "mean_score": 0.061567802942118305,
+      "mean_score": 0.021416711073050265,
       "frac_positive": 0.2222222222222222,
-      "gap": 0.1606544192801039
+      "gap": 0.20080551114917194
      },
      {
       "lo": 0.2,
       "hi": 0.4,
-      "n": 0,
-      "mean_score": null,
-      "frac_positive": null,
-      "gap": null
+      "n": 1,
+      "mean_score": 0.32344164342064613,
+      "frac_positive": 1.0,
+      "gap": 0.6765583565793538
      },
      {
       "lo": 0.4,
       "hi": 0.6,
+      "n": 1,
+      "mean_score": 0.42262663677312706,
+      "frac_positive": 1.0,
+      "gap": 0.5773733632268729
+     },
+     {
+      "lo": 0.6,
+      "hi": 0.8,
       "n": 0,
       "mean_score": null,
       "frac_positive": null,
       "gap": null
      },
      {
-      "lo": 0.6,
-      "hi": 0.8,
-      "n": 1,
-      "mean_score": 0.7947828098950485,
-      "frac_positive": 1.0,
-      "gap": 0.20521719010495154
-     },
-     {
       "lo": 0.8,
       "hi": 1.0,
-      "n": 4,
-      "mean_score": 0.9197597602430649,
+      "n": 3,
+      "mean_score": 0.9243413116094453,
       "frac_positive": 1.0,
-      "gap": 0.08024023975693506
+      "gap": 0.07565868839055467
      }
     ]
    },
    "temperature_fit": {
-    "T": 1.6535746211859264,
+    "T": 2.6608223320470454,
     "identifiable": true,
     "separable": false,
     "at_boundary": false,
-    "nll_before": 0.4784417256832617,
-    "nll_after": 0.42651497345923767
+    "nll_before": 0.7365525376947781,
+    "nll_after": 0.5246434692393498
    },
    "leave_one_out": {
-    "ece": 0.1904825844660713,
-    "brier": 0.15518472373000214
+    "ece": 0.32802346801462023,
+    "brier": 0.19758264820838817
    },
    "auc": 0.8571428571428571,
    "claim_supported": false,
@@ -4844,67 +5185,67 @@
    "n_positive": 7,
    "n_negative": 7,
    "raw": {
-    "ece": 0.14086199447525907,
-    "brier": 0.13506121640938448,
-    "log_loss": 0.4784417256832617,
+    "ece": 0.23486838466574558,
+    "brier": 0.19582100700072386,
+    "log_loss": 0.7365525376947781,
     "ece_95ci": [
-     0.04052672282832981,
-     0.33683897831363385
+     0.07169774203551088,
+     0.4374664521916385
     ],
     "bins": [
      {
       "lo": 0.0,
       "hi": 0.2,
       "n": 9,
-      "mean_score": 0.061567802942118305,
+      "mean_score": 0.021416711073050265,
       "frac_positive": 0.2222222222222222,
-      "gap": 0.1606544192801039
+      "gap": 0.20080551114917194
      },
      {
       "lo": 0.2,
       "hi": 0.4,
-      "n": 0,
-      "mean_score": null,
-      "frac_positive": null,
-      "gap": null
+      "n": 1,
+      "mean_score": 0.32344164342064613,
+      "frac_positive": 1.0,
+      "gap": 0.6765583565793538
      },
      {
       "lo": 0.4,
       "hi": 0.6,
+      "n": 1,
+      "mean_score": 0.42262663677312706,
+      "frac_positive": 1.0,
+      "gap": 0.5773733632268729
+     },
+     {
+      "lo": 0.6,
+      "hi": 0.8,
       "n": 0,
       "mean_score": null,
       "frac_positive": null,
       "gap": null
      },
      {
-      "lo": 0.6,
-      "hi": 0.8,
-      "n": 1,
-      "mean_score": 0.7947828098950485,
-      "frac_positive": 1.0,
-      "gap": 0.20521719010495154
-     },
-     {
       "lo": 0.8,
       "hi": 1.0,
-      "n": 4,
-      "mean_score": 0.9197597602430649,
+      "n": 3,
+      "mean_score": 0.9243413116094453,
       "frac_positive": 1.0,
-      "gap": 0.08024023975693506
+      "gap": 0.07565868839055467
      }
     ]
    },
    "temperature_fit": {
-    "T": 1.6535746211859264,
+    "T": 2.6608223320470454,
     "identifiable": true,
     "separable": false,
     "at_boundary": false,
-    "nll_before": 0.4784417256832617,
-    "nll_after": 0.42651497345923767
+    "nll_before": 0.7365525376947781,
+    "nll_after": 0.5246434692393498
    },
    "leave_one_out": {
-    "ece": 0.1904825844660713,
-    "brier": 0.15518472373000214
+    "ece": 0.32802346801462023,
+    "brier": 0.19758264820838817
    },
    "auc": 0.8571428571428571,
    "claim_supported": false,
@@ -4984,16 +5325,16 @@
  },
  "cost": {
   "fuse_ms": {
-   "median": 0.04079984501004219,
-   "mean": 0.044013380483236345,
-   "p95": 0.06599980406463146,
-   "max": 0.14999997802078724
+   "median": 0.03980001201853156,
+   "mean": 0.041865666675481146,
+   "p95": 0.05830000736750662,
+   "max": 0.1255999959539622
   },
-  "adapter_ms_median": 0.0063998159021139145,
+  "adapter_ms_median": 0.006400019628927112,
   "branch_b_ms_median": 0.481,
-  "peak_memory_kib_all_pages": 10.7470703125,
+  "peak_memory_kib_all_pages": 10.4345703125,
   "calls_timed": 4200,
-  "fusion_share_of_pipeline": 0.07724322454047834
+  "fusion_share_of_pipeline": 0.07549318973703331
  },
  "contributions": {
   "modules": {
@@ -5011,38 +5352,38 @@
    },
    "url": {
     "phishing": {
-     "mean_term": 0.2938571428571429,
-     "mean_abs_term": 0.6258571428571429,
-     "mean_score_drop_if_removed": 0.20318571428571428
+     "mean_term": -0.47557142857142853,
+     "mean_abs_term": 0.579,
+     "mean_score_drop_if_removed": 0.22531428571428572
     },
     "legitimate": {
-     "mean_term": -0.49228571428571427,
-     "mean_abs_term": 0.49228571428571427,
-     "mean_score_drop_if_removed": 0.013957142857142857
+     "mean_term": -1.0195714285714286,
+     "mean_abs_term": 1.0195714285714286,
+     "mean_score_drop_if_removed": -0.0030142857142857146
     }
    },
    "dom": {
     "phishing": {
-     "mean_term": 0.23214285714285712,
-     "mean_abs_term": 0.9138571428571429,
-     "mean_score_drop_if_removed": 0.27062857142857144
+     "mean_term": -0.47557142857142853,
+     "mean_abs_term": 0.579,
+     "mean_score_drop_if_removed": 0.21327142857142856
     },
     "legitimate": {
-     "mean_term": -0.815857142857143,
-     "mean_abs_term": 0.815857142857143,
-     "mean_score_drop_if_removed": 0.04095714285714286
+     "mean_term": -1.0195714285714286,
+     "mean_abs_term": 1.0195714285714286,
+     "mean_score_drop_if_removed": 0.011085714285714286
     }
    },
    "text": {
     "phishing": {
-     "mean_term": 0.34485714285714286,
-     "mean_abs_term": 0.34485714285714286,
-     "mean_score_drop_if_removed": 0.009485714285714288
+     "mean_term": -0.002285714285714286,
+     "mean_abs_term": 0.10571428571428572,
+     "mean_score_drop_if_removed": -0.043614285714285723
     },
     "legitimate": {
-     "mean_term": -0.6601428571428573,
-     "mean_abs_term": 0.6601428571428573,
-     "mean_score_drop_if_removed": 0.01634285714285714
+     "mean_term": -0.9025714285714285,
+     "mean_abs_term": 0.9025714285714285,
+     "mean_score_drop_if_removed": -0.0019714285714285728
     }
    }
   },

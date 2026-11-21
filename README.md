@@ -6,10 +6,12 @@ Stdlib-only Python 3.10+.
     python make_sample_bundle.py bundle   # writes a sample bundle (URL branch = real, others synthetic)
     python run_bundle.py bundle           # file-based integration: bundle -> fusion -> bundle/out/*.json
     python url_branch.py "<url>"          # rule-based URL branch on one URL
-    python test_fusion.py                 # 15 fusion tests
+    python test_fusion.py                 # 39 fusion tests
     python test_integration.py            # 15 URL-branch / bundle / contract / fault-injection tests
     python worked_case_branch_b.py        # worked case: Branch B fixtures -> adapter -> fusion
-    python test_branch_b_adapter.py       # 6 adapter / worked-case tests
+    python test_branch_b_adapter.py       # 9 adapter / worked-case tests
+    python connected_demo.py              # Branch B real output -> adapter -> fusion: missing / contradictory visual, one-source, labelling
+    python test_connected_demo.py         # 7 tests pinning what the connected demo shows
     python test_calibration.py            # 11 calibration-tool tests (synthetic ground truth)
     python test_evaluation.py             # 11 evaluation-harness tests (pinned decisions on the corpus)
     python build_corpus.py <branch_b dir> # builds corpus/branch_b_outputs.json from Student B's real module
@@ -37,8 +39,10 @@ never defaults to `allow` (request-level failure -> `uncertain`, reason `fusion_
 
 ## Fusion v0.2 (what changed)
 - `Params`: every weight/threshold is tunable without editing code (defaults = the original placeholders).
-- Correlated modules: Branch B's URL/DOM/text carry `source="branch_b"`, `combine="noisy_or"`; fusion scores that source ONCE from
-  1 - prod(1 - p_m) (Branch B's own combined score), and counts it as one source for coverage and disagreement.
+- Correlated modules: Branch B's URL/DOM/text carry `source="branch_b"` and `combine="mean"`: fusion scores that source ONCE as the
+  plain mean of its USABLE modules (equal weights; a missing or errored module is left out of the denominator), clamped to 0.02-0.99.
+  The adapter marks DOM/text missing when Branch B reports no HTML. `combine="noisy_or"` (Branch B's accumulating score) stays selectable.
+  The source's single term is shared equally across modules with findings (explanations only). Counted as one source for coverage/disagreement.
 - Unseen-brand rule is ownership-based (credential form on a domain no known brand owns, no brand identified by any module);
   it no longer depends on the visual module.
 - Separate coverage floors for allow (0.5) and warn (0.3); optional `conflict_blocks_warn`.
@@ -48,3 +52,14 @@ never defaults to `allow` (request-level failure -> `uncertain`, reason `fusion_
 Real: URL branch (rules), fusion, file-based runner. Still synthetic: visual, DOM, text outputs.
 Weights, thresholds, temperature, URL rule weights and the brand registry are placeholders.
 Calibration TOOLING exists but no calibration is claimed (14 pages). Not yet: cascade, learned fuser, HTTP wrapper, real visual module.
+
+## Frozen evaluation (`eval-freeze-v1`)
+
+The corpus, configuration and code used for the reported evaluation are frozen at git tag `eval-freeze-v1`:
+
+- **Corpus**: `corpus/branch_b_outputs.json` (14 pages, 7 phishing-style; a snapshot of Branch B output, so Branch B is not needed to re-run).
+- **Configuration**: `freeze/frozen_config.json` (every `fusion.DEFAULT` parameter and the schema version) plus `brand_registry.json`.
+- **Code**: SHA-256 of every root `.py` file and the Branch B fixtures, listed in `freeze/MANIFEST.json`, together with a fingerprint of `eval_results.json` (timings excluded).
+
+Reproduce with `git checkout eval-freeze-v1 && python evaluate_fusion.py && python freeze.py --check`.
+`test_freeze.py` fails if anything drifts. To change something on purpose, re-run the evaluation, run `python freeze.py`, and tag a new freeze id.
