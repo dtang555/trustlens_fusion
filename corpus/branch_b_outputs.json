@@ -25,7 +25,7 @@
    "shown_brand": "paypal",
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.437,
+   "branch_b_ms": 0.395,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.239,
@@ -61,7 +61,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://www.paypal.com/signin",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": "paypal",
+     "brand_conf": 0.8,
+     "domain": "paypal.com",
+     "domain_owner_brand": "paypal"
+    }
    }
   },
   {
@@ -72,7 +81,7 @@
    "shown_brand": null,
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.345,
+   "branch_b_ms": 0.281,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.08,
@@ -93,7 +102,16 @@
        ]
       }
      }
-    ]
+    ],
+    "analyzed_url": "https://portal.acme.com/",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "acme.com",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -104,7 +122,7 @@
    "shown_brand": null,
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.239,
+   "branch_b_ms": 0.208,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.0,
@@ -113,7 +131,16 @@
     "missing": [
      "ocr_text"
     ],
-    "evidence": []
+    "evidence": [],
+    "analyzed_url": "https://blog.example.org/post",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "example.org",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -124,7 +151,7 @@
    "shown_brand": "rbc",
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.322,
+   "branch_b_ms": 0.271,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.145,
@@ -148,7 +175,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://www.rbcroyalbank.com/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": "rbc",
+     "brand_conf": 0.8,
+     "domain": "rbcroyalbank.com",
+     "domain_owner_brand": "rbc"
+    }
    }
   },
   {
@@ -159,7 +195,7 @@
    "shown_brand": "paypal",
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.573,
+   "branch_b_ms": 0.265,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.992,
@@ -205,7 +241,13 @@
       "weight": 0.45,
       "description": "Displayed link text differs from the real destination",
       "detail": {
-       "count": 1
+       "count": 1,
+       "pairs": [
+        [
+         "paypal.com",
+         "evil-site.xyz"
+        ]
+       ]
       }
      },
      {
@@ -289,7 +331,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "http://paypal-secure-login.evil-site.xyz/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": "paypal",
+     "brand_conf": 0.8,
+     "domain": "evil-site.xyz",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -300,7 +351,7 @@
    "shown_brand": "rbc",
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.525,
+   "branch_b_ms": 0.247,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.808,
@@ -350,7 +401,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "http://203.0.113.9/rbc/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": "rbc",
+     "brand_conf": 0.8,
+     "domain": "203.0.113.9",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -361,7 +421,7 @@
    "shown_brand": "paypal",
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.29,
+   "branch_b_ms": 0.175,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.829,
@@ -405,7 +465,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://paypa1.com/signin",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": "paypal",
+     "brand_conf": 0.8,
+     "domain": "paypa1.com",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -416,7 +485,7 @@
    "shown_brand": null,
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.279,
+   "branch_b_ms": 0.163,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.881,
@@ -473,7 +542,16 @@
       "description": "Very little visible text but page contains inputs",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://bit.ly/3xYz",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "bit.ly",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -484,7 +562,7 @@
    "shown_brand": null,
    "unseen_brand": false,
    "added_by": "student_b",
-   "branch_b_ms": 0.579,
+   "branch_b_ms": 0.237,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.145,
@@ -508,7 +586,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://secure-docs.example.net/view",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "example.net",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -519,7 +606,7 @@
    "shown_brand": "td",
    "unseen_brand": false,
    "added_by": "student_c",
-   "branch_b_ms": 0.398,
+   "branch_b_ms": 0.175,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.231,
@@ -551,7 +638,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://www.td.com/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": "td",
+     "brand_conf": 0.8,
+     "domain": "td.com",
+     "domain_owner_brand": "td"
+    }
    }
   },
   {
@@ -562,7 +658,7 @@
    "shown_brand": "wealthsimple",
    "unseen_brand": true,
    "added_by": "student_c",
-   "branch_b_ms": 0.655,
+   "branch_b_ms": 0.313,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.795,
@@ -611,7 +707,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://wealthsimple-secure.verify-account.top/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "verify-account.top",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -622,7 +727,7 @@
    "shown_brand": "questrade",
    "unseen_brand": true,
    "added_by": "student_c",
-   "branch_b_ms": 0.609,
+   "branch_b_ms": 0.293,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.145,
@@ -646,7 +751,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://questrade-login.example-portal.net/signin",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "example-portal.net",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -657,7 +771,7 @@
    "shown_brand": "wealthsimple",
    "unseen_brand": true,
    "added_by": "student_c",
-   "branch_b_ms": 0.675,
+   "branch_b_ms": 0.271,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.145,
@@ -681,7 +795,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://www.wealthsimple.com/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "wealthsimple.com",
+     "domain_owner_brand": null
+    }
    }
   },
   {
@@ -692,7 +815,7 @@
    "shown_brand": "questrade",
    "unseen_brand": true,
    "added_by": "student_c",
-   "branch_b_ms": 0.559,
+   "branch_b_ms": 0.259,
    "branch_b": {
     "branch": "url_html_text",
     "risk_score": 0.145,
@@ -716,7 +839,16 @@
       "description": "Login/verification keywords in URL",
       "detail": {}
      }
-    ]
+    ],
+    "analyzed_url": "https://www.questrade.com/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+     "brand": null,
+     "brand_conf": 0.0,
+     "domain": "questrade.com",
+     "domain_owner_brand": null
+    }
    }
   }
  ]

@@ -1,0 +1,58 @@
+{
+ "freeze_id": "eval-freeze-v2",
+ "git_tag": "eval-freeze-v2",
+ "corpus": {
+  "path": "corpus/branch_b_outputs.json",
+  "sha256": "4e4580c19a63aeb86873bf2b07b917a20b737663c5a87f23bb72ff1660126c77",
+  "n": 14,
+  "n_phishing": 7,
+  "source": "Student B url_html_text_branch.analyze() on inline HTML pages"
+ },
+ "config": {
+  "path": "freeze/frozen_config.json",
+  "sha256": "74c1f4a736b68424b6afb8d48adc460ba8a2d0134658e2f84b4235407ab788b5",
+  "files": {
+   "brand_registry.json": "11f3bce33904913aa26e9c860026a2ad1e2dfa35a6e084886e9fafbf68ac3fd3"
+  }
+ },
+ "code": {
+  "branch_b_fixtures/legit_paypal_branch_b.json": "add79c8ae9560e88209185209ee7994ff977c35b0533cda3ca4b11065790ec47",
+  "branch_b_fixtures/phishing_paypal_branch_b.json": "c903a6dadf681df9d69646ea05b1f617bf16e95ffcb06708059aa91a4344f872",
+  "branch_b_input.py": "0494b77fcc486e52a409ffe4251e930d68244d11d501b177135b0d1944a2b9ff",
+  "build_corpus.py": "921d42e3f37d7e46100fa0ee0ff24c972d719c7336e064bf160c172f173d1bb0",
+  "calibration.py": "30e3fad5b49f5d915c784ae45424a7e60b0f7bf81540b89b9ed576cf4fc2fb1d",
+  "capture_branch_b_fixture.py": "4fe63a0360f83f222dfb7776ffe2ba35d171f4492928f61893e57172951abb8a",
+  "connected_demo.py": "f95f6f56b505460a5db925bc7b3cdd938c1a9da5b69b155cbfb41077f00ffa03",
+  "demo.py": "f3710f8f8d7fab6b3dcb9b81fd62fed18a6694f8b0d7e5377e0ed13807970dd2",
+  "evaluate_fusion.py": "76fe59cf7cbb8ba9870ec212f1d516e32a4a6d12e6e813de87e9120c83f6f9cd",
+  "freeze.py": "158eef795107f8d91bf3773ac3e295ff1ffa5c757ae222bb62eb48c5d3cef5a7",
+  "fusion.py": "6d20007c74be7dd93d49862247c4d1d24300b58d57c4b25dc1a64ce55aaf1b46",
+  "make_sample_bundle.py": "9821cf7450e41b03a4beb94fa968e1ef20effc70a9cab1a9748eab06a887428a",
+  "run_bundle.py": "eb762fd8be15d2da65a90fd3c31e13e73de22d4302b6e344bc2cf7deca52e4b4",
+  "shared_adapter.py": "d44d9b48c9f96907dd677a002fa02896719e1cc4faf8cbcd3b2106da07c73048",
+  "test_branch.py": "5c32392bbc1560dd7a97a8f9c99df0adb1a65338f4d3a77ebaf91e99289426de",
+  "test_branch_b_input.py": "37d73ae9e81b02dfafb03486f688a98dfe54a9840c5be3ef0a3d1a2bfa219838",
+  "test_calibration.py": "a2e60d92cac4079e13f3597c31e4cafa6853eb7e47fa4b90bccf144f16ad3cad",
+  "test_connected_demo.py": "1bade400ed8c1731f713f3aa99ac6d76870634c93253f05c18e28fe37d1ba0ac",
+  "test_evaluation.py": "f59e2bbbc04976132ca0918c307ec2ae9a9fba50a6459676b570bbf3e44fa1b8",
+  "test_freeze.py": "68e85962769b868526c03a84f20db6ad9c1506e8b79c294d72584c29eac3adbb",
+  "test_fusion.py": "b425344bc975feb19e914d2492aee68373639f4c13917dd0d9a0421f96e0373a",
+  "test_integration.py": "d284dfca13a2738f03619eaddbc9c335f38051d1092ca91caec1171119db407c",
+  "test_mcr2.py": "edb27b388390bd558b290e5abab4b7ca7403abd817f2918b16b49d1455d750c4",
+  "url_branch.py": "3b8ccc1c4658f568f27ca970e06d04d8dd5a88afdf2b89c94bd93ed68b98c2cf",
+  "url_html_text_branch.py": "bcdf4d4e835d3a4c407192f34584735a75e2b9ac710cda34f4719db4ae275d83",
+  "worked_case_branch_b.py": "abb45d7a26165a4641eba2a502c0efed7684b609d532a9cc041b668c67cc949a"
+ },
+ "results": {
+  "path": "eval_results.json",
+  "sha256_excluding": [
+   "cost"
+  ],
+  "sha256": "51c5ac209c6e409dc7ed6440dcf54f1280cd7a72a83c57dbd27a1bd040dd1976"
+ },
+ "environment": {
+  "python": "3.13.18",
+  "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+  "note": "fusion/evaluation use only the standard library; matplotlib is optional (figure only)"
+ }
+}

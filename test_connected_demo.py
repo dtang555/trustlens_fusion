@@ -4,6 +4,7 @@ import io
 import os
 import subprocess
 import sys
+from math import prod
 from dataclasses import replace
 
 import connected_demo as D
@@ -44,28 +45,30 @@ def test_contradicting_visual_on_the_suspicious_page_still_warns_but_reports_the
     assert out["uncertainty"]["disagreement"] > DEFAULT.max_disagreement
 
 
-def test_branch_b_is_one_source_with_equal_weights_and_the_rule_changes_a_decision():
+def test_branch_b_is_one_source_combined_by_its_own_noisy_or_and_the_rule_changes_a_decision():
     corpus = E.load_corpus()
     page = next(p for p in corpus["pages"] if p["name"] == "phish shortened + hidden form")
     req = E.build(page, "real_only", corpus["visual_reference"])
     mods = [b["p_phish"] for b in req["branches"] if b["branch"] != "visual"]
-    mean, noisy, old = fuse(req), fuse(E.as_noisy_or(req)), fuse(D.as_independent(req), replace(DEFAULT, rho=0.0))
-    assert mean["diagnostics"]["source_groups"]["branch_b"] == ["url", "dom", "text"]
-    assert mean["diagnostics"]["source_scores"]["branch_b"] == {"combine": "mean", "score": round(sum(mods) / 3, 4)}
-    assert (mean["decision"], noisy["decision"], old["decision"]) == ("uncertain", "warn", "uncertain")
+    noisy, mean, old = fuse(req), fuse(E.as_mean(req)), fuse(D.as_independent(req), replace(DEFAULT, rho=0.0))
+    assert noisy["diagnostics"]["source_groups"]["branch_b"] == ["url", "dom", "text"]
+    src = noisy["diagnostics"]["source_scores"]["branch_b"]
+    assert src["combine"] == "noisy_or" and abs(src["score"] - (1 - prod(1 - p for p in mods))) < 1e-3
+    assert abs(src["score"] - page["branch_b"]["risk_score"]) < 1e-3          # equals Student B's own risk score
+    assert (noisy["decision"], mean["decision"], old["decision"]) == ("warn", "uncertain", "uncertain")
 
 
 def test_a_missing_input_is_left_out_of_the_average_not_counted_as_zero():
     with open(D.FIXTURES[0], encoding="utf-8") as f:
         fixture = D.json.load(f)
-    mods = D.branch_b_adapter.convert(D.url_only(fixture["result"]), fixture["url"])
+    mods = D.branch_b_input.convert(D.url_only(fixture["result"]))
     by = {m["branch"]: m for m in mods}
     assert by["dom"]["status"] == "missing" and by["text"]["status"] == "missing" and by["url"]["status"] == "ok"
     req = {"schema_version": D.SCHEMA_VERSION, "request_id": "u", "branches": [D.mock_visual("missing", True)] + mods}
     left_out, zeros = fuse(req), fuse(D.counted_as_zero(req))
     assert left_out["diagnostics"]["source_scores"]["branch_b"]["score"] == round(by["url"]["p_phish"], 4)
-    assert zeros["diagnostics"]["source_scores"]["branch_b"]["score"] < left_out["diagnostics"]["source_scores"]["branch_b"]["score"] / 2
-    assert zeros["uncertainty"]["coverage"] > left_out["uncertainty"]["coverage"]      # counting them overstates the evidence
+    assert zeros["risk_score"] == left_out["risk_score"]                              # under noisy-OR a 0.0 module adds nothing
+    assert zeros["uncertainty"]["coverage"] > left_out["uncertainty"]["coverage"]      # but counting it overstates the evidence
 
 
 def test_every_demo_labels_its_score_as_a_preliminary_risk_score():

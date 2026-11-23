@@ -6,7 +6,7 @@ import json
 import os
 import sys
 
-import branch_b_adapter
+import branch_b_input
 from fusion import SCHEMA_VERSION, cross_modal, fuse, parse_branch, score
 
 HERE = os.path.dirname(os.path.abspath(__file__))  # fixtures are found relative to this file, not the cwd
@@ -19,7 +19,7 @@ VISUAL_MISSING = {"branch": "visual", "status": "missing", "p_phish": None, "rel
 def build_request(path: str) -> dict:
     with open(path, encoding="utf-8") as f:
         fx = json.load(f)
-    branches = [VISUAL_MISSING] + branch_b_adapter.convert(fx["result"], fx["url"])
+    branches = [VISUAL_MISSING] + branch_b_input.convert(fx["result"])
     return {"schema_version": SCHEMA_VERSION, "request_id": os.path.basename(path), "branches": branches}
 
 

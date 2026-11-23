@@ -14,7 +14,7 @@ PAGES, REF = CORPUS["pages"], CORPUS["visual_reference"]
 GOLDEN_SIM = {
     "paypal legit": "allow", "acme sso": "allow", "plain blog": "allow", "bank legit login": "allow",
     "legit short login (little text)": "allow", "phish classic": "warn", "phish ip host": "warn",
-    "phish typosquat": "warn", "phish shortened + hidden form": "uncertain", "evasive: clean domain, no brand text": "uncertain",
+    "phish typosquat": "warn", "phish shortened + hidden form": "warn", "evasive: clean domain, no brand text": "uncertain",
     "unseen-brand phish A": "uncertain", "unseen-brand phish B": "uncertain", "unseen-brand legit A": "uncertain",
     "unseen-brand legit B": "uncertain",
 }
@@ -108,7 +108,7 @@ def test_text_module_importance_depends_on_whether_a_visual_module_supplies_bran
     R = E.main()
     text = {mode: next(m for m in R["missing_injection"][mode] if m["dropped"] == "text") for mode in E.MODES}
     assert text["sim_visual"]["changed"] == 0
-    assert text["real_only"]["changed"] == 7 and text["real_only"]["lost_brand_mismatch"] == 3
+    assert text["real_only"]["changed"] == 5 and text["real_only"]["low_coverage_after"] == 5
     f8 = next(f for f in E.findings(R) if "Single-module loss" in f)
     assert "depends on the configuration" in f8 and "matters least" not in f8
 

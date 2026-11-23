@@ -8,14 +8,16 @@ Stdlib-only Python 3.10+.
     python url_branch.py "<url>"          # rule-based URL branch on one URL
     python test_fusion.py                 # 39 fusion tests
     python test_integration.py            # 15 URL-branch / bundle / contract / fault-injection tests
-    python worked_case_branch_b.py        # worked case: Branch B fixtures -> adapter -> fusion
-    python test_branch_b_adapter.py       # 9 adapter / worked-case tests
-    python connected_demo.py              # Branch B real output -> adapter -> fusion: missing / contradictory visual, one-source, labelling
+    python worked_case_branch_b.py        # worked case: Branch B fixtures -> shared_adapter -> fusion
+    python test_branch_b_input.py         # 9 tests: Student B's shared_adapter as fusion input
+    python connected_demo.py              # Branch B real output -> shared_adapter -> fusion: missing / contradictory visual, one-source, labelling
     python test_connected_demo.py         # 7 tests pinning what the connected demo shows
     python test_calibration.py            # 11 calibration-tool tests (synthetic ground truth)
-    python test_evaluation.py             # 11 evaluation-harness tests (pinned decisions on the corpus)
-    python build_corpus.py <branch_b dir> # builds corpus/branch_b_outputs.json from Student B's real module
+    python test_evaluation.py             # 12 evaluation-harness tests (pinned decisions on the corpus)
+    python build_corpus.py                # builds corpus/branch_b_outputs.json from Student B's real module
     python evaluate_fusion.py             # small-corpus evaluation -> EVALUATION.md, eval_results.json, eval_figures.png
+    python freeze.py [--check]            # freeze (or verify) corpus, configuration, code and results
+    python test_freeze.py                 # fails if anything drifts from the freeze (run under pytest)
 
 ## Files
 - `fusion.py`        validation, cross-modal features, log-odds baseline, decision, explanations
@@ -23,9 +25,10 @@ Stdlib-only Python 3.10+.
 - `brand_registry.json`  STUB shared registry: brand slug -> legitimate registered domains
 - `run_bundle.py`    reads `<page>.<visual|url|dom|text>.json` (or `<page>.url.txt`), calls fusion, writes request/response JSON
 - `make_sample_bundle.py`, `demo.py`  sample / synthetic inputs
-- `branch_b_adapter.py`  converts Student B's single result into url/dom/text BranchOutputs (mapping decisions in its docstring)
-- `branch_b_fixtures/`  Branch B fixtures RECONSTRUCTED from the MCR II table; replace with real Branch B JSON
-- `worked_case_branch_b.py`  runs those fixtures through the adapter and fusion
+- `url_html_text_branch.py`, `shared_adapter.py`, `test_branch.py`, `test_mcr2.py`  Student B's module, adapter and tests (unmodified)
+- `branch_b_input.py`  calls Student B's `shared_adapter.to_shared()` and sets the fusion-side fields (docstring explains each)
+- `branch_b_fixtures/`  real Branch B output captured with `capture_branch_b_fixture.py`
+- `worked_case_branch_b.py`  runs those fixtures through the shared adapter and fusion
 - `calibration.py`   temperature scaling, ECE, Brier, reliability bins, bootstrap CIs, leave-one-out; refuses to claim calibration on small n
 - `build_corpus.py`, `corpus/`  14-page corpus (real Branch B output) + simulated-visual metadata
 - `evaluate_fusion.py`  threshold sensitivity, ablations, missing/contradictory-module injection, unseen-brand cases, cost, contributions
@@ -39,9 +42,9 @@ never defaults to `allow` (request-level failure -> `uncertain`, reason `fusion_
 
 ## Fusion v0.2 (what changed)
 - `Params`: every weight/threshold is tunable without editing code (defaults = the original placeholders).
-- Correlated modules: Branch B's URL/DOM/text carry `source="branch_b"` and `combine="mean"`: fusion scores that source ONCE as the
-  plain mean of its USABLE modules (equal weights; a missing or errored module is left out of the denominator), clamped to 0.02-0.99.
-  The adapter marks DOM/text missing when Branch B reports no HTML. `combine="noisy_or"` (Branch B's accumulating score) stays selectable.
+- Correlated modules: Branch B's URL/DOM/text carry `source="branch_b"` and `combine="noisy_or"`: fusion scores that source ONCE with
+  Branch B's own combination 1 - prod(1 - p_m) over its USABLE modules, clamped to 0.02-0.99, so it equals Student B's risk score.
+  A missing or errored module is left out. `combine="mean"` (the earlier equal-weight design) stays selectable.
   The source's single term is shared equally across modules with findings (explanations only). Counted as one source for coverage/disagreement.
 - Unseen-brand rule is ownership-based (credential form on a domain no known brand owns, no brand identified by any module);
   it no longer depends on the visual module.
@@ -49,17 +52,6 @@ never defaults to `allow` (request-level failure -> `uncertain`, reason `fusion_
 - Output field `risk_score`, labelled "preliminary risk score", `calibration_status: uncalibrated`.
 
 ## Status
-Real: URL branch (rules), fusion, file-based runner. Still synthetic: visual, DOM, text outputs.
+Real: Branch B (URL / DOM / text, Student B's module and shared adapter), fusion, file-based runner. Not connected: visual module.
 Weights, thresholds, temperature, URL rule weights and the brand registry are placeholders.
 Calibration TOOLING exists but no calibration is claimed (14 pages). Not yet: cascade, learned fuser, HTTP wrapper, real visual module.
-
-## Frozen evaluation (`eval-freeze-v1`)
-
-The corpus, configuration and code used for the reported evaluation are frozen at git tag `eval-freeze-v1`:
-
-- **Corpus**: `corpus/branch_b_outputs.json` (14 pages, 7 phishing-style; a snapshot of Branch B output, so Branch B is not needed to re-run).
-- **Configuration**: `freeze/frozen_config.json` (every `fusion.DEFAULT` parameter and the schema version) plus `brand_registry.json`.
-- **Code**: SHA-256 of every root `.py` file and the Branch B fixtures, listed in `freeze/MANIFEST.json`, together with a fingerprint of `eval_results.json` (timings excluded).
-
-Reproduce with `git checkout eval-freeze-v1 && python evaluate_fusion.py && python freeze.py --check`.
-`test_freeze.py` fails if anything drifts. To change something on purpose, re-run the evaluation, run `python freeze.py`, and tag a new freeze id.

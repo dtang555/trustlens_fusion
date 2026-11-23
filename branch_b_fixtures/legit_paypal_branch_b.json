@@ -36,6 +36,15 @@
         "description": "Login/verification keywords in URL",
         "detail": {}
       }
-    ]
+    ],
+    "analyzed_url": "https://www.paypal.com/signin",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+      "brand": "paypal",
+      "brand_conf": 0.8,
+      "domain": "paypal.com",
+      "domain_owner_brand": "paypal"
+    }
   }
 }

@@ -7,7 +7,8 @@ What is frozen:
   * corpus  - corpus/branch_b_outputs.json (a snapshot of Branch B output; Branch B itself is not needed to re-run)
   * config  - fusion.DEFAULT (every Params field), SCHEMA_VERSION, brand_registry.json
   * code    - SHA-256 of every tracked .py at the repo root and the Branch B fixtures, plus the git tag that names them
-  * results - SHA-256 of eval_results.json with the timing section ("cost") removed, since timing is not reproducible
+  * results - SHA-256 of eval_results.json with the timing section ("cost") removed, since timing is not reproducible,
+              and every float rounded to 6 decimal places, since the last digit can differ between operating systems
 
 Hashes are taken over LF-normalised bytes so a CRLF checkout on Windows hashes the same as an LF one.
 """
@@ -25,12 +26,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FREEZE_DIR = os.path.join(HERE, "freeze")
 MANIFEST = os.path.join(FREEZE_DIR, "MANIFEST.json")
 CONFIG = os.path.join(FREEZE_DIR, "frozen_config.json")
-FREEZE_ID = "eval-freeze-v1"
+FREEZE_ID = "eval-freeze-v2"
 
 CORPUS = "corpus/branch_b_outputs.json"
 CONFIG_FILES = ["brand_registry.json"]
 RESULTS = "eval_results.json"
 NONDETERMINISTIC_RESULT_KEYS = ("cost",)  # wall-clock timings
+RESULT_DECIMALS = 6  # results are compared to 6 decimal places (floats can differ in the last digit across platforms)
 
 
 def _rel(path: str) -> str:
@@ -56,12 +58,23 @@ def current_config() -> dict:
     return {"schema_version": fusion.SCHEMA_VERSION, "params": dataclasses.asdict(fusion.DEFAULT)}
 
 
+def _rounded(obj, nd: int = RESULT_DECIMALS):
+    """Round every float, so last-digit differences between operating systems' maths libraries do not change the hash."""
+    if isinstance(obj, float):
+        return round(obj, nd)
+    if isinstance(obj, dict):
+        return {k: _rounded(v, nd) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_rounded(v, nd) for v in obj]
+    return obj
+
+
 def results_fingerprint() -> str:
     with open(os.path.join(HERE, RESULTS), encoding="utf-8") as f:
         r = json.load(f)
     for k in NONDETERMINISTIC_RESULT_KEYS:
         r.pop(k, None)
-    return sha256_obj(r)
+    return sha256_obj(_rounded(r))
 
 
 def build_manifest() -> dict:

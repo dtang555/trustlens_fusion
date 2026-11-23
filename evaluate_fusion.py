@@ -1,6 +1,7 @@
 """Integrated-system evaluation on the SMALL corpus.   python evaluate_fusion.py
 
-Corpus: 13 pages, real Branch B output (corpus/branch_b_outputs.json, from build_corpus.py).
+Corpus: 14 pages, real Branch B output (corpus/branch_b_outputs.json, from build_corpus.py), converted to the shared
+format by Student B's shared_adapter.to_shared() through branch_b_input.py.
 Two configurations of the integrated system:
   real_only    visual module MISSING (the actual state today), Branch B via the adapter
   sim_visual   plus a SIMULATED visual module that reports only the brand a page visibly shows
@@ -8,7 +9,7 @@ Two configurations of the integrated system:
                real visual baseline cannot yet separate legitimate from phishing pages.
 
 What this is for: threshold sensitivity, modality ablation, missing / contradictory-module
-behaviour, unseen-brand cases, processing cost, and branch contributions. With 13 pages it
+behaviour, unseen-brand cases, processing cost, and branch contributions. With 14 pages it
 CANNOT support a calibration claim, and it does not make one. Outputs are preliminary risk scores.
 Writes eval_results.json, EVALUATION.md and (if matplotlib is present) eval_figures.png.
 """
@@ -23,13 +24,13 @@ import time
 import tracemalloc
 from dataclasses import replace
 
-import branch_b_adapter
+import branch_b_input
 import calibration as cal
-import url_branch
+from url_html_text_branch import BRANDS
 from fusion import DEFAULT, SCHEMA_VERSION, fuse, logit
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REG = url_branch.load_registry()
+BRANCH_B_BRANDS = {b: set(info["domains"]) for b, info in BRANDS.items()}  # Branch B's own ownership list
 COSTS = {"cost A (miss 10, false warn 3, uncertain 1)": (10, 3, 1),
          "cost B (miss 10, false warn 1, uncertain 2)": (10, 1, 2)}
 MODES = ("real_only", "sim_visual")
@@ -57,10 +58,10 @@ def visual_missing() -> dict:
             "missing_flags": ["visual.not_connected"], "model_version": "n/a", "latency_ms": 0}
 
 
-def build(page: dict, mode: str, reference: list[str], registry=REG, extra_known: bool = False, combine: str | None = None) -> dict:
+def build(page: dict, mode: str, reference: list[str], registry=None, extra_known: bool = False, combine: str | None = None) -> dict:
     vis = visual_missing() if mode == "real_only" else visual_sim(page, reference, extra_known)
     return {"schema_version": SCHEMA_VERSION, "request_id": page["name"],
-            "branches": [vis] + branch_b_adapter.convert(page["branch_b"], page["url"], registry, **({"combine": combine} if combine else {}))}
+            "branches": [vis] + branch_b_input.convert(page["branch_b"], registry, **({"combine": combine} if combine else {}))}
 
 
 def ablate(request: dict, drop: set[str]) -> dict:
@@ -166,12 +167,12 @@ def branch_b_alone(pages) -> dict:
             "auc": cal.auc([p["branch_b"]["risk_score"] for p in pages], [p["label"] for p in pages])}
 
 
-def as_noisy_or(request: dict) -> dict:
-    """Branch B's modules combined by its own noisy-OR (the earlier default) instead of the equal-weight mean."""
+def as_mean(request: dict) -> dict:
+    """Branch B's modules combined by the equal-weight mean (the MCR III / IV design) instead of Branch B's noisy-OR."""
     r = copy.deepcopy(request)
     for b in r["branches"]:
         if b.get("source") == "branch_b":
-            b["combine"] = "noisy_or"
+            b["combine"] = "mean"
     return r
 
 
@@ -195,7 +196,7 @@ def ablations(pages, reqs) -> list[dict]:
         ("visual only (drop all Branch B)", {"url", "dom", "text"}, DEFAULT),
         ("no cross-modal terms, no rule floor", set(), replace(DEFAULT, cross_w=ALL_ZERO_CROSS, floor_p=0.0)),
         ("no rule floor", set(), replace(DEFAULT, floor_p=0.0)),
-        ("Branch B combined by noisy-OR (earlier default)", set(), DEFAULT, as_noisy_or),
+        ("Branch B combined by equal-weight mean (earlier design)", set(), DEFAULT, as_mean),
         ("Branch B modules as discounted log-odds votes (rho = 0.5)", set(), DEFAULT, as_logodds),
         ("Branch B modules as independent log-odds votes (rho = 0)", set(), replace(DEFAULT, rho=0.0), as_logodds),
         ("no uncertain state (binary at 0.5)", set(),
@@ -266,7 +267,7 @@ def contradiction_injection(pages, reqs) -> dict:
 def unseen_brand(pages, ref) -> list[dict]:
     idx = [i for i, p in enumerate(pages) if p["unseen_brand"]]
     sub = [pages[i] for i in idx]
-    reg2 = {**REG, "wealthsimple": {"wealthsimple.com"}, "questrade": {"questrade.com"}}  # registry learns the brands
+    reg2 = {**BRANCH_B_BRANDS, "wealthsimple": {"wealthsimple.com"}, "questrade": {"questrade.com"}}  # registry learns the brands
     variants = [
         ("v0.1 rule (credential wording + visual confidence)", [build(p, "sim_visual", ref) for p in sub],
          replace(DEFAULT, unseen_brand_rule="v0.1")),
@@ -275,7 +276,7 @@ def unseen_brand(pages, ref) -> list[dict]:
         ("current rule (credential form, no brand owns the domain, no module identifies a brand)",
          [build(p, "sim_visual", ref) for p in sub], DEFAULT),
         ("current rule, visual module missing", [build(p, "real_only", ref) for p in sub], DEFAULT),
-        ("brand added to visual reference ONLY", [build(p, "sim_visual", ref, REG, True) for p in sub], DEFAULT),
+        ("brand added to visual reference ONLY", [build(p, "sim_visual", ref, None, True) for p in sub], DEFAULT),
         ("brand added to visual reference AND shared registry", [build(p, "sim_visual", ref, reg2, True) for p in sub],
          DEFAULT),
     ]
@@ -310,7 +311,7 @@ def processing_cost(pages, reqs, ref) -> dict:
     for _ in range(n_loops):
         for p in pages:
             t0 = time.perf_counter()
-            branch_b_adapter.convert(p["branch_b"], p["url"], REG)
+            branch_b_input.convert(p["branch_b"])
             conv.append((time.perf_counter() - t0) * 1000)
     tracemalloc.start()
     for r in reqs:
@@ -374,14 +375,14 @@ def findings(R: dict) -> list[str]:
                f"removes {len(lost_no_floor)} and removing the cross-modal terms as well removes {len(lost_no_cross)} "
                f"({', '.join(lost_no_cross) or 'none'}).")
     comb = {a["config"]: a for a in R["ablations"]["real_only"]}
-    cur, nor = comb["full system"], comb["Branch B combined by noisy-OR (earlier default)"]
+    cur, avg = comb["full system"], comb["Branch B combined by equal-weight mean (earlier design)"]
     lo5 = comb["Branch B modules as discounted log-odds votes (rho = 0.5)"]
-    differs = [n_ for n_ in cur["decisions"] if cur["decisions"][n_] != nor["decisions"][n_]]
-    out.append(f"3. **How Branch B's three modules are combined changes outcomes.** Equal-weight mean (current): {cur['TP']} warns, "
-               f"{cur['FN']} missed, AUC {fmt(cur['auc'])}. Noisy-OR (earlier default): {nor['TP']} warns, {nor['FN']} missed, AUC {fmt(nor['auc'])}. "
-               f"Discounted log-odds votes (earliest): {lo5['TP']} warns, {lo5['FN']} missed. Mean and noisy-OR differ on {len(differs)} page(s): "
-               f"{', '.join(differs) or 'none'}. Averaging dilutes one strongly suspicious module with weaker ones, where noisy-OR lets evidence accumulate; "
-               "in exchange the mean cannot be inflated by many weak signals, and a missing module is not counted.")
+    differs = [n_ for n_ in cur["decisions"] if cur["decisions"][n_] != avg["decisions"][n_]]
+    out.append(f"3. **How Branch B's three modules are combined changes outcomes.** Noisy-OR (current, Branch B's own combination, so fusion's "
+               f"Branch B score equals Student B's risk score): {cur['TP']} warns, {cur['FN']} missed, AUC {fmt(cur['auc'])}. Equal-weight mean (earlier "
+               f"design): {avg['TP']} warns, {avg['FN']} missed, AUC {fmt(avg['auc'])}. Discounted log-odds votes (earliest): {lo5['TP']} warns, {lo5['FN']} missed. "
+               f"Noisy-OR and the mean differ on {len(differs)} page(s): {', '.join(differs) or 'none'}. Noisy-OR lets evidence from different modules "
+               "accumulate, where the mean dilutes one strongly suspicious module with weaker ones; in exchange noisy-OR can be raised by many weak signals.")
     rows_sv = R["default"]["sim_visual"]
     edge = [f"{r['name']} ({fmt(r['risk'], 3)}, {r['decision']})" for r in rows_sv
             if abs(r["risk"] - DEFAULT.t_high) <= 0.03 or abs(r["risk"] - DEFAULT.t_low) <= 0.03]
@@ -421,8 +422,9 @@ def findings(R: dict) -> list[str]:
     t_ro, t_sv = mi["real_only"]["text"], mi["sim_visual"]["text"]
     out.append(f"8. **Single-module loss** (decisions changed per dropped module): {per}. At most {worst['phish_now_allowed']} phishing pages become allow. "
                f"**The text module's importance depends on the configuration.** With a simulated visual module it changes {t_sv['changed']} decisions; "
-               f"with the visual module missing it changes {t_ro['changed']}, because {t_ro['lost_brand_mismatch']} warnings lose the brand-domain mismatch "
-               f"(Branch B's text rule is then the only brand claim) and {t_ro['low_coverage_after']} pages fall below the coverage floor.")
+               f"with the visual module missing it changes {t_ro['changed']}: {t_ro['lost_brand_mismatch']} lose the brand-domain mismatch and "
+               f"{t_ro['low_coverage_after']} fall below the coverage floor, because Branch B is then the only source and losing one of its "
+               "modules lowers coverage.")
     cd, cb = R["contradiction"]["default (a high score still warns)"], R["contradiction"]["conflict_blocks_warn"]
     changed = sum(1 for x, y in zip(cd["rows"], cb["rows"]) if x["decision"] != y["decision"])
     out.append(f"7. **A confidently wrong visual module** produced {cd['wrong_final_verdicts']} wrong final verdicts; {cd['newly_uncertain']} pages "

@@ -46,7 +46,13 @@
         "weight": 0.45,
         "description": "Displayed link text differs from the real destination",
         "detail": {
-          "count": 1
+          "count": 1,
+          "pairs": [
+            [
+              "paypal.com",
+              "evil-site.xyz"
+            ]
+          ]
         }
       },
       {
@@ -130,6 +136,15 @@
         "description": "Login/verification keywords in URL",
         "detail": {}
       }
-    ]
+    ],
+    "analyzed_url": "http://paypal-secure-login.evil-site.xyz/login",
+    "url_source": "page",
+    "fixture": null,
+    "claims": {
+      "brand": "paypal",
+      "brand_conf": 0.8,
+      "domain": "evil-site.xyz",
+      "domain_owner_brand": null
+    }
   }
 }
